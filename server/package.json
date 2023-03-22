@@ -15,7 +15,7 @@
     "html-pdf": "^3.0.1",
     "husky": "^8.0.3",
     "jsonwebtoken": "^9.0.0",
-    "nodemon": "^2.0.20",
+    "nodemon": "^2.0.21",
     "officegen": "^0.6.5",
     "pdf-lib": "^1.17.1",
     "pg": "^8.8.0",
@@ -25,6 +25,7 @@
   "type": "module",
   "devDependencies": {},
   "scripts": {
-    "dev": "env-cmd -f .env nodemon index.js"
+    "dev": "env-cmd -f .env nodemon index.js",
+    "start": "nodemon index.js"
   }
 }
