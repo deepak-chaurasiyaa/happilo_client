@@ -12,4 +12,4 @@ app.use(cors());
 app.use('/api/product/', productRoute);
 app.use('/api/user/', userRoute);
 
-export default app;
+export default app; 
