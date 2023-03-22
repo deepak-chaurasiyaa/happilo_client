@@ -1,12 +1,14 @@
-import {Button} from "@mui/material"
+import { Button } from '@mui/material';
 import './App.css';
+import Header from './components/Header/Header';
 
 function App() {
   return (
     <div>
-      <Button variant='text'>Text</Button>
+      <Header />
+      {/* <Button variant='text'>Text</Button>
       <Button variant='contained'>Contained</Button>
-      <Button variant='outlined'>Outlined</Button>
+      <Button variant='outlined'>Outlined</Button> */}
     </div>
   );
 }
