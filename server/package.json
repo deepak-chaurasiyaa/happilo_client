@@ -1,0 +1,30 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "eslint": "^8.31.0",
+    "excel": "^1.0.1",
+    "express": "^4.18.2",
+    "express-promise-router": "^4.1.1",
+    "fs": "^0.0.1-security",
+    "html-pdf": "^3.0.1",
+    "husky": "^8.0.3",
+    "jsonwebtoken": "^9.0.0",
+    "nodemon": "^2.0.20",
+    "officegen": "^0.6.5",
+    "pdf-lib": "^1.17.1",
+    "pg": "^8.8.0",
+    "puppeteer": "^19.6.3",
+    "xlsx": "^0.18.5"
+  },
+  "type": "module",
+  "devDependencies": {},
+  "scripts": {
+    "dev": "env-cmd -f .env nodemon index.js"
+  }
+}
