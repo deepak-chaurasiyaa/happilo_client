@@ -1,6 +1,12 @@
 import React from 'react';
-import { Box, Toolbar, ImageListItem } from '@mui/material';
-import { BRAND_LOGO } from './data';
+import { Box, Toolbar, ImageListItem, Typography } from '@mui/material';
+import {
+  LocalShipping,
+  Person,
+  Search,
+  ShoppingBag,
+} from '@mui/icons-material';
+import { BRAND_LOGO } from '../../shared/constant';
 
 function MidHeader() {
   return (
@@ -10,12 +16,25 @@ function MidHeader() {
           <ImageListItem>
             <img src={BRAND_LOGO} alt={'Logo'} loading='lazy' />
           </ImageListItem>
-          <ImageListItem>
-            <img src={BRAND_LOGO} alt={'Logo'} loading='lazy' />
-          </ImageListItem>
-          <ImageListItem>
-            <img src={BRAND_LOGO} alt={'Logo'} loading='lazy' />
-          </ImageListItem>
+          <ImageListItem />
+          <Toolbar className='mid-header' sx={{ display: 'flex' }}>
+            <Box>
+              <Typography>Search</Typography>
+              <Search />
+            </Box>
+            <Box>
+              <Typography>Track Order </Typography>
+              <LocalShipping />
+            </Box>
+            <Box>
+              <Typography>Sign in | Sign up </Typography>
+              <Person />
+            </Box>
+            <Box>
+              <Typography>Sign in | Sign up </Typography>
+              <ShoppingBag />
+            </Box>
+          </Toolbar>
         </Toolbar>
       </Box>
     </div>

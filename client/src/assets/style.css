@@ -2,6 +2,15 @@
   background-color: #00523b;
 }
 
+body {
+  text-align: center;
+  margin: auto !important;
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 14px !important;
+  padding-left: 0;
+  padding-right: 0;
+  font-weight: normal;
+}
 
 .text-center {
   text-align: center;
@@ -12,4 +21,55 @@
   padding-left: 0;
   padding-right: 0;
   font-weight: normal;
+}
+
+.mid-header div {
+  display: flex;
+  padding: 0px 10px
+}
+
+.font-ten div p {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.font-ten div svg {
+  font-size: 20px;
+}
+
+.mid-header div p {
+  padding: 0px 5px
+}
+
+.main-title {
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 600 !important;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: medium;
+  margin-top: 2rem !important;
+  margin-bottom: 2rem !important;
+}
+
+.shopping-banner {
+  padding: 2rem 10rem;
+}
+
+.shopping-banner-font {
+  position: relative;
+  top: -32rem !important;
+  text-align: center;
+  color: #D58178;
+  font-size: 14px !important;
+  line-height: 26px !important;
+  letter-spacing: 5px !important;
+  font-family: 'Poppins-Light';
+  font-weight: bold !important;
+  padding: 0 0 0 26rem;
+}
+
+.shopping-banner-font-img {
+  width: 16rem !important;
+  margin-bottom: -26rem !important;
+  margin-left: 20.6rem;
 }

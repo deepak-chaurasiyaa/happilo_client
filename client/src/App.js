@@ -1,15 +1,15 @@
-import { Button } from '@mui/material';
-import './App.css';
+import { Box } from '@mui/system';
 import Header from './components/Header/Header';
+import Product from './components/products/Product';
 
 function App() {
   return (
-    <div>
+    <Box>
       <Header />
-      {/* <Button variant='text'>Text</Button>
-      <Button variant='contained'>Contained</Button>
-      <Button variant='outlined'>Outlined</Button> */}
-    </div>
+      <Product />
+      <Product />
+      <Product />
+    </Box>
   );
 }
 

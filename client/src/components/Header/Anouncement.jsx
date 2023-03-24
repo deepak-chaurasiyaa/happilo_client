@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Toolbar, Typography } from '@mui/material';
-import { ANOUNCEMENT_TEXT } from './data';
+import { ANOUNCEMENT_TEXT } from '../../shared/constant';
 
 function Anouncement() {
   return (
