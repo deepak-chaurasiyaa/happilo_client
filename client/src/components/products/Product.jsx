@@ -5,7 +5,6 @@ import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import CardMedia from '@mui/material/CardMedia';
 import { CardActionArea } from '@mui/material';
-import { product } from '../../shared/constant';
 import ShoppingBanner from './ShoppingBanner';
 const ColorButton = styled(Button)(({ theme }) => ({
   color: theme.palette.getContrastText('#00523b'),
@@ -14,7 +13,8 @@ const ColorButton = styled(Button)(({ theme }) => ({
     backgroundColor: 'black',
   },
 }));
-function Product() {
+function NewLaunchProduct({ Product, ShowBanner, MainTitle }) {
+  console.log({ Product });
   return (
     <Box>
       <Box sx={{ width: '90%', margin: 'auto' }}>
@@ -23,36 +23,37 @@ function Product() {
             <Box></Box>
             <Box>
               <Typography variant='h5' className='main-title'>
-                NEW LAUNCHES
+                {MainTitle}
               </Typography>
             </Box>
             <Box></Box>
           </Toolbar>
           <Box></Box>
         </Box>
+        {ShowBanner && <ShoppingBanner />}
         <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-          {product.map((product) => {
-            return (
-              <Card sx={{ maxWidth: 345 }}>
-                <CardActionArea sx={{ width: 255 }}>
-                  <CardMedia
-                    component='img'
-                    height='175'
-                    image={product.product_img}
-                    alt='green iguana'
-                  />
-                  <ColorButton variant='contained' sx={{ width: '100%' }}>
-                    Custom CSS
-                  </ColorButton>
-                </CardActionArea>
-              </Card>
-            );
-          })}
+          {Product &&
+            Product.map((product) => {
+              return (
+                <Card sx={{ maxWidth: 345 }}>
+                  <CardActionArea sx={{ width: 255 }}>
+                    <CardMedia
+                      component='img'
+                      height='175'
+                      image={product.product_img}
+                      alt='green iguana'
+                    />
+                    <ColorButton variant='contained' sx={{ width: '100%' }}>
+                      {product.product_title}
+                    </ColorButton>
+                  </CardActionArea>
+                </Card>
+              );
+            })}
         </Box>
-        <ShoppingBanner/>
       </Box>
     </Box>
   );
 }
 
-export default Product;
+export default NewLaunchProduct;

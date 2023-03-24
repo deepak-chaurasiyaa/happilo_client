@@ -22,6 +22,16 @@ body {
   padding-right: 0;
   font-weight: normal;
 }
+.selling-price  {
+  text-align: center;
+  margin: auto !important;
+  /* color: #ffffff; */
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 14px !important;
+  padding-left: 0;
+  padding-right: 0;
+  font-weight: 600 !important;
+}
 
 .mid-header div {
   display: flex;
@@ -53,6 +63,7 @@ body {
 
 .shopping-banner {
   padding: 2rem 10rem;
+  margin-bottom: 2rem !important;
 }
 
 .shopping-banner-font {
@@ -70,6 +81,30 @@ body {
 
 .shopping-banner-font-img {
   width: 16rem !important;
-  margin-bottom: -26rem !important;
+  margin-bottom: -15rem !important;
   margin-left: 20.6rem;
+}
+
+.bg-pink {
+  background-color: #fdf1f1;
+  text-align: center;
+}
+
+.bg-pink a {
+  font-family: 'Roboto', sans-serif !important;
+  text-transform: none;
+  letter-spacing: 0;
+  color: black;
+}
+.bg-pink a :hover   {
+  font-family: 'Roboto', sans-serif !important;
+  text-transform: none;
+  letter-spacing: 0;
+  text-decoration: none;
+ color: #00523b !important;
+}
+
+.center-text {
+  text-align: center;
+
 }

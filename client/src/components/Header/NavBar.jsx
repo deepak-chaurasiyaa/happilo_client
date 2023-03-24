@@ -13,37 +13,16 @@ function NavBar() {
         className='mid-header font-ten'
         sx={{ display: 'flex', justifyContent: 'center' }}
       >
-        <PopupState variant='popover' popupId='demo-popup-menu'>
-          {(popupState) => (
-            <React.Fragment>
-              <Box {...bindTrigger(popupState)}>
-                <Typography>Nuts</Typography>
-                <KeyboardArrowDown />
-              </Box>
-              <Menu {...bindMenu(popupState)}>
-                <MenuItem onClick={popupState.close}>Profile</MenuItem>
-                <MenuItem onClick={popupState.close}>My account</MenuItem>
-                <MenuItem onClick={popupState.close}>Logout</MenuItem>
-              </Menu>
-            </React.Fragment>
-          )}
-        </PopupState>
+        <Box>
+          <Typography>Nuts</Typography>
+          <KeyboardArrowDown />
+        </Box>
 
-        <PopupState variant='popover' popupId='demo-popup-men'>
-          {(popupState) => (
-            <React.Fragment>
-              <Box {...bindTrigger(popupState)}>
-                <Typography>Dried Fruits</Typography>
-                <KeyboardArrowDown />
-              </Box>
-              <Menu {...bindMenu(popupState)}>
-                <MenuItem onClick={popupState.close}>Profile 2</MenuItem>
-                <MenuItem onClick={popupState.close}>My account 2</MenuItem>
-                <MenuItem onClick={popupState.close}>Logout 2</MenuItem>
-              </Menu>
-            </React.Fragment>
-          )}
-        </PopupState>
+        <Box>
+          <Typography>Dried Fruits</Typography>
+          <KeyboardArrowDown />
+        </Box>
+
         <Box>
           <Typography>Seeds</Typography>
           <KeyboardArrowDown />

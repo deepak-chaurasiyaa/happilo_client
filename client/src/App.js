@@ -1,14 +1,29 @@
 import { Box } from '@mui/system';
 import Header from './components/Header/Header';
-import Product from './components/products/Product';
+import OtherProduct from './components/products/OtherProduct';
+import NewLaunchProduct from './components/products/Product';
+import { OTHER_PRODUCTS, PRODUCTS } from './shared/constant';
 
 function App() {
   return (
     <Box>
       <Header />
-      <Product />
-      <Product />
-      <Product />
+      <NewLaunchProduct
+        Product={PRODUCTS}
+        ShowBanner={false}
+        MainTitle={'NEW LAUNCHES'}
+      />
+      <OtherProduct
+        Product={OTHER_PRODUCTS}
+        ShowBanner={true}
+        MainTitle={'OUR RANGE'}
+      />
+      <OtherProduct
+        Product={OTHER_PRODUCTS}
+        ShowBanner={false}
+        MainTitle={'COMBOS'}
+      />
+      <br />
     </Box>
   );
 }
