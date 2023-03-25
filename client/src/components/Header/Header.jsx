@@ -1,3 +1,4 @@
+import { Box } from '@mui/material';
 import React from 'react';
 import Anouncement from './Anouncement';
 import IndividualIntervalsExample from './Carousel';
@@ -6,13 +7,12 @@ import NavBar from './NavBar';
 
 function Header() {
   return (
-    <div>
+    <Box>
       <Anouncement />
       <MidHeader />
       <NavBar />
       <IndividualIntervalsExample />
-      {/* <IndividualIntervalsExample /> */}
-    </div>
+    </Box>
   );
 }
 

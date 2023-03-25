@@ -1,13 +1,20 @@
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, Link, Rating } from '@mui/material';
-
-import { Box, Toolbar } from '@mui/material';
+import React from 'react';
 import { styled } from '@mui/material/styles';
+import {
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+  Button,
+  CardActionArea,
+  Link,
+  Rating,
+  Box,
+  Toolbar,
+} from '@mui/material';
+
 import ShoppingBanner from './ShoppingBanner';
+
 const ColorButton = styled(Button)(({ theme }) => ({
   color: theme.palette.getContrastText('#00523b'),
   padding: '-20px !important',
@@ -16,6 +23,7 @@ const ColorButton = styled(Button)(({ theme }) => ({
     backgroundColor: 'black',
   },
 }));
+
 export default function OtherProduct({ Product, ShowBanner, MainTitle }) {
   return (
     <Box sx={{ width: '90%', margin: 'auto' }}>
@@ -29,8 +37,8 @@ export default function OtherProduct({ Product, ShowBanner, MainTitle }) {
           </Box>
           <Box></Box>
         </Toolbar>
-        <Box></Box>
       </Box>
+
       {ShowBanner && <ShoppingBanner />}
       <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
         {Product &&
@@ -44,12 +52,12 @@ export default function OtherProduct({ Product, ShowBanner, MainTitle }) {
                     image={product.product_img}
                     alt='green iguana'
                   />
+
                   <CardContent className='bg-pink'>
-                    <Typography variant='a' className='center-text'>
-                      <Link href='#' underline='hover'>
-                        {product.short_discription}
-                      </Link>
-                    </Typography>
+                    <Link className='link' href='#' underline='hover'>
+                      {product.short_discription}
+                    </Link>
+
                     <Rating
                       name='prooduct_customer_rating'
                       readOnly
@@ -57,9 +65,10 @@ export default function OtherProduct({ Product, ShowBanner, MainTitle }) {
                       precision={0.5}
                     />
                     <Typography className='selling-price'>
-                    ₹ {product.product_selling_price}
+                      ₹ {product.product_selling_price}
                     </Typography>
                   </CardContent>
+
                   <ColorButton variant='contained' sx={{ width: '100%' }}>
                     {product.product_title}
                   </ColorButton>

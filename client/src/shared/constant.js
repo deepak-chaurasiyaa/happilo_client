@@ -79,3 +79,15 @@ export const SHOPING_BANNER =
 
 export const SHOPING_BANNER_PRODUCT =
   'https://cdn.shopify.com/s/files/1/0569/6867/5527/products/1v2_bf9e06f6-cd22-4209-a932-310a869534c0.png?v=1632846581';
+
+export const CAROUSEL_IMAGE = [
+  {
+    url: 'https://cdn.shopify.com/s/files/1/0569/6867/5527/files/Marvel-desk_1728x.png?v=1675406416',
+  },
+  {
+    url: 'https://cdn.shopify.com/s/files/1/0569/6867/5527/files/NEWLY_UPDATED_ipl_desktop_banner_2260x.jpg?v=1679574409',
+  },
+  {
+    url: 'https://cdn.shopify.com/s/files/1/0569/6867/5527/collections/Happilo_Website_Banners_11112022_Chocolate_Spread_1512X515_88a2608e-f6e5-49bd-a547-c85270cdbdf3.jpg?v=1675085062',
+  },
+];
