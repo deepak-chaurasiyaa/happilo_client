@@ -1,6 +1,6 @@
 import React from 'react';
-import { Box, Link, Toolbar, Typography } from '@mui/material';
 import { KeyboardArrowDown } from '@mui/icons-material';
+import { Box, Link, Toolbar, Typography } from '@mui/material';
 
 function NavBar() {
   return (

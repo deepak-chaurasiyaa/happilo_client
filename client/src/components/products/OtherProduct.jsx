@@ -44,13 +44,31 @@ export default function OtherProduct({ Product, ShowBanner, MainTitle }) {
         {Product &&
           Product.map((product) => {
             return (
-              <Card sx={{ maxWidth: 345 }}>
-                <CardActionArea sx={{ width: 255 }}>
+              <Card
+                sx={{
+                  maxWidth: 345,
+                  boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)',
+                  border: '1px solid #ccc',
+                  transition: 'box-shadow 0.3s ease-in-out',
+                  '&:hover': {
+                    boxShadow: '0px 0px 20px rgba(0, 0, 0, 0.4)',
+                  },
+                }}
+              >
+                <CardActionArea
+                  sx={{
+                    width: 255,
+                  }}
+                >
+                  <Typography>Trending</Typography>
                   <CardMedia
                     component='img'
-                    height='175'
+                    height='220px'
                     image={product.product_img}
                     alt='green iguana'
+                    sx={{
+                      padding: '10px',
+                    }}
                   />
 
                   <CardContent className='bg-pink'>

@@ -1,29 +1,24 @@
-import { useState } from 'react';
-
+import { useSelector } from 'react-redux';
+import { Box, CssBaseline, Typography } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
-import { Box, Switch, CssBaseline } from '@mui/material';
-import { darkTheme, lightTheme } from './shared/theme/Theme';
 
 import Header from './components/Header/Header';
+import CarouselSection from './components/Header/Carousel';
 import OtherProduct from './components/products/OtherProduct';
 import NewLaunchProduct from './components/products/Product';
 
+import { darkTheme, lightTheme } from './shared/theme/Theme';
 import { OTHER_PRODUCTS, PRODUCTS } from './shared/constant';
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const { darkMode } = useSelector((state) => state.theme);
 
-  const handleDarkModeChange = () => {
-    setDarkMode(!darkMode);
-  };
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <CssBaseline />
       <Box>
-        <Switch checked={darkMode} onChange={handleDarkModeChange} />
-      </Box>
-      <Box>
         <Header />
+        <CarouselSection />
         <NewLaunchProduct
           Product={PRODUCTS}
           ShowBanner={false}

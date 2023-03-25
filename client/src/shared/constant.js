@@ -37,7 +37,7 @@ export const OTHER_PRODUCTS = [
     product_selling_price: '275.00',
     short_discription: 'Happilio 100% Natural Premium California Almonds',
     product_img:
-      'https://cdn.shopify.com/s/files/1/0569/6867/5527/files/bar-collection.jpg?v=1677231033',
+      'https://cdn.shopify.com/s/files/1/0569/6867/5527/products/1v2_bf9e06f6-cd22-4209-a932-310a869534c0_720x.png?v=1632846581',
   },
   {
     product_title: 'ADD TO CART',
@@ -45,7 +45,7 @@ export const OTHER_PRODUCTS = [
     prooduct_customer_rating: 4.3,
     short_discription: 'Happilio 100% Natural Premium California Almonds',
     product_img:
-      'https://cdn.shopify.com/s/files/1/0569/6867/5527/files/peanut-butter-collection.jpg?v=1677231033',
+      'https://cdn.shopify.com/s/files/1/0569/6867/5527/products/Front_720x.png?v=1632847785',
   },
   {
     product_title: 'ADD TO CART',
@@ -53,7 +53,7 @@ export const OTHER_PRODUCTS = [
     prooduct_customer_rating: 3.4,
     short_discription: 'Happilio 100% Natural Premium California Almonds',
     product_img:
-      'https://cdn.shopify.com/s/files/1/0569/6867/5527/files/spreads-collection.jpg?v=1677231033',
+      'https://cdn.shopify.com/s/files/1/0569/6867/5527/products/Front_5ce707ac-7eef-4eb5-a97e-78fe2a1f9870_720x.png?v=1632913711',
   },
   {
     product_title: 'ADD TO CART',
@@ -62,7 +62,7 @@ export const OTHER_PRODUCTS = [
     short_discription: 'Happilio 100% Natural Premium California Almonds',
 
     product_img:
-      '	https://cdn.shopify.com/s/files/1/0569/6867/5527/files/barfi-collection.jpg?v=1677231032',
+      'https://cdn.shopify.com/s/files/1/0569/6867/5527/products/1v2_31f6f791-8f26-464d-b873-977135c3b410_720x.png?v=1632913885',
   },
   {
     product_title: 'ADD TO CART',
@@ -70,7 +70,7 @@ export const OTHER_PRODUCTS = [
     prooduct_customer_rating: 2.1,
     short_discription: 'Happilio 100% Natural Premium California Almonds',
     product_img:
-      'https://cdn.shopify.com/s/files/1/0569/6867/5527/files/snacks-collection.jpg?v=1677231033',
+      'https://cdn.shopify.com/s/files/1/0569/6867/5527/products/1v2_ae80c043-716c-49c4-ad1c-8d92296ef3ee_720x.png?v=1632908409',
   },
 ];
 
