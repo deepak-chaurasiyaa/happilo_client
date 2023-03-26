@@ -6,6 +6,10 @@ import Header from './components/Header/Header';
 import CarouselSection from './components/Header/Carousel';
 import OtherProduct from './components/products/OtherProduct';
 import NewLaunchProduct from './components/products/Product';
+import HappiloLogin from './components/Login/Login';
+import CreateAccount from './components/SignUp/SignUp';
+import ForgotPassword from './components/ForgotPassword/ForgotPassword';
+
 
 import { darkTheme, lightTheme } from './shared/theme/Theme';
 import { OTHER_PRODUCTS, PRODUCTS } from './shared/constant';

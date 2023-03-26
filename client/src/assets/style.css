@@ -107,10 +107,13 @@ body {
   text-decoration: none;
   color: #00523b !important;
 }
-
 .center-text {
   text-align: center;
+}
 
+.margin-top {
+  margin: 1rem 0rem !important;
+  font-size: 15px;
 }
 
 .dropbtn {
@@ -166,4 +169,7 @@ body {
   color: #3d3535 !important;
   border-bottom: 1px solid #3d3535 !important;
 }
-
+.margin-top {
+  margin: 1rem 0rem !important;
+  font-size: 15px;
+}
