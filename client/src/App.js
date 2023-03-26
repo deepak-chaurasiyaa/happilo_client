@@ -6,7 +6,7 @@ import Header from './components/Header/Header';
 import CarouselSection from './components/Header/Carousel';
 import OtherProduct from './components/products/OtherProduct';
 import NewLaunchProduct from './components/products/Product';
-import HappiloLogin from './components/Login/Login';
+import Login from './components/Login/Login';
 import CreateAccount from './components/SignUp/SignUp';
 import ForgotPassword from './components/ForgotPassword/ForgotPassword';
 
@@ -47,7 +47,7 @@ function App() {
             </Box>
           }
         />
-        <Route path='/login' element={<HappiloLogin />} />
+        <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<CreateAccount />} />
         <Route path='/reset-password' element={<ForgotPassword />} />
         <Route path='*' element={<NotFound />} />
