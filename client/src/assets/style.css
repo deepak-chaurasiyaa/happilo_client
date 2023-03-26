@@ -181,10 +181,18 @@ body {
 }
 
 a {
+  margin: auto !important;
   color: inherit !important;
   text-decoration: none !important;
 }
 
 a:hover {
   text-decoration: underline !important;
+}
+
+.yellow-button {
+  padding: 1rem 4rem !important;
+  margin: auto !important;
+  background-color: #ffd200 !important;
+  color: #020202 !important;
 }
