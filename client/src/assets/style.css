@@ -106,5 +106,9 @@ body {
 
 .center-text {
   text-align: center;
+}
 
+.margin-top {
+  margin: 1rem 0rem !important;
+  font-size: 15px;
 }
