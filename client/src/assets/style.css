@@ -179,3 +179,12 @@ body {
 .css-1o011v7-MuiButtonBase-root-MuiButton-root {
   color: inherit !important
 }
+
+a {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+a:hover {
+  text-decoration: underline !important;
+}

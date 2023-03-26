@@ -32,8 +32,10 @@ function MidHeader() {
               <Search />
             </Box>
             <Box>
-              <Typography>Track Order </Typography>
-              <LocalShipping />
+              <Link to='' style={{ display: 'flex' }}>
+                <Typography>Track Order </Typography>
+                <LocalShipping />
+              </Link>
             </Box>
             <Box>
               <Link to='/login' style={{ display: 'flex' }}>
@@ -42,13 +44,19 @@ function MidHeader() {
               </Link>
             </Box>
             <Box>
-              <Typography>Cart</Typography>
-              <ShoppingBag />
+              <Link to='' style={{ display: 'flex' }}>
+                <Typography>Cart</Typography>
+                <ShoppingBag />
+              </Link>
             </Box>
 
             <Box onClick={() => dispatch(handleDarkModeChange())}>
-              <Typography>{darkMode ? 'Light Mode' : 'Dark Mode'} </Typography>
-              {darkMode ? <Brightness7 /> : <Brightness4 />}
+              <Link to='' style={{ display: 'flex' }}>
+                <Typography>
+                  {darkMode ? 'Light Mode' : 'Dark Mode'}{' '}
+                </Typography>
+                {darkMode ? <Brightness7 /> : <Brightness4 />}
+              </Link>
             </Box>
           </Toolbar>
         </Toolbar>
