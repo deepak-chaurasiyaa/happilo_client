@@ -107,6 +107,7 @@ body {
   text-decoration: none;
   color: #00523b !important;
 }
+
 .center-text {
   text-align: center;
 }
@@ -144,7 +145,7 @@ body {
 }
 
 .css-1wqth1e-MuiToolbar-root {
-    min-height: 44px !important;
+  min-height: 44px !important;
 }
 
 .dropdown-content a:hover {
@@ -169,7 +170,12 @@ body {
   color: #3d3535 !important;
   border-bottom: 1px solid #3d3535 !important;
 }
+
 .margin-top {
   margin: 1rem 0rem !important;
   font-size: 15px;
+}
+
+.css-1o011v7-MuiButtonBase-root-MuiButton-root {
+  color: inherit !important
 }

@@ -10,6 +10,7 @@ import {
   Brightness4,
 } from '@mui/icons-material';
 import { handleDarkModeChange } from '../../reducer/theme.reducer';
+import { Link } from 'react-router-dom';
 
 function MidHeader() {
   const dispatch = useDispatch();
@@ -20,7 +21,9 @@ function MidHeader() {
       <Box sx={{ flexGrow: 1 }}>
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
           <ImageListItem>
-            <img className='brand-logo' src='./logohappilo.png' alt='Logo' />
+            <Link to='/'>
+              <img className='brand-logo' src='./logohappilo.png' alt='Logo' />
+            </Link>
           </ImageListItem>
           <ImageListItem />
           <Toolbar className='mid-header' sx={{ display: 'flex' }}>
@@ -33,11 +36,13 @@ function MidHeader() {
               <LocalShipping />
             </Box>
             <Box>
-              <Typography>Sign in | Sign up </Typography>
-              <Person />
+              <Link to='/login' style={{ display: 'flex' }}>
+                <Typography>Sign in | Sign up </Typography>
+                <Person />
+              </Link>
             </Box>
             <Box>
-              <Typography>Sign in | Sign up </Typography>
+              <Typography>Cart</Typography>
               <ShoppingBag />
             </Box>
 
