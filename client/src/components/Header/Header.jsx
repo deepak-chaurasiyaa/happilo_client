@@ -1,18 +1,17 @@
+import { Box, AppBar } from '@mui/material';
 import React from 'react';
 import Anouncement from './Anouncement';
-import IndividualIntervalsExample from './Carousel';
 import MidHeader from './MidHeader';
 import NavBar from './NavBar';
-
 function Header() {
   return (
-    <div>
-      <Anouncement />
-      <MidHeader />
-      <NavBar />
-      <IndividualIntervalsExample />
-      {/* <IndividualIntervalsExample /> */}
-    </div>
+    <AppBar>
+      <Box>
+        <Anouncement />
+        <MidHeader />
+        <NavBar />
+      </Box>
+    </AppBar>
   );
 }
 
