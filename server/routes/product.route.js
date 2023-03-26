@@ -1,6 +1,6 @@
 import Router from 'express-promise-router';
 
-import { productController } from '../controllers/index.js';
+import { productController } from '../controllers';
 
 const router = Router();
 
