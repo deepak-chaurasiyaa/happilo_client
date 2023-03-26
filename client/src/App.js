@@ -12,6 +12,7 @@ import ForgotPassword from './components/ForgotPassword/ForgotPassword';
 
 import { darkTheme, lightTheme } from './shared/theme/Theme';
 import { OTHER_PRODUCTS, PRODUCTS } from './shared/constant';
+import NotFound from './components/notFound/NotFound';
 
 function App() {
   const { darkMode } = useSelector((state) => state.theme);
@@ -49,6 +50,7 @@ function App() {
         <Route path='/login' element={<HappiloLogin />} />
         <Route path='/signup' element={<CreateAccount />} />
         <Route path='/reset-password' element={<ForgotPassword />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </ThemeProvider>
   );
