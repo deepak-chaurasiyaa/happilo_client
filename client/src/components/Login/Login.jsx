@@ -25,7 +25,7 @@ export default function Login() {
   };
 
   return (
-    <Box sx={{ padding: '15rem 25rem 0 25rem' }}>
+    <Box sx={{ padding: '15rem 0 0 0rem', width:'50%', margin:'auto' }}>
       <Header />
       <Formik
         initialValues={initialValues}
@@ -39,12 +39,14 @@ export default function Login() {
               name='email'
               type='email'
               placeholder='Email'
+              required
             />
             <InputField
               label='Please Enter Password'
               name='password'
               type='password'
               placeholder='Password'
+              required
             />
 
             <Link to='/reset-password'>

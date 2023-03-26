@@ -1,6 +1,6 @@
 import React from 'react';
 import { useField, Field } from 'formik';
-import { TextField, Typography } from '@mui/material';
+import { Box, TextField, Typography } from '@mui/material';
 
 export const InputField = ({ label, ...props }) => {
   // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
@@ -8,13 +8,12 @@ export const InputField = ({ label, ...props }) => {
   // message if the field is invalid and it has been touched (i.e. visited)
   const [field, meta] = useField(props);
   return (
-    <>
+    <Box sx={{padding:'1rem 0'}}>
       <label htmlFor={props.id || props.name}>{label}</label>
       <Field
         as={TextField}
         variant='outlined'
         margin='dense'
-        required
         fullWidth
         className='text-input'
         {...field}
@@ -23,7 +22,7 @@ export const InputField = ({ label, ...props }) => {
       {meta.touched && meta.error ? (
         <Typography color='error'>{meta.error}</Typography>
       ) : null}
-    </>
+    </Box>
   );
 };
 
