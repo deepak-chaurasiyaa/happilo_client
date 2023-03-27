@@ -32,15 +32,22 @@ const ProductDescription = () => {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <>
+    <Box>
       <Header />
-      <Box sx={{ padding: '12rem 0 0 2rem', display: 'flex' }}>
+      <Box
+        sx={{
+          width: '90%',
+          margin: 'auto',
+          padding: '12rem 0 0 0rem',
+          display: 'flex',
+        }}
+      >
         <Box>
           <ImageList sx={{ width: ' 10rem', height: 500 }} cols={1}>
             {itemData.map((item) => (
               <ImageListItem
                 key={item.img}
-                sx={{ width: '90%', margin: 'auto', borderRadius: 2 }}
+                sx={{ width: '85%', margin: 'auto', borderRadius: 2 }}
               >
                 <img
                   onClick={() => setCurrentImage(item)}
@@ -77,10 +84,10 @@ const ProductDescription = () => {
           <Box sx={{ display: 'flex' }}>
             <Typography sx={{ fontWeight: 600 }}>Size </Typography>
             <Typography sx={{ padding: '0px 10px 10px 10px' }}>
-              {currentPackSize.quantity} 
+              {currentPackSize.quantity}
             </Typography>
           </Box>
-          <Box sx={{ width: '40rem' }}>
+          <Box>
             {availableSizes.map((product) => {
               return (
                 <ColorButton
@@ -157,16 +164,16 @@ const ProductDescription = () => {
           <br />
           <br />
           <Typography
-            sx={{ width: '100%', height: '0.2px', backgroundColor: 'black' }}
+            sx={{ height: '0.2px', backgroundColor: 'black' }}
           ></Typography>
           <br />
-          <Typography sx={{ width: '40rem' }}>
+          <Typography>
             {DESCRIPTION.product_description}
           </Typography>
           <ReasonToBuy reason_details={DESCRIPTION.reasons_to_buy} />
         </Box>
       </Box>
-    </>
+    </Box>
   );
 };
 

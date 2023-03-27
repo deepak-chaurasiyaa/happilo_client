@@ -11,9 +11,12 @@ const ReasonToBuy = ({ reason_details }) => {
       return (
         <>
           <br />
-          <Box sx={{ width: '40rem', display: '-webkit-box' }}>
+          <Box sx={{ display: '-webkit-box' }}>
             <Typography sx={{ fontWeight: 600 }}>
-              {key} :  <Typography component="span" variant="body1">{value}</Typography>
+              {key} :{' '}
+              <Typography component='span' variant='body1'>
+                {value}
+              </Typography>
             </Typography>{' '}
           </Box>
         </>
