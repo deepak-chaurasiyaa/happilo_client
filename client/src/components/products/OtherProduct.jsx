@@ -44,17 +44,7 @@ export default function OtherProduct({ Product, ShowBanner, MainTitle }) {
         {Product &&
           Product.map((product) => {
             return (
-              <Card
-                sx={{
-                  maxWidth: 345,
-                  boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)',
-                  border: '1px solid #ccc',
-                  transition: 'box-shadow 0.3s ease-in-out',
-                  '&:hover': {
-                    boxShadow: '0px 0px 20px rgba(0, 0, 0, 0.4)',
-                  },
-                }}
-              >
+              <Card className='image-card'>
                 <CardActionArea
                   sx={{
                     width: 255,
