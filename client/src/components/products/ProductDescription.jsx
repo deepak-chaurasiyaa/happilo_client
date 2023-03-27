@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import ReactImageMagnify from 'react-image-magnify';
 import {
   Box,
   Button,
@@ -7,7 +7,6 @@ import {
   ImageList,
   ImageListItem,
 } from '@mui/material';
-
 import styled from '@emotion/styled';
 
 import Header from '../header/Header';
@@ -28,9 +27,11 @@ const ProductDescription = () => {
   const [currentPackSize, setCurrentPackSize] = useState({
     ...availableSizes[0],
   });
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
   return (
     <Box>
       <Header />
@@ -61,18 +62,40 @@ const ProductDescription = () => {
             ))}
           </ImageList>
         </Box>
+
         <Box sx={{ padding: ' 0 3rem' }}>
-          <img
-            className='description-image'
+          <Box
             style={{
               borderRadius: '15px',
               backgroundColor: 'white',
               width: '30rem',
             }}
-            src={currentImage.img}
-            alt=''
-          />
+          >
+            <ReactImageMagnify
+              {...{
+                smallImage: {
+                  isFluidWidth: true,
+                  src: currentImage.img,
+                  srcSet: `${currentImage.img} 1200w`,
+                  sizes:
+                    '(max-width: 480px) 100vw, (max-width: 1200px) 30vw, 360px',
+                },
+                largeImage: {
+                  src: currentImage.img,
+                  width: 1200,
+                  height: 1800,
+                },
+                enlargedImageContainerDimensions: {
+                  width: '173%',
+                  height: '100%',
+                },
+                enlargedImageContainerClassName:
+                  'enlarged-image-container description-image',
+              }}
+            />
+          </Box>
         </Box>
+
         <Box>
           <Typography variant='h6' sx={{ fontWeight: 600 }}>
             Happilo 100% Natural Premium California Almonds
@@ -167,9 +190,7 @@ const ProductDescription = () => {
             sx={{ height: '0.2px', backgroundColor: 'black' }}
           ></Typography>
           <br />
-          <Typography>
-            {DESCRIPTION.product_description}
-          </Typography>
+          <Typography>{DESCRIPTION.product_description}</Typography>
           <ReasonToBuy reason_details={DESCRIPTION.reasons_to_buy} />
         </Box>
       </Box>
