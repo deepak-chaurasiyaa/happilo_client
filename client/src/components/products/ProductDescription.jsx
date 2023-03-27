@@ -12,6 +12,7 @@ import styled from '@emotion/styled';
 import Header from '../header/Header';
 import { availableSizes, DESCRIPTION, itemData } from '../../shared/constant';
 import ReasonToBuy from './ReasonToBuy';
+import ImageMagnify from './ImageMagnify';
 
 const ColorButton = styled(Button)(({ theme }) => ({
   padding: '-20px !important',
@@ -64,36 +65,7 @@ const ProductDescription = () => {
         </Box>
 
         <Box sx={{ padding: ' 0 3rem' }}>
-          <Box
-            style={{
-              borderRadius: '15px',
-              backgroundColor: 'white',
-              width: '30rem',
-            }}
-          >
-            <ReactImageMagnify
-              {...{
-                smallImage: {
-                  isFluidWidth: true,
-                  src: currentImage.img,
-                  srcSet: `${currentImage.img} 1200w`,
-                  sizes:
-                    '(max-width: 480px) 100vw, (max-width: 1200px) 30vw, 360px',
-                },
-                largeImage: {
-                  src: currentImage.img,
-                  width: 1200,
-                  height: 1800,
-                },
-                enlargedImageContainerDimensions: {
-                  width: '173%',
-                  height: '100%',
-                },
-                enlargedImageContainerClassName:
-                  'enlarged-image-container description-image',
-              }}
-            />
-          </Box>
+          <ImageMagnify currentImage={currentImage} />
         </Box>
 
         <Box>
