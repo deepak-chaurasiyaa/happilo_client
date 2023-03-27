@@ -8,7 +8,7 @@ import {
   Typography,
   Grid,
 } from '@mui/material';
-import Header from '../Header/Header';
+import Header from '../header/Header';
 import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({

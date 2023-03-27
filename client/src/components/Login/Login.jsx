@@ -5,10 +5,10 @@ import { Formik, Form } from 'formik';
 import { Link } from 'react-router-dom';
 import { Button, Box, Typography } from '@mui/material';
 
-import Header from '../Header/Header';
+import Header from '../header/Header';
 import { InputField } from '../commonInput/CommonInput';
 import { Validate } from '../../shared/validators';
-import SubFooter from '../../Footer/SubFooter';
+import SubFooter from '../footer/SubFooter';
 
 export default function Login() {
   const validateLogin = Yup.object().shape({
