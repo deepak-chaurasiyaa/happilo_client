@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import {
   Box,
@@ -11,7 +11,8 @@ import {
 import styled from '@emotion/styled';
 
 import Header from '../header/Header';
-import { availableSizes, itemData } from '../../shared/constant';
+import { availableSizes, DESCRIPTION, itemData } from '../../shared/constant';
+import ReasonToBuy from './ReasonToBuy';
 
 const ColorButton = styled(Button)(({ theme }) => ({
   padding: '-20px !important',
@@ -23,15 +24,19 @@ const ColorButton = styled(Button)(({ theme }) => ({
 
 const ProductDescription = () => {
   const [currentImage, setCurrentImage] = useState({ ...itemData[0] });
+  const [addToCartQuantity, setaddToCartQuantity] = useState(0);
   const [currentPackSize, setCurrentPackSize] = useState({
     ...availableSizes[0],
   });
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Header />
       <Box sx={{ padding: '12rem 0 0 2rem', display: 'flex' }}>
         <Box>
-          <ImageList sx={{ width: 130, height: 500 }} cols={1}>
+          <ImageList sx={{ width: ' 10rem', height: 500 }} cols={1}>
             {itemData.map((item) => (
               <ImageListItem
                 key={item.img}
@@ -72,7 +77,7 @@ const ProductDescription = () => {
           <Box sx={{ display: 'flex' }}>
             <Typography sx={{ fontWeight: 600 }}>Size </Typography>
             <Typography sx={{ padding: '0px 10px 10px 10px' }}>
-              {currentPackSize.quantity}
+              {currentPackSize.quantity} 
             </Typography>
           </Box>
           <Box sx={{ width: '40rem' }}>
@@ -89,6 +94,76 @@ const ProductDescription = () => {
               );
             })}
           </Box>
+          <br />
+          <br />
+          <Box sx={{ display: 'flex' }}>
+            <ColorButton
+              onClick={() =>
+                addToCartQuantity > 0 &&
+                setaddToCartQuantity(addToCartQuantity - 1)
+              }
+              style={{ textTransform: 'none' }}
+              sx={{ margin: '0 15px 6px 6px', backgroundColor: 'white' }}
+              variant='contained'
+            >
+              <Typography
+                variant='h5'
+                sx={{ fontSize: '15px !important', fontWeight: 500 }}
+              >
+                -
+              </Typography>
+            </ColorButton>
+            <Typography variant='h5'>{addToCartQuantity}</Typography>
+            <ColorButton
+              onClick={() => setaddToCartQuantity(addToCartQuantity + 1)}
+              style={{ textTransform: 'none' }}
+              sx={{ margin: '0 15px 6px 15px', backgroundColor: 'white' }}
+              variant='contained'
+            >
+              <Typography
+                variant='h5'
+                sx={{ fontSize: '15px !important', fontWeight: 500 }}
+              >
+                +
+              </Typography>
+            </ColorButton>
+            <ColorButton
+              // onClick={() => setaddToCartQuantity(addToCartQuantity + 1)}
+
+              sx={{ margin: '0 15px 6px 15px', backgroundColor: '#ffd200' }}
+              variant='contained'
+            >
+              <Typography
+                variant='h5'
+                sx={{ fontSize: '15px !important', fontWeight: 500 }}
+              >
+                Add To Cart
+              </Typography>
+            </ColorButton>
+            <ColorButton
+              // onClick={() => setaddToCartQuantity(addToCartQuantity + 1)}
+
+              sx={{ margin: '0 15px 6px 15px', backgroundColor: '#ffd200' }}
+              variant='contained'
+            >
+              <Typography
+                variant='h5'
+                sx={{ fontSize: '15px !important', fontWeight: 500 }}
+              >
+                Buy it now
+              </Typography>
+            </ColorButton>
+          </Box>
+          <br />
+          <br />
+          <Typography
+            sx={{ width: '100%', height: '0.2px', backgroundColor: 'black' }}
+          ></Typography>
+          <br />
+          <Typography sx={{ width: '40rem' }}>
+            {DESCRIPTION.product_description}
+          </Typography>
+          <ReasonToBuy reason_details={DESCRIPTION.reasons_to_buy} />
         </Box>
       </Box>
     </>

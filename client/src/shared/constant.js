@@ -167,7 +167,7 @@ export const FOOTER_TEXT = {
 export const availableSizes = [
   { id: 1, quantity: '200g', price: 203 },
   { id: 2, quantity: '200g (Pack of 2)', price: 399 },
-  { id: 3, quantity: '200g Pack of 5', price: 899.5 },
+  { id: 3, quantity: '200g (Pack of 5)', price: 899.5 },
   { id: 4, quantity: '500g', price: 820.5 },
   {
     id: 5,
@@ -252,3 +252,50 @@ export const itemData = [
     author: '@southside_customs',
   },
 ];
+
+export const DESCRIPTION = {
+  product_description:
+    'California badam is an absolute staple in your kitchen if you are keen about healthy eating. High in nutrition & taste, these snacks are extremely versatile. Here are are 9 reasons to buy California almonds online today at Happilo:',
+  reasons_to_buy: [
+    {
+      'Sourced from California':
+        'Happilo California almonds are handpicked from premium almond trees in California that are then packaged into a resealable bag to maintain freshness and crunch.',
+    },
+    {
+      'No Preservatives':
+        ' Happilo ensures every packet of raw California almonds is 100% free of any preservatives and additives, guaranteeing you premium quality at the best badam price in india. ',
+    },
+    {
+      'No Preservatives':
+        ' Happilo ensures every packet of raw California almonds is 100% free of any preservatives and additives, guaranteeing you premium quality at the best badam price in india. ',
+    },
+    {
+      'Mineral Rich':
+        'California badam are packed with minerals like potassium, magnesium, copper, manganese and iron- all essential nutrients that you need for a healthy brain and body.',
+    },
+    {
+      'Healthy Fats':
+        'Almonds are naturally high in healthy fats that your body needs to stay fit. These healthy fats are also beneficial for your skin and hair. While the word ‘fats’ might scare you, almonds can actually help keep you full for longer while nourishing your body. ',
+    },
+    {
+      'Healthy Snack':
+        'One of the best california almonds benefits is that they keep you full for long, making them an ideal healthy snack for weight loss.',
+    },
+    {
+      'High in Fiber':
+        'Almonds are high in fiber- an essential nutrient that helps with your digestive system and overall health.',
+    },
+    {
+      'Protein Rich':
+        'Like most other nuts, California badam are a great source of protein, particularly if you are a vegetarian. The abundance of protein along with other essential nutrients are the reasons why you should eat almonds, cashews and pistachios: the three type of nuts you need. ',
+    },
+    {
+      'Premium Quality':
+        'With Happilo, you can rest assured, knowing that you are buying premium quality raw California almonds at an affordable price. Happilo guarantees that all their products are Non-GMO Verified, Gluten-free and fat-free with no added preservatives -being nothing but a healthy treat for the entire family!',
+    },
+    {
+      'Best California Almonds Price':
+        'Happilo guarantees you the best badam price in India without compromising on quality, freshness and taste. You can also choose from a variety of sizes or even pay for the 1 kg badam price on EMI.',
+    },
+  ],
+};
