@@ -33,4 +33,22 @@ export const Validate = {
       'Password must contain at least one number',
       (value) => value && value.match(/^(?=.*\d).*$/)
     ),
+    firstName: Yup.string()
+    .trim()
+    .required('Please enter your First Name')
+    .min(3, 'First Name Must be 3 character')
+    .max(20, 'First Name can be 20 character long')
+    .matches(
+      /^([A-Za-z0-9_\-\?\.]+\s?)*$/,
+      'Invalid First Name format! Please check the input text.'
+    ),
+    lastName: Yup.string()
+    .trim()
+    .required('Please enter your Last Name')
+    .min(3, 'Last Name Must be 3 character')
+    .max(20, 'Last Name can be 20 character long')
+    .matches(
+      /^([A-Za-z0-9_\-\?\.]+\s?)*$/,
+      'Invalid Last Name format! Please check the input text.'
+    )
 };

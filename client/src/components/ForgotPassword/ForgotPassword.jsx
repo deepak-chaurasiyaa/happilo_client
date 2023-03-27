@@ -1,5 +1,6 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import * as Yup from 'yup';
+import { Formik, Form } from 'formik';
 import {
   Container,
   TextField,
@@ -9,82 +10,64 @@ import {
   Grid,
 } from '@mui/material';
 import Header from '../header/Header';
+import SubFooter from '../footer/SubFooter';
+import { Validate } from '../../shared/validators';
 import { Link } from 'react-router-dom';
+import { InputField } from '../commonInput/CommonInput';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    marginTop: theme.spacing(10),
-  },
-  form: {
-    width: '180%',
-    marginTop: theme.spacing(1),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-}));
 
 export default function ForgotPassword() {
-  const classes = useStyles();
+  const validateForgotPassword = Yup.object().shape({
+    email: Validate.email
+  });
+
+  const initialValues = {
+    email: '',
+  };
+
+  const HandleForgotPassword = (values) => {
+    console.log({ values });
+  };
 
   return (
-    <Box sx={{ padding: '10rem' }}>
-      <Header />
-      <Container component='main' maxWidth='xs'>
-        <div className={classes.root}>
-          <Typography component='h1' variant='h5'>
-            Reset You Password
-          </Typography>
-          <Typography className='text-center' margin='0.5rem !important'>
-            We will send you an email to reset your password.
-          </Typography>
-          <form className={classes.form} noValidate>
+    <Box>
+      <Box sx={{ padding: '15rem 0 0 0rem', width: '50%', margin: 'auto' }}>
+        <Header />
+
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validateForgotPassword}
+          onSubmit={HandleForgotPassword}
+        >
+          <Form>
+            <Typography variant="h4" align="center">
+              RESET YOUR PASSWORD
+            </Typography>
+            <Typography className='text-center' margin='0.5rem !important'>
+             We will send you an email to reset your password.
+           </Typography>
             <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-              <Typography>Email</Typography>
-              <TextField
-                variant='outlined'
-                margin='dense'
-                required
-                fullWidth
-                id='email'
-                label='Email Address'
+              <InputField
+                label='Email'
                 name='email'
-                autoComplete='email'
-                autoFocus
+                type='email'
+                placeholder='Please Enter Your Email *'
+                required
               />
+
+              <Button className='yellow-button' type='submit'>
+                Submit
+              </Button>
+              <Link to='/login'>
+                <Typography className='text-center margin-top'>
+                  Cancel
+                </Typography>
+              </Link>
             </Box>
-            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-              <Grid item xs={12} sm={6} md={4}>
-                <Button
-                  style={{
-                    backgroundColor: '#ffd200',
-                    padding: '1rem 4rem',
-                    marginTop: '1rem',
-                  }}
-                  type='submit'
-                  variant='contained'
-                  className={classes.submit}
-                >
-                  Submit
-                </Button>
-              </Grid>
-            </Box>
-            <Box
-              sx={{
-                display: 'flex',
-                justifyContent: 'center',
-                padding: '1rem 4rem',
-                marginTop: '1rem',
-              }}
-            >
-              <Link to='/'>Cancel</Link>
-            </Box>
-          </form>
-        </div>
-      </Container>
+          </Form>
+        </Formik>
+      </Box>
+      <SubFooter style={{marginBottom:'none'}}/>
     </Box>
   );
 }
