@@ -4,7 +4,7 @@ import { SHOPING_BANNER, SHOPING_BANNER_PRODUCT } from '../../shared/constant';
 
 function ShoppingBanner() {
   return (
-    <Box sx={{ marginBottom: '-11rem',marginTop:'-5rem' }}>
+    <Box sx={{ marginBottom: '-5rem' }}>
       <Box sx={{ flexGrow: 1, marginTop: 5 }}>
         <Toolbar>
           <ImageListItem>

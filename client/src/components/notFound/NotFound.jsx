@@ -40,7 +40,7 @@ const NotFound = () => {
       <Typography variant="h1" style={styles.title}>
         Oops! Page not found.
       </Typography>
-      <img src='error404page.gif' alt="not found" style={styles.image} />
+      <img src='/error404page.gif' alt="not found" style={styles.image} />
       <Button
         variant="contained"
         component={Link}
