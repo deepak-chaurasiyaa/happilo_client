@@ -5,7 +5,6 @@ import reportWebVitals from './reportWebVitals';
 import { store } from './store/theme.store';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-// import './index.css';
 import '../src/assets/style.css';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';

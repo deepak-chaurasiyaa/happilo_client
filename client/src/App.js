@@ -6,9 +6,9 @@ import Header from './components/header/Header';
 import CarouselSection from './components/header/Carousel';
 import OtherProduct from './components/products/OtherProduct';
 import NewLaunchProduct from './components/products/Product';
-import Login from './components/Login/Login';
-import CreateAccount from './components/SignUp/SignUp';
-import ForgotPassword from './components/ForgotPassword/ForgotPassword';
+import Login from './components/login/Login';
+import CreateAccount from './components/signUp/SignUp';
+import ForgotPassword from './components/forgotPassword/ForgotPassword';
 
 import { darkTheme, lightTheme } from './shared/theme/Theme';
 import { OTHER_PRODUCTS, PRODUCTS } from './shared/constant';

@@ -158,3 +158,7 @@ export const PRODUCT_LABEL_BACKGROUND = {
   'Best Seller': '#0000FF',
   'Must Try': '#00523b',
 };
+
+export const FOOTER_TEXT = {
+  COPYRIGHT_MESSAGE: '© 2023 Happilo_Clone International PVT. LTD. All Rights Reserved.(Deepak & Vishal)',
+};
