@@ -7,7 +7,6 @@ import {
   Typography,
   Button,
   CardActionArea,
-  Link,
   Rating,
   Box,
   Toolbar,
@@ -15,6 +14,7 @@ import {
 
 import ShoppingBanner from './ShoppingBanner';
 import { PRODUCT_LABEL_BACKGROUND } from '../../shared/constant';
+import { Link } from 'react-router-dom';
 
 const ColorButton = styled(Button)(({ theme }) => ({
   color: theme.palette.getContrastText('#00523b'),
@@ -45,54 +45,65 @@ export default function OtherProduct({ Product, ShowBanner, MainTitle }) {
         {Product &&
           Product.map((product) => {
             return (
-              <Card className='image-card'>
-                <CardActionArea
-                  sx={{
-                    width: 255,
-                  }}
-                >
-                  {product.product_label && (
-                    <Typography
-                      className='product-label'
-                      sx={{
-                        backgroundColor:
-                          PRODUCT_LABEL_BACKGROUND[`${product.product_label}`],
-                      }}
-                    >
-                      {product.product_label}
-                    </Typography>
-                  )}
-                  <CardMedia
-                    component='img'
-                    height='220px'
-                    image={product.product_img}
-                    alt='green iguana'
+              <Link
+                to={`/product/${product.product_id}`}
+                className='underline-none'
+              >
+                <Card className='image-card'>
+                  <CardActionArea
                     sx={{
-                      padding: '10px',
+                      width: 255,
                     }}
-                  />
-
-                  <CardContent className='bg-pink'>
-                    <Link className='link' href='#' underline='hover'>
-                      {product.short_discription}
-                    </Link>
-
-                    <Rating
-                      name='prooduct_customer_rating'
-                      readOnly
-                      value={product.prooduct_customer_rating}
-                      precision={0.5}
+                  >
+                    {product.product_label && (
+                      <Typography
+                        className='product-label'
+                        sx={{
+                          backgroundColor:
+                            PRODUCT_LABEL_BACKGROUND[
+                              `${product.product_label}`
+                            ],
+                        }}
+                      >
+                        {product.product_label}
+                      </Typography>
+                    )}
+                    <CardMedia
+                      component='img'
+                      height='220px'
+                      image={product.product_img}
+                      alt='green iguana'
+                      sx={{
+                        padding: '10px',
+                      }}
                     />
-                    <Typography className='selling-price'>
-                      ₹ {product.product_selling_price}
-                    </Typography>
-                  </CardContent>
 
-                  <ColorButton variant='contained' sx={{ width: '100%' }}>
-                    {product.product_title}
-                  </ColorButton>
-                </CardActionArea>
-              </Card>
+                    <CardContent className='bg-pink'>
+                      <Link
+                        className='link'
+                        to={`/product/${product.product_id}`}
+                        underline='hover'
+                      >
+                        {product.short_discription}
+                      </Link>
+
+                      <Rating
+                        name='prooduct_customer_rating'
+                        readOnly
+                        value={product.prooduct_customer_rating}
+                        precision={0.5}
+                      />
+                      <Typography className='selling-price'>
+                        ₹ {product.product_selling_price}
+                      </Typography>
+                    </CardContent>
+
+                    <ColorButton variant='contained' sx={{ width: '100%' }}>
+                      {product.product_title}
+                    </ColorButton>
+                  </CardActionArea>
+                </Card>
+              </Link>
             );
           })}
       </Box>

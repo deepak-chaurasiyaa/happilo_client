@@ -4,7 +4,6 @@ import { Box, Toolbar, ImageListItem, Typography } from '@mui/material';
 import {
   LocalShipping,
   Person,
-  Search,
   ShoppingBag,
   Brightness7,
   Brightness4,
@@ -23,14 +22,14 @@ function MidHeader() {
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
           <ImageListItem>
             <Link to='/'>
-              <img className='brand-logo' src='./logohappilo.png' alt='Logo' />
+              <img className='brand-logo' src='/logohappilo.png' alt='Logo' />
             </Link>
           </ImageListItem>
           <ImageListItem />
           <Toolbar className='mid-header' sx={{ display: 'flex' }}>
             <Box>
               <SearchBar />
-              <Search sx={{ marginLeft: '-3ch' }} />
+              {/* <Search sx={{ marginLeft: '-3ch' }} /> */}
             </Box>
             <Box>
               <Link to='' style={{ display: 'flex' }}>

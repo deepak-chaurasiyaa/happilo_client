@@ -5,7 +5,7 @@ import { Formik, Form } from 'formik';
 import { Link } from 'react-router-dom';
 import { Button, Box, Typography } from '@mui/material';
 
-import Header from '../Header/Header';
+import Header from '../header/Header';
 import { InputField } from '../commonInput/CommonInput';
 import { Validate } from '../../shared/validators';
 

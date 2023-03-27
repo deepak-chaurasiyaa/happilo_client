@@ -168,7 +168,7 @@ body {
 
 .link:hover {
   color: #3d3535 !important;
-  border-bottom: 1px solid #3d3535 !important;
+  /* border-bottom: 1px solid #3d3535 !important; */
 }
 
 .margin-top {
@@ -210,11 +210,6 @@ a:hover {
   background: #00523b;
 }
 
-.css-qzbt6i-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator,
-.css-1ciwbrp-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator,
-.css-1q60rmi-MuiAutocomplete-endAdornment {
-  display: none !important;
-}
 
 .MuiAutocomplete-endAdornment {
   display: flex;
@@ -239,4 +234,8 @@ a:hover {
   text-align: center;
   border-radius: 0 0 10px 0;
   color: #ffffff;
+}
+
+.underline-none:hover {
+  text-decoration: none !important
 }

@@ -10,7 +10,7 @@ import {
   Link,
   Grid,
 } from '@mui/material';
-import Header from '../Header/Header';
+import Header from '../header/Header';
 
 const useStyles = makeStyles((theme) => ({
   root: {

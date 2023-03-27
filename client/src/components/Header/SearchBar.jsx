@@ -5,6 +5,7 @@ import { styled, alpha } from '@mui/material/styles';
 
 import { sleep } from '../../shared/common';
 import { topFilms } from '../../shared/constant';
+import { Link } from 'react-router-dom';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -30,7 +31,7 @@ const StyledInputBase = styled(Autocomplete)(({ theme }) => ({
     [theme.breakpoints.up('sm')]: {
       width: '10rem !important',
       '&:focus': {
-        width: '72ch !important',
+        width: '68ch !important',
       },
     },
   },
@@ -66,7 +67,12 @@ export const SearchBar = () => {
       setOptions([]);
     }
   }, [open]);
+  const [selectedOption, setSelectedOption] = useState(null); // add state variable to store selected value
 
+  const handleSelect = (event, option) => {
+    setSelectedOption(option);
+    console.log({ selectedOption });
+  };
   return (
     <Search sx={{ background: 'none !important' }}>
       <StyledInputBase
@@ -80,6 +86,7 @@ export const SearchBar = () => {
         onClose={() => {
           setOpen(false);
         }}
+        onChange={handleSelect}
         isOptionEqualToValue={(option, value) => option.title === value.title}
         getOptionLabel={(option) => option.title}
         options={options}
