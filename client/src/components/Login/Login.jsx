@@ -8,6 +8,7 @@ import { Button, Box, Typography } from '@mui/material';
 import Header from '../Header/Header';
 import { InputField } from '../commonInput/CommonInput';
 import { Validate } from '../../shared/validators';
+import SubFooter from '../../Footer/SubFooter';
 
 export default function Login() {
   const validateLogin = Yup.object().shape({
@@ -25,47 +26,54 @@ export default function Login() {
   };
 
   return (
-    <Box sx={{ padding: '15rem 0 0 0rem', width:'50%', margin:'auto' }}>
-      <Header />
-      <Formik
-        initialValues={initialValues}
-        validationSchema={validateLogin}
-        onSubmit={HandleLogin}
-      >
-        <Form>
-          <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-            <InputField
-              label='Please Enter Email'
-              name='email'
-              type='email'
-              placeholder='Email'
-              required
-            />
-            <InputField
-              label='Please Enter Password'
-              name='password'
-              type='password'
-              placeholder='Password'
-              required
-            />
+    <Box>
+      <Box sx={{ padding: '15rem 0 0 0rem', width: '50%', margin: 'auto' }}>
+        <Header />
 
-            <Link to='/reset-password'>
-              <Typography className='text-center margin-top'>
-                Forgot Your Password?
-              </Typography>
-            </Link>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validateLogin}
+          onSubmit={HandleLogin}
+        >
+          <Form>
+            <Typography variant="h4" align="center">
+              Login
+            </Typography>
+            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+              <InputField
+                label='Email'
+                name='email'
+                type='email'
+                placeholder='Please Enter Your Email *'
+                required
+              />
+              <InputField
+                label='Password'
+                name='password'
+                type='password'
+                placeholder='Please Enter Your Password *'
+                required
+              />
 
-            <Button className='yellow-button' type='submit'>
-              Submit
-            </Button>
-            <Link to='/signup'>
-              <Typography className='text-center margin-top'>
-                Create Account
-              </Typography>
-            </Link>
-          </Box>
-        </Form>
-      </Formik>
+              <Link to='/reset-password'>
+                <Typography className='text-center margin-top'>
+                  Forgot Your Password?
+                </Typography>
+              </Link>
+
+              <Button className='yellow-button' type='submit'>
+                Submit
+              </Button>
+              <Link to='/signup'>
+                <Typography className='text-center margin-top'>
+                  Create Account
+                </Typography>
+              </Link>
+            </Box>
+          </Form>
+        </Formik>
+      </Box>
+      <SubFooter />
     </Box>
   );
 }

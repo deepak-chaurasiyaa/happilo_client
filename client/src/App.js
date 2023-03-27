@@ -3,6 +3,7 @@ import { Box, CssBaseline } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
+import SubFooter from './Footer/SubFooter';
 import CarouselSection from './components/Header/Carousel';
 import OtherProduct from './components/products/OtherProduct';
 import NewLaunchProduct from './components/products/Product';
@@ -44,6 +45,7 @@ function App() {
                 MainTitle={'COMBOS'}
               />
               <br />
+              <SubFooter />
             </Box>
           }
         />

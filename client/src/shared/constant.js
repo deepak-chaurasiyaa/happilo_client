@@ -91,3 +91,7 @@ export const CAROUSEL_IMAGE = [
     url: 'https://cdn.shopify.com/s/files/1/0569/6867/5527/collections/Happilo_Website_Banners_11112022_Chocolate_Spread_1512X515_88a2608e-f6e5-49bd-a547-c85270cdbdf3.jpg?v=1675085062',
   },
 ];
+
+export const FOOTER_TEXT = {
+  COPYRIGHT_MESSAGE: '© 2023 Happilo_Clone International PVT. LTD. All Rights Reserved.(Deepak & Vishal)',
+};
