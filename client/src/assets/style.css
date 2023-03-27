@@ -232,3 +232,11 @@ a:hover {
 .image-card:hover {
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4) !important;
 }
+
+.product-label {
+  width: 7rem;
+  padding: 1px;
+  text-align: center;
+  border-radius: 0 0 10px 0;
+  color: #ffffff;
+}

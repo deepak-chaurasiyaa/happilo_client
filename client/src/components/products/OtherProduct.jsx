@@ -14,6 +14,7 @@ import {
 } from '@mui/material';
 
 import ShoppingBanner from './ShoppingBanner';
+import { PRODUCT_LABEL_BACKGROUND } from '../../shared/constant';
 
 const ColorButton = styled(Button)(({ theme }) => ({
   color: theme.palette.getContrastText('#00523b'),
@@ -50,7 +51,17 @@ export default function OtherProduct({ Product, ShowBanner, MainTitle }) {
                     width: 255,
                   }}
                 >
-                  <Typography>Trending</Typography>
+                  {product.product_label && (
+                    <Typography
+                      className='product-label'
+                      sx={{
+                        backgroundColor:
+                          PRODUCT_LABEL_BACKGROUND[`${product.product_label}`],
+                      }}
+                    >
+                      {product.product_label}
+                    </Typography>
+                  )}
                   <CardMedia
                     component='img'
                     height='220px'

@@ -32,6 +32,7 @@ export const PRODUCTS = [
 ];
 export const OTHER_PRODUCTS = [
   {
+    product_label: 'Trending',
     product_title: 'ADD TO CART',
     prooduct_customer_rating: 4.2,
     product_selling_price: '275.00',
@@ -40,6 +41,7 @@ export const OTHER_PRODUCTS = [
       'https://cdn.shopify.com/s/files/1/0569/6867/5527/products/1v2_bf9e06f6-cd22-4209-a932-310a869534c0_720x.png?v=1632846581',
   },
   {
+    product_label: 'Best Seller',
     product_title: 'ADD TO CART',
     product_selling_price: '335.00',
     prooduct_customer_rating: 4.3,
@@ -48,6 +50,7 @@ export const OTHER_PRODUCTS = [
       'https://cdn.shopify.com/s/files/1/0569/6867/5527/products/Front_720x.png?v=1632847785',
   },
   {
+    product_label: 'Popular',
     product_title: 'ADD TO CART',
     product_selling_price: '395.00',
     prooduct_customer_rating: 3.4,
@@ -56,6 +59,7 @@ export const OTHER_PRODUCTS = [
       'https://cdn.shopify.com/s/files/1/0569/6867/5527/products/Front_5ce707ac-7eef-4eb5-a97e-78fe2a1f9870_720x.png?v=1632913711',
   },
   {
+    product_label: 'Must Try',
     product_title: 'ADD TO CART',
     product_selling_price: '395.00',
     prooduct_customer_rating: 5,
@@ -65,6 +69,7 @@ export const OTHER_PRODUCTS = [
       'https://cdn.shopify.com/s/files/1/0569/6867/5527/products/1v2_31f6f791-8f26-464d-b873-977135c3b410_720x.png?v=1632913885',
   },
   {
+    product_label: 'Trending',
     product_title: 'ADD TO CART',
     product_selling_price: '175.00',
     prooduct_customer_rating: 2.1,
@@ -141,3 +146,10 @@ export const topFilms = [
   { title: 'American History X', year: 1998 },
   { title: 'Interstellar', year: 2014 },
 ];
+
+export const PRODUCT_LABEL_BACKGROUND = {
+  Trending: '#FFA500',
+  Popular: '#A020F0',
+  'Best Seller': '#0000FF',
+  'Must Try': '#00523b',
+};
