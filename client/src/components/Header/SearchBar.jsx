@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import {
-  CircularProgress,
-  Autocomplete,
-  TextField,
-} from '@mui/material';
+import { CircularProgress, Autocomplete, TextField } from '@mui/material';
 import { styled, alpha } from '@mui/material/styles';
 
 import { sleep } from '../../shared/common';

@@ -1,116 +1,56 @@
-import * as React from 'react';
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
-import CircularProgress from '@mui/material/CircularProgress';
-import { useState } from 'react';
-import { useEffect } from 'react';
-import { topFilms } from '../../shared/constant';
-import { styled, alpha } from '@mui/material/styles';
-import { sleep } from '../../shared/common/common';
+import React from "react";
+import { Typography, Button } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
-const Search = styled('div')(({ theme }) => ({
-  position: 'relative',
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
+const styles = {
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    height: "100vh",
   },
-  marginLeft: 0,
-  width: '100%',
-  [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(1),
-    width: 'auto',
+  title: {
+    fontSize: "4rem",
+    fontWeight: "bold",
+    marginBottom: "2rem",
+    textAlign: "center",
   },
-}));
-
-const StyledInputBase = styled(Autocomplete)(({ theme }) => ({
-
-  '& .MuiInputBase-input': {
-    padding: theme.spacing(1, 1, 1, 0),
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      width: '10rem !important',
-      '&:focus': {
-        width: '72ch !important',
-      },
+  image: {
+    width: "80%",
+    maxWidth: "600px",
+    marginBottom: "2rem",
+  },
+  button: {
+    marginTop: "2rem",
+    padding: "1rem 2rem",
+    borderRadius: "2rem",
+    fontWeight: "bold",
+    backgroundColor: "#3f51b5",
+    color: "white",
+    "&:hover": {
+      backgroundColor: "#2c387e",
     },
   },
-}));
+};
 
-export default function NotFound() {
-  const [open, setOpen] = useState(false);
-  const [options, setOptions] = useState([]);
-  const loading = open && options.length === 0;
-
-  useEffect(() => {
-    let active = true;
-
-    if (!loading) {
-      return undefined;
-    }
-
-    (async () => {
-      await sleep(1e3);
-
-      if (active) {
-        setOptions([...topFilms]);
-      }
-    })();
-
-    return () => {
-      active = false;
-    };
-  }, [loading]);
-
-  React.useEffect(() => {
-    if (!open) {
-      setOptions([]);
-    }
-  }, [open]);
-
+const NotFound = () => {
   return (
-    <Search sx={{ background: 'none !important' }}>
-      <StyledInputBase
-        sx={{ marginTop: ' -10px' }}
-        id='disable-close-on-select'
-        disableCloseOnSelect
-        open={open}
-        onOpen={() => {
-          setOpen(true);
-        }}
-        onClose={() => {
-          setOpen(false);
-        }}
-        isOptionEqualToValue={(option, value) => option.title === value.title}
-        getOptionLabel={(option) => option.title}
-        options={options}
-        loading={loading}
-        renderInput={(params) => (
-          <TextField 
-            variant='standard'
-            placeholder='Search Product...'
-            aria-label='Search'
-            {...params}
-            InputProps={{
-              ...params.InputProps,
-              endAdornment: (
-                <>
-                  {loading ? (
-                    <CircularProgress
-                      color='inherit'
-                      sx={{ textAlign: 'center' }}
-                      size={20}
-                    />
-                  ) : null}
-                  {params.InputProps.endAdornment}
-                </>
-              ),
-            }}
-          />
-        )}
-      />
-    </Search>
+    <div style={styles.container}>
+      <Typography variant="h1" style={styles.title}>
+        Oops! Page not found.
+      </Typography>
+      <img src='error404page.gif' alt="not found" style={styles.image} />
+      <Button
+        variant="contained"
+        component={Link}
+        to="/"
+        style={styles.button}
+      >
+        Go back to homepage
+      </Button>
+    </div>
   );
-}
+};
+
+export default NotFound;
