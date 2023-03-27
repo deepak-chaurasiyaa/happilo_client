@@ -1,12 +1,14 @@
-import * as React from 'react';
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
-import CircularProgress from '@mui/material/CircularProgress';
-import { useState } from 'react';
-import { useEffect } from 'react';
-import { topFilms } from '../../shared/constant';
+import React, { useState, useEffect } from 'react';
+
+import {
+  CircularProgress,
+  Autocomplete,
+  TextField,
+} from '@mui/material';
 import { styled, alpha } from '@mui/material/styles';
-import { sleep } from '../../shared/common/common';
+
+import { sleep } from '../../shared/common';
+import { topFilms } from '../../shared/constant';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -24,7 +26,6 @@ const Search = styled('div')(({ theme }) => ({
 }));
 
 const StyledInputBase = styled(Autocomplete)(({ theme }) => ({
-
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
@@ -39,7 +40,7 @@ const StyledInputBase = styled(Autocomplete)(({ theme }) => ({
   },
 }));
 
-export default function NotFound() {
+export const SearchBar = () => {
   const [open, setOpen] = useState(false);
   const [options, setOptions] = useState([]);
   const loading = open && options.length === 0;
@@ -64,7 +65,7 @@ export default function NotFound() {
     };
   }, [loading]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!open) {
       setOptions([]);
     }
@@ -88,7 +89,7 @@ export default function NotFound() {
         options={options}
         loading={loading}
         renderInput={(params) => (
-          <TextField 
+          <TextField
             variant='standard'
             placeholder='Search Product...'
             aria-label='Search'
@@ -113,4 +114,4 @@ export default function NotFound() {
       />
     </Search>
   );
-}
+};

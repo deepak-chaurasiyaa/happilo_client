@@ -11,6 +11,7 @@ import {
 } from '@mui/icons-material';
 import { handleDarkModeChange } from '../../reducer/theme.reducer';
 import { Link } from 'react-router-dom';
+import { SearchBar } from './SearchBar';
 
 function MidHeader() {
   const dispatch = useDispatch();
@@ -28,8 +29,8 @@ function MidHeader() {
           <ImageListItem />
           <Toolbar className='mid-header' sx={{ display: 'flex' }}>
             <Box>
-              <Typography>Search</Typography>
-              <Search />
+              <SearchBar />
+              <Search sx={{ marginLeft: '-3ch' }} />
             </Box>
             <Box>
               <Link to='' style={{ display: 'flex' }}>

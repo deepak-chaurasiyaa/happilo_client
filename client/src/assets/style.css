@@ -4,7 +4,6 @@
 }
 
 .brand-logo {
-  width: 210px;
   height: 3rem !important;
 }
 
@@ -196,4 +195,28 @@ a:hover {
   margin: auto !important;
   background-color: #ffd200 !important;
   color: #020202 !important;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00523b;
+}
+
+.css-qzbt6i-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator,
+.css-1ciwbrp-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator,
+.css-1q60rmi-MuiAutocomplete-endAdornment  {
+  display: none !important;
+}
+.MuiAutocomplete-endAdornment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
