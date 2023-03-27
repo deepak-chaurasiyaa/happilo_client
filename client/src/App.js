@@ -17,7 +17,7 @@ import ProductDescription from './components/products/ProductDescription';
 
 function App() {
   const { darkMode } = useSelector((state) => state.theme);
-
+ 
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <CssBaseline />
