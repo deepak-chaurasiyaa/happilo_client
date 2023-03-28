@@ -218,6 +218,10 @@ export const FOOTER_TEXT = {
     '© 2023 Happilo_Clone International PVT. LTD. All Rights Reserved.(Deepak & Vishal)',
 };
 
+export const JOURNEY_TEXT = {
+  JOURNEY_MESSAGE:'Happilo is a health food brand founded in the year 2016, headquartered in Bengaluru. Happilo bring to you an exclusive range of Nuts, dried fruits, seeds, Dry Roasted snacks, trial mixes, festive gift hampers and more. With a wide variety products that cater to every taste and age group, our best sellers have found their way into the homes and hearts of many households. The product innovations over the years and production volumes were made possible with our automated manufacturing unit at yeshwantpur – Bengaluru. Gourmet brand Happilo is available across all leading Modern Retail and General Trades. and is also one of the most popular FMCG brands searched for on e-commerce sites.'
+};
+
 export const availableSizes = [
   { id: 1, quantity: '200g', price: 203 },
   { id: 2, quantity: '200g (Pack of 2)', price: 399 },
