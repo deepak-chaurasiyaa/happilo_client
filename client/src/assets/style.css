@@ -260,7 +260,7 @@ a:hover {
 }
 
 .enlarged-image-container {
-  z-index: 9999;
+  z-index: 1;
   /* set the z-index to a high value */
   background-color: #f0f0f0;
   /* set the background color here */
