@@ -16,6 +16,9 @@ const ColorButton = styled(Button)(({ theme }) => ({
 }));
 function NewLaunchProduct({ Product, ShowBanner, MainTitle }) {
   console.log({ Product });
+  const HandleAddToCart = (event) => {
+    event.preventDefault();
+  };
   return (
     <Box>
       <Box sx={{ width: '90%', margin: 'auto' }}>
@@ -48,7 +51,11 @@ function NewLaunchProduct({ Product, ShowBanner, MainTitle }) {
                         image={product.product_img}
                         alt='green iguana'
                       />
-                      <ColorButton variant='contained' sx={{ width: '100%' }}>
+                      <ColorButton
+                        onClick={(e) => HandleAddToCart(e)}
+                        variant='contained'
+                        sx={{ width: '100%' }}
+                      >
                         {product.product_title}
                       </ColorButton>
                     </CardActionArea>

@@ -23,6 +23,9 @@ const ColorButton = styled(Button)(({ theme }) => ({
 }));
 
 const OtherProductCard = ({ product }) => {
+  const HandleAddToCart = (event) => {
+    event.preventDefault();
+  };
   return (
     <Card className='image-card'>
       <CardActionArea
@@ -71,7 +74,11 @@ const OtherProductCard = ({ product }) => {
           </Typography>
         </CardContent>
 
-        <ColorButton variant='contained' sx={{ width: '100%' }}>
+        <ColorButton
+          onClick={(e) => HandleAddToCart(e)}
+          variant='contained'
+          sx={{ width: '100%' }}
+        >
           {product.product_title}
         </ColorButton>
       </CardActionArea>
