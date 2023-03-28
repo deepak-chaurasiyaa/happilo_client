@@ -3,7 +3,7 @@ import ReactImageMagnify from 'react-image-magnify';
 import { Box } from '@mui/material';
 export const ImageMagnify = ({ currentImage }) => {
   return (
-    <Box className='magnifier-container'>
+    <Box className='magnifier-container description-image'>
       <ReactImageMagnify
         {...{
           smallImage: {
@@ -18,8 +18,8 @@ export const ImageMagnify = ({ currentImage }) => {
             height: 1800,
           },
           enlargedImageContainerDimensions: {
-            width: '173%',
-            height: '120%',
+            width: '150%',
+            height: '100%',
           },
           enlargedImageContainerClassName:
             'enlarged-image-container description-image',

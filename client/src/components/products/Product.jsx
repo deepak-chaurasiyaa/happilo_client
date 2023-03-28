@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import CardMedia from '@mui/material/CardMedia';
 import { CardActionArea } from '@mui/material';
 import ShoppingBanner from './ShoppingBanner';
+import { Link } from 'react-router-dom';
 const ColorButton = styled(Button)(({ theme }) => ({
   color: theme.palette.getContrastText('#00523b'),
   backgroundColor: '#00523b',
@@ -37,15 +38,17 @@ function NewLaunchProduct({ Product, ShowBanner, MainTitle }) {
               return (
                 <Card sx={{ maxWidth: 345 }}>
                   <CardActionArea sx={{ width: 255 }}>
-                    <CardMedia
-                      component='img'
-                      height='175'
-                      image={product.product_img}
-                      alt='green iguana'
-                    />
-                    <ColorButton variant='contained' sx={{ width: '100%' }}>
-                      {product.product_title}
-                    </ColorButton>
+                    <Link to={`/collections/${product.collection_name}`}>
+                      <CardMedia
+                        component='img'
+                        height='175'
+                        image={product.product_img}
+                        alt='green iguana'
+                      />
+                      <ColorButton variant='contained' sx={{ width: '100%' }}>
+                        {product.product_title}
+                      </ColorButton>
+                    </Link>
                   </CardActionArea>
                 </Card>
               );

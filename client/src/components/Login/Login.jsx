@@ -36,7 +36,7 @@ export default function Login() {
           onSubmit={HandleLogin}
         >
           <Form>
-            <Typography variant="h4" align="center">
+            <Typography variant='h4' align='center'>
               Login
             </Typography>
             <Box sx={{ display: 'flex', flexDirection: 'column' }}>

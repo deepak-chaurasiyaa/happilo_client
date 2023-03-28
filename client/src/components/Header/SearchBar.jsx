@@ -1,11 +1,11 @@
+import { CircularProgress, Autocomplete, TextField } from '@mui/material';
+
 import React, { useState, useEffect } from 'react';
 
-import { CircularProgress, Autocomplete, TextField } from '@mui/material';
 import { styled, alpha } from '@mui/material/styles';
 
 import { sleep } from '../../shared/common';
 import { topFilms } from '../../shared/constant';
-import { Link } from 'react-router-dom';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',

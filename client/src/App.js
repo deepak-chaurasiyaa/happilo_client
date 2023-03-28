@@ -14,6 +14,7 @@ import { darkTheme, lightTheme } from './shared/theme/Theme';
 import { OTHER_PRODUCTS, PRODUCTS } from './shared/constant';
 import NotFound from './components/notFound/NotFound';
 import ProductDescription from './components/products/ProductDescription';
+import ProductCollections from './components/productsCollections/ProductCollections';
 
 function App() {
   const { darkMode } = useSelector((state) => state.theme);
@@ -52,6 +53,7 @@ function App() {
         <Route path='/signup' element={<CreateAccount />} />
         <Route path='/product/:product_id' element={<ProductDescription />} />
         <Route path='/reset-password' element={<ForgotPassword />} />
+        <Route path='/collections/:category' element={<ProductCollections />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </ThemeProvider>
