@@ -260,8 +260,8 @@ a:hover {
 }
 
 .rotate-image:hover {
-  transform: rotate(5000deg);
-  /* transform: rotateY(180deg); Final */
+  transform: rotate(360deg);
+  /* transform: rotateY(180deg);  */
 }
 
 .description-image :hover {
@@ -286,9 +286,10 @@ a:hover {
 .journey {
   font-size: 1.75rem;
   font: bold;
-  margin-bottom: .5rem;
-  margin-top: 10rem auto !important;
+  /* margin-bottom: .5rem; */
+  margin: 1.5rem auto !important;
   border: 2px red;
+  color: black !important;
 }
 
 .display-grid {
@@ -331,4 +332,45 @@ a:hover {
 
 .col-size-four {
   height: fit-content;
+}
+
+.journey-mid {
+  height: 25rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: none !important;
+}
+
+.journey-video-container {
+  margin: 1rem 1.5rem;
+  width: 560px !important;
+  height: 315px !important
+}
+
+.journey-textContainer {
+  margin: 1rem 1.5rem;
+  border-radius: 1rem;
+  border: 2rem black;
+  width: 45%;
+  height: 80%;
+}
+
+.journey-text {
+  padding: 30px 40px;
+  display: block;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.journey-button {
+  background-color: #00523b;
+  color: #fff;
+  padding: 5px 30px;
+  border: 1px solid #00523b;
+  position: absolute;
+  left: 66%;
+  margin-top: 32px;
+  border-radius: 10px;
 }
