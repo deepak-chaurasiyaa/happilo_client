@@ -300,3 +300,29 @@ a:hover {
 .card-container-padding {
   padding: 20px;
 }
+
+.col-size-four {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+}
+
+.card-container-padding-size-four {
+  padding: 20px !important;
+}
+
+.product-collection-product-view {
+  display: grid;
+  grid-template-columns: 20% 80%
+}
+
+.flex-space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.thiner-box-shadow {
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.25) !important;
+}
+.padding-top-none{
+  margin-top: 20px;
+}

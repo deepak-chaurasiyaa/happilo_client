@@ -26,7 +26,7 @@ const ProductCollectionCard = ({ product }) => {
     event.preventDefault();
   };
   return (
-    <Card sx={{ boxShadow: '0px 0px 2px 0px rgba(0, 0, 0, 0.25)' }}>
+    <Card className='thiner-box-shadow'>
       <CardActionArea
         sx={{
           width: 255,
@@ -45,18 +45,14 @@ const ProductCollectionCard = ({ product }) => {
         </div>
 
         <CardContent className='text-center'>
-          <Link
-            // className='link'
-            to={`/product/${product.product_id}`}
-            underline='hover'
-          >
+          <Link to={`/product/${product.product_id}`} underline='hover'>
             <Typography>{product.short_discription}</Typography>
           </Link>
 
           <Typography>₹ {product.product_selling_price}</Typography>
         </CardContent>
 
-        <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Box className='flex-space-between'>
           <ColorButton
             onClick={(e) => HandleAddToCart(e)}
             variant='contained'
