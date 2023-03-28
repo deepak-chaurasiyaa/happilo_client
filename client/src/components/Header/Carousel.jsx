@@ -1,7 +1,5 @@
 import { Box } from '@mui/system';
-
 import Carousel from 'react-bootstrap/Carousel';
-
 import { CAROUSEL_IMAGE } from '../../shared/constant';
 
 export default function CarouselSection() {

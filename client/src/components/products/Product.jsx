@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import CardMedia from '@mui/material/CardMedia';
 import { CardActionArea } from '@mui/material';
 import ShoppingBanner from './ShoppingBanner';
+
 const ColorButton = styled(Button)(({ theme }) => ({
   color: theme.palette.getContrastText('#00523b'),
   backgroundColor: '#00523b',
@@ -13,8 +14,9 @@ const ColorButton = styled(Button)(({ theme }) => ({
     backgroundColor: 'black',
   },
 }));
+
 function NewLaunchProduct({ Product, ShowBanner, MainTitle }) {
-  console.log({ Product });
+  // console.log({ Product ,MainTitle});
   return (
     <Box>
       <Box sx={{ width: '90%', margin: 'auto' }}>

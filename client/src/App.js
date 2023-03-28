@@ -14,6 +14,8 @@ import { darkTheme, lightTheme } from './shared/theme/Theme';
 import { OTHER_PRODUCTS, PRODUCTS } from './shared/constant';
 import NotFound from './components/notFound/NotFound';
 import ProductDescription from './components/products/ProductDescription';
+import SubFooter from './components/footer/SubFooter';
+import Jouney from './components/happiloJourney/Journey';
 
 function App() {
   const { darkMode } = useSelector((state) => state.theme);
@@ -45,6 +47,8 @@ function App() {
                 MainTitle={'COMBOS'}
               />
               <br />
+              <Jouney />
+              <SubFooter />
             </Box>
           }
         />

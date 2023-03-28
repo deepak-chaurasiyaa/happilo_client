@@ -272,3 +272,11 @@ a:hover {
   background-color: white;
   width: 30rem;
 }
+
+.journey {
+  font-size: 1.75rem;
+  font: bold;
+  margin-bottom: .5rem;
+  margin-top: 10rem auto !important;
+  border: 2px red;
+}

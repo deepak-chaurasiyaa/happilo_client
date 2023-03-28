@@ -16,7 +16,6 @@ import SubFooter from '../footer/SubFooter';
 import { Validate } from '../../shared/validators';
 import { InputField } from '../commonInput/CommonInput';
 
-
 export default function CreateAccount() {
 
   const validateCreateAccount = Yup.object().shape({
@@ -39,7 +38,7 @@ export default function CreateAccount() {
 
   return (
     <Box>
-      <Box sx={{ padding: '15rem 0 0 0rem', width: '50%', margin: 'auto' }}>
+      <Box sx={{ padding: '12rem 0 0 0rem', width: '50%', margin: 'auto' }}>
         <Header />
 
         <Formik
@@ -51,7 +50,7 @@ export default function CreateAccount() {
             <Typography variant="h4" align="center">
               Create Account
             </Typography>
-            <Box sx={{ display: 'flex', flexDirection: 'column', marginBottom: '5rem !important' }}>
+            <Box sx={{ display: 'flex', flexDirection: 'column', marginBottom: '2rem !important' }}>
               <InputField
                 label='First Name'
                 name='firstName'
