@@ -32,13 +32,16 @@ function NewLaunchProduct({ Product, ShowBanner, MainTitle }) {
           <Box></Box>
         </Box>
         {ShowBanner && <ShoppingBanner />}
-        <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Box className='display-grid'>
           {Product &&
             Product.map((product) => {
               return (
-                <Card sx={{ maxWidth: 345 }}>
-                  <CardActionArea sx={{ width: 255 }}>
-                    <Link to={`/collections/${product.collection_name}`}>
+                <Link
+                  to={`/collections/${product.collection_name}`}
+                  className='card-container-padding '
+                >
+                  <Card sx={{ maxWidth: 345 }}>
+                    <CardActionArea sx={{ width: 255 }}>
                       <CardMedia
                         component='img'
                         height='175'
@@ -48,9 +51,9 @@ function NewLaunchProduct({ Product, ShowBanner, MainTitle }) {
                       <ColorButton variant='contained' sx={{ width: '100%' }}>
                         {product.product_title}
                       </ColorButton>
-                    </Link>
-                  </CardActionArea>
-                </Card>
+                    </CardActionArea>
+                  </Card>
+                </Link>
               );
             })}
         </Box>

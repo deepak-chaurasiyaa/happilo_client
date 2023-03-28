@@ -34,6 +34,24 @@ export const PRODUCTS = [
     product_img:
       'https://cdn.shopify.com/s/files/1/0569/6867/5527/files/snacks-collection.jpg?v=1677231033',
   },
+  {
+    collection_name: 'chocolate-spreads',
+    product_title: 'SPREADS',
+    product_img:
+      'https://cdn.shopify.com/s/files/1/0569/6867/5527/files/spreads-collection.jpg?v=1677231033',
+  },
+  {
+    collection_name: 'barfi-brittles',
+    product_title: 'BRILE & BARFI',
+    product_img:
+      '	https://cdn.shopify.com/s/files/1/0569/6867/5527/files/barfi-collection.jpg?v=1677231032',
+  },
+  {
+    collection_name: 'snacks',
+    product_title: 'PARTY SNACKS',
+    product_img:
+      'https://cdn.shopify.com/s/files/1/0569/6867/5527/files/snacks-collection.jpg?v=1677231033',
+  },
 ];
 export const OTHER_PRODUCTS = [
   {
