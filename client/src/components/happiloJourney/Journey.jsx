@@ -1,62 +1,67 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import {Typography, Paper, Box} from "@mui/material";
+import { Typography, Paper, Box } from "@mui/material";
 import { JOURNEY_TEXT } from "../../shared/constant";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    // display: "flex",
-    // alignItems: "center",
-    // justifyContent: "center",
-    // margin: theme.spacing(15),
-  },
-  // videoContainer: {
-  //   width: "50%",
-  //   height: "200%",
-  //   marginRight: theme.spacing(2),
-  //   [theme.breakpoints.down("sm")]: {
-  //     width: "100%",
-  //     marginRight: 0,
-  //     marginBottom: theme.spacing(2),
-  //   },
-  // },
-  video: {
-    // width: "100%",
-    // height: "100%",
-  },
-  textContainer: {
-  //   border: '2rem black',
-  //   width: "50%",
-  //   [theme.breakpoints.down("sm")]: {
-  //     width: "100%",
-  //   },
-  },
-}
-));
+import { styled } from "@mui/system";
 
 const JourneyPage = () => {
-  
+  const PaperJourney = styled(Box)(({ theme }) => ({
+    color: 'black',
+  }));
+
   return (
-    <Box sx={{ width: '97%', margin: '1rem auto', backgroundColor: '#f0e7f6', paddingTop: '1.5rem', paddingBottom: '1.5rem'}}>
+    <Box sx={{ width: '97%', margin: '1rem auto', backgroundColor: '#f0e7f6', paddingTop: '1.5rem', paddingBottom: '1.5rem' }}>
       <Box>
-      <Typography variant="h4" align="center" className="journey">HAPPILO’S JOURNEY</Typography>
+        <Typography variant="h4" align="center" className="journey">HAPPILO’S JOURNEY</Typography>
       </Box>
-    <Paper className='journey-mid'>
-      <Box className='journey-videoContainer'>
-        <iframe
-          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          height='350rem'
-          width='100%'
-        ></iframe>
-      </Box>
-      <Box className='journey-textContainer' style={{ border: '1px solid #3e3d3d6b' }}>
-        <Typography variant="body1" className="journey-text">{JOURNEY_TEXT.JOURNEY_MESSAGE}</Typography>
-        <button className="journey-button">SHOP NOW</button>
-      </Box>
-    </Paper>
+      <PaperJourney className='journey-mid'>
+        <Box >
+          <iframe className="journey-video-container" src="https://www.youtube.com/embed/Mh7yQNcSbbE?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </Box>
+        <Box className='journey-textContainer' style={{ border: '1px solid #3e3d3d6b' }}>
+          <Typography variant="body1" className="journey-text">{JOURNEY_TEXT.JOURNEY_MESSAGE}</Typography>
+          <button className="journey-button">SHOP NOW</button>
+          <img style={{
+            width: 80,
+            height: 79,
+            position: 'relative',
+            bottom: '24rem',
+            left: '15rem'
+          }}
+            src="https://cdn.shopify.com/s/files/1/0569/6867/5527/files/nut-emoji.png?v=1671441267" loading="lazy"></img>
+          <img style={{
+            width: 80,
+            height: 83,
+            position: 'relative',
+            bottom: '22rem',
+            left: '26rem'
+          }} src="https://cdn.shopify.com/s/files/1/0569/6867/5527/files/nut-emoji-1.png?v=1671442683" loading="lazy"></img>
+          <img style={{
+            width: 80,
+            height: 79,
+            position: 'relative',
+            bottom: '2rem',
+            left: '25rem'
+          }}
+            src="https://cdn.shopify.com/s/files/1/0569/6867/5527/files/nut-emoji-2.png?v=1671442683" loading="lazy"></img>
+          <img style={{
+            width: 80,
+            height: 79,
+            position: 'relative',
+            bottom: '-2rem',
+            left: '15rem'
+          }}
+            src="https://cdn.shopify.com/s/files/1/0569/6867/5527/files/nut-emoji-3.png?v=1671442684" loading="lazy"></img>
+          <img style={{
+            width: 80,
+            height: 79,
+            position: 'relative',
+            bottom: '-2rem',
+            left: '-16rem'
+          }}
+            src="	https://cdn.shopify.com/s/files/1/0569/6867/5527/files/nut-emoji-4.png?v=1671442684" loading="lazy"></img>
+        </Box>
+      </PaperJourney>
     </Box>
   );
 };
