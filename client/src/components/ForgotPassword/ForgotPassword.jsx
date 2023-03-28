@@ -1,24 +1,16 @@
 import React from 'react';
 import * as Yup from 'yup';
 import { Formik, Form } from 'formik';
-import {
-  Container,
-  TextField,
-  Button,
-  Box,
-  Typography,
-  Grid,
-} from '@mui/material';
+import { Button, Box, Typography } from '@mui/material';
 import Header from '../header/Header';
 import SubFooter from '../footer/SubFooter';
 import { Validate } from '../../shared/validators';
 import { Link } from 'react-router-dom';
 import { InputField } from '../commonInput/CommonInput';
 
-
 export default function ForgotPassword() {
   const validateForgotPassword = Yup.object().shape({
-    email: Validate.email
+    email: Validate.email,
   });
 
   const initialValues = {
@@ -40,12 +32,12 @@ export default function ForgotPassword() {
           onSubmit={HandleForgotPassword}
         >
           <Form>
-            <Typography variant="h4" align="center">
+            <Typography variant='h4' align='center'>
               RESET YOUR PASSWORD
             </Typography>
             <Typography className='text-center' margin='0.5rem !important'>
-             We will send you an email to reset your password.
-           </Typography>
+              We will send you an email to reset your password.
+            </Typography>
             <Box sx={{ display: 'flex', flexDirection: 'column' }}>
               <InputField
                 label='Email'
@@ -67,7 +59,7 @@ export default function ForgotPassword() {
           </Form>
         </Formik>
       </Box>
-      <SubFooter style={{marginBottom:'none'}}/>
+      <SubFooter style={{ marginBottom: 'none' }} />
     </Box>
   );
 }

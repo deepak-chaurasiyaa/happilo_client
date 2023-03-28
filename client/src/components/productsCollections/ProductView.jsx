@@ -1,13 +1,13 @@
 import React from 'react';
 import { Typography, Box, Toolbar } from '@mui/material';
 
-import ShoppingBanner from './ShoppingBanner';
 import { Link } from 'react-router-dom';
-import OtherProductCard from './OtherProductCard';
 
-export default function OtherProduct({ Product, ShowBanner, MainTitle }) {
+import ProductCollectionCard from './ProductCollectionCard';
+
+export default function ProductView({ Product, MainTitle }) {
   return (
-    <Box sx={{ width: '90%', margin: 'auto' }}>
+    <Box sx={{ width: '90%', margin: 'auto'}}>
       <Box sx={{ flexGrow: 1 }}>
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
           <Box></Box>
@@ -19,9 +19,7 @@ export default function OtherProduct({ Product, ShowBanner, MainTitle }) {
           <Box></Box>
         </Toolbar>
       </Box>
-
-      {ShowBanner && <ShoppingBanner />}
-      <Box className='display-grid '>
+      <Box className='display-grid'>
         {Product &&
           Product.map((product) => {
             return (
@@ -29,9 +27,7 @@ export default function OtherProduct({ Product, ShowBanner, MainTitle }) {
                 to={`/product/${product.product_id}`}
                 className='underline-none card-container-padding'
               >
-               
-                  <OtherProductCard product={product} />
-             
+                <ProductCollectionCard product={product} />
               </Link>
             );
           })}

@@ -5,26 +5,49 @@ export const BRAND_LOGO = `https://cdn.shopify.com/s/files/1/0569/6867/5527/file
 
 export const PRODUCTS = [
   {
+    collection_name: 'bars',
     product_title: 'DRY FRUIT BARS',
     product_img:
       'https://cdn.shopify.com/s/files/1/0569/6867/5527/files/bar-collection.jpg?v=1677231033',
   },
   {
+    collection_name: 'peanut-butter',
     product_title: 'PENUT BUTTER',
     product_img:
       'https://cdn.shopify.com/s/files/1/0569/6867/5527/files/peanut-butter-collection.jpg?v=1677231033',
   },
   {
+    collection_name: 'chocolate-spreads',
     product_title: 'SPREADS',
     product_img:
       'https://cdn.shopify.com/s/files/1/0569/6867/5527/files/spreads-collection.jpg?v=1677231033',
   },
   {
+    collection_name: 'barfi-brittles',
     product_title: 'BRILE & BARFI',
     product_img:
       '	https://cdn.shopify.com/s/files/1/0569/6867/5527/files/barfi-collection.jpg?v=1677231032',
   },
   {
+    collection_name: 'snacks',
+    product_title: 'PARTY SNACKS',
+    product_img:
+      'https://cdn.shopify.com/s/files/1/0569/6867/5527/files/snacks-collection.jpg?v=1677231033',
+  },
+  {
+    collection_name: 'chocolate-spreads',
+    product_title: 'SPREADS',
+    product_img:
+      'https://cdn.shopify.com/s/files/1/0569/6867/5527/files/spreads-collection.jpg?v=1677231033',
+  },
+  {
+    collection_name: 'barfi-brittles',
+    product_title: 'BRILE & BARFI',
+    product_img:
+      '	https://cdn.shopify.com/s/files/1/0569/6867/5527/files/barfi-collection.jpg?v=1677231032',
+  },
+  {
+    collection_name: 'snacks',
     product_title: 'PARTY SNACKS',
     product_img:
       'https://cdn.shopify.com/s/files/1/0569/6867/5527/files/snacks-collection.jpg?v=1677231033',
@@ -50,6 +73,37 @@ export const OTHER_PRODUCTS = [
     short_discription: 'Happilio 100% Natural Premium California Almonds',
     product_img:
       'https://cdn.shopify.com/s/files/1/0569/6867/5527/products/Front_720x.png?v=1632847785',
+  },
+  {
+    product_id: 3,
+    product_label: 'Popular',
+    product_title: 'ADD TO CART',
+    product_selling_price: '395.00',
+    prooduct_customer_rating: 3.4,
+    short_discription: 'Happilio 100% Natural Premium California Almonds',
+    product_img:
+      'https://cdn.shopify.com/s/files/1/0569/6867/5527/products/Front_5ce707ac-7eef-4eb5-a97e-78fe2a1f9870_720x.png?v=1632913711',
+  },
+  {
+    product_id: 4,
+    product_label: 'Must Try',
+    product_title: 'ADD TO CART',
+    product_selling_price: '395.00',
+    prooduct_customer_rating: 5,
+    short_discription: 'Happilio 100% Natural Premium California Almonds',
+
+    product_img:
+      'https://cdn.shopify.com/s/files/1/0569/6867/5527/products/1v2_31f6f791-8f26-464d-b873-977135c3b410_720x.png?v=1632913885',
+  },
+  {
+    product_id: 5,
+    product_label: 'Trending',
+    product_title: 'ADD TO CART',
+    product_selling_price: '175.00',
+    prooduct_customer_rating: 2.1,
+    short_discription: 'Happilio 100% Natural Premium California Almonds',
+    product_img:
+      'https://cdn.shopify.com/s/files/1/0569/6867/5527/products/1v2_ae80c043-716c-49c4-ad1c-8d92296ef3ee_720x.png?v=1632908409',
   },
   {
     product_id: 3,
