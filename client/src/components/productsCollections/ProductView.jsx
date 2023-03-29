@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Typography,
   Box,
@@ -7,7 +7,6 @@ import {
   AccordionSummary,
   AccordionDetails,
   Slider,
-  Input,
 } from '@mui/material';
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -20,13 +19,13 @@ function valuetext(value) {
 
 const minDistance = 10;
 export default function ProductView({ Product, MainTitle }) {
-  const [value1, setValue1] = React.useState([20, 37]);
+  const [value1, setValue1] = React.useState([0,0]);
 
   const handleChange1 = (event, newValue, activeThumb) => {
     if (!Array.isArray(newValue)) {
       return;
     }
-
+    console.log({ activeThumb });
     if (activeThumb === 0) {
       setValue1([Math.min(newValue[0], value1[1] - minDistance), value1[1]]);
     } else {
@@ -34,24 +33,14 @@ export default function ProductView({ Product, MainTitle }) {
     }
   };
 
-  const [value2, setValue2] = React.useState([20, 37]);
-
   const handleChange2 = (event, newValue, activeThumb) => {
-    if (!Array.isArray(newValue)) {
-      return;
-    }
-
-    if (newValue[1] - newValue[0] < minDistance) {
-      if (activeThumb === 0) {
-        const clamped = Math.min(newValue[0], 500 - minDistance);
-        setValue2([clamped, clamped + minDistance]);
-      } else {
-        const clamped = Math.max(newValue[1], minDistance);
-        setValue2([clamped - minDistance, clamped]);
-      }
+ 
+    if (activeThumb == 1) {
+      value1[0] = +newValue;
     } else {
-      setValue2(newValue);
+      value1[1] = +newValue;
     }
+    handleChange1(event, value1, activeThumb);
   };
   return (
     <Box sx={{ width: '90%', margin: 'auto' }}>
@@ -220,37 +209,49 @@ export default function ProductView({ Product, MainTitle }) {
                 <Typography>PRICE</Typography>
               </AccordionSummary>
               <AccordionDetails>
-                <Box >
-                  <Input className='price-filter-input' type='number'></Input>
-                  <Input className='price-filter-input' type='number'></Input>
-                </Box>
-                <Box></Box>
-                <Box>
-                  <Slider
-                    getAriaLabel={() => 'Minimum distance'}
-                    value={value1}
-                    onChange={handleChange1}
-                    valueLabelDisplay='auto'
-                    getAriaValueText={valuetext}
-                    disableSwap
-                    min={2}
-                    step={10}
-                    max={300}
+                <Box className='flex-space-between'>
+                  <input
+                    type='number'
+                    style={{ width: '45%', marginBottom: 15 }}
+                    placeholder='Min'
+                    value={value1[0]}
+                    onChange={(e) => {
+                      handleChange2(e, e.target.value, 0);
+                    }}
+                  />
+                  <input
+                    type='number'
+                    style={{ width: '45%', marginBottom: 15 }}
+                    placeholder='Max'
+                    value={value1[1]}
+                    onChange={(e) => {
+                      handleChange2(e, e.target.value, 1);
+                    }}
                   />
                 </Box>
+
+                <Slider
+                  sx={{ color: '#00523b' }}
+                  getAriaLabel={() => 'Minimum distance'}
+                  value={value1}
+                  onChange={handleChange1}
+                  valueLabelDisplay='auto'
+                  getAriaValueText={valuetext}
+                  disableSwap
+                  min={200}
+                  step={0.5}
+                  max={3000}
+                />
+
                 <Box>
-                  <Typography variant='span'>
-                    <input type='checkbox' />
-                  </Typography>
-                  <Typography variant='span' padding='0 0 0 5px'>
-                    Home Best Seller
-                  </Typography>
+                  <Typography variant='span'>Min</Typography>
+
                   <Typography
                     variant='span'
                     padding='0 0 0 5px'
                     sx={{ float: 'right' }}
                   >
-                    (5)
+                    Max
                   </Typography>
                 </Box>
               </AccordionDetails>
