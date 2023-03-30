@@ -374,3 +374,9 @@ a:hover {
   margin-top: 32px;
   border-radius: 10px;
 }
+
+.price-input input {
+  /* margin: 0px 5px; */
+  border:none !important;
+  padding: none !important;
+}
