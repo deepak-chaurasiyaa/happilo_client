@@ -3,7 +3,7 @@ export const ANOUNCEMENT_TEXT =
 
 export const BRAND_LOGO = `https://cdn.shopify.com/s/files/1/0569/6867/5527/files/logo-happilo_180x.jpg?v=1676963092`;
 
-export const PRODUCTS = [
+export const COLLECIONS = [
   {
     collection_name: 'bars',
     product_title: 'DRY FRUIT BARS',
@@ -69,6 +69,8 @@ export const OTHER_PRODUCTS = [
       'bar',
       'rose',
     ],
+    avilability: 'In Stock',
+    vendor: 'Happilo International Private Limited',
     product_img:
       'https://cdn.shopify.com/s/files/1/0569/6867/5527/products/1v2_bf9e06f6-cd22-4209-a932-310a869534c0_720x.png?v=1632846581',
   },
@@ -81,6 +83,8 @@ export const OTHER_PRODUCTS = [
     sub_collection: ['occasions gift', 'bar', 'rose'],
     prooduct_customer_rating: 4.3,
     short_discription: 'Happilio 100% Natural Premium California Almonds',
+    vendor: 'Happilo International Private Limited',
+    avilability: 'In Stock',
     product_img:
       'https://cdn.shopify.com/s/files/1/0569/6867/5527/products/Front_720x.png?v=1632847785',
   },
@@ -93,6 +97,8 @@ export const OTHER_PRODUCTS = [
     sub_collection: ['corporate gifts', 'dry fruit bar'],
     prooduct_customer_rating: 3.4,
     short_discription: 'Happilio 100% Natural Premium California Almonds',
+    vendor: 'Happilo International Private Limited',
+    avilability: 'In Stock',
     product_img:
       'https://cdn.shopify.com/s/files/1/0569/6867/5527/products/Front_5ce707ac-7eef-4eb5-a97e-78fe2a1f9870_720x.png?v=1632913711',
   },
@@ -104,8 +110,9 @@ export const OTHER_PRODUCTS = [
     sub_collection: ['dry fruit bar', 'occasions gift', 'rose'],
     product_selling_price: '395.00',
     prooduct_customer_rating: 5,
+    avilability: 'Out of Stock',
     short_discription: 'Happilio 100% Natural Premium California Almonds',
-
+    vendor: 'Happilo International Private Limited',
     product_img:
       'https://cdn.shopify.com/s/files/1/0569/6867/5527/products/1v2_31f6f791-8f26-464d-b873-977135c3b410_720x.png?v=1632913885',
   },
@@ -122,7 +129,9 @@ export const OTHER_PRODUCTS = [
       'bar',
       'rose',
     ],
+    vendor: 'Happilo International Private Limited',
     prooduct_customer_rating: 2.1,
+    avilability: 'Out of Stock',
     short_discription: 'Happilio 100% Natural Premium California Almonds',
     product_img:
       'https://cdn.shopify.com/s/files/1/0569/6867/5527/products/1v2_ae80c043-716c-49c4-ad1c-8d92296ef3ee_720x.png?v=1632908409',
@@ -140,6 +149,8 @@ export const OTHER_PRODUCTS = [
       'bar',
       'rose',
     ],
+    avilability: 'In Stock',
+    vendor: 'Happilo International Private Limited',
     prooduct_customer_rating: 3.4,
     short_discription: 'Happilio 100% Natural Premium California Almonds',
     product_img:
@@ -157,10 +168,11 @@ export const OTHER_PRODUCTS = [
       'bar',
       'rose',
     ],
+    avilability: 'In Stock',
     product_selling_price: '395.00',
     prooduct_customer_rating: 5,
     short_discription: 'Happilio 100% Natural Premium California Almonds',
-
+    vendor: 'Happilo International Private Limited',
     product_img:
       'https://cdn.shopify.com/s/files/1/0569/6867/5527/products/1v2_31f6f791-8f26-464d-b873-977135c3b410_720x.png?v=1632913885',
   },
@@ -176,6 +188,8 @@ export const OTHER_PRODUCTS = [
       'bar',
       'rose',
     ],
+    avilability: 'In Stock',
+    vendor: 'Happilo International Private Limited',
     product_selling_price: '175.00',
     prooduct_customer_rating: 2.1,
     short_discription: 'Happilio 100% Natural Premium California Almonds',

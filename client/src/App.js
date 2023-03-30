@@ -11,7 +11,6 @@ import CreateAccount from './components/signUp/SignUp';
 import ForgotPassword from './components/forgotPassword/ForgotPassword';
 
 import { darkTheme, lightTheme } from './shared/theme/Theme';
-import { OTHER_PRODUCTS, PRODUCTS } from './shared/constant';
 import NotFound from './components/notFound/NotFound';
 import ProductDescription from './components/products/ProductDescription';
 import SubFooter from './components/footer/SubFooter';
@@ -21,7 +20,8 @@ import ProductCollections from './components/productsCollections/ProductCollecti
 function App() {
   const { darkMode } = useSelector((state) => state.theme);
   const { cart } = useSelector((state) => state.cart);
-
+  const { products, collections } = useSelector((state) => state.products);
+  console.table(products);
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <CssBaseline />
@@ -34,17 +34,17 @@ function App() {
               <Header />
               <CarouselSection />
               <NewLaunchProduct
-                Product={PRODUCTS}
+                Product={collections}
                 ShowBanner={false}
                 MainTitle={'NEW LAUNCHES'}
               />
               <OtherProduct
-                Product={OTHER_PRODUCTS}
+                Product={products}
                 ShowBanner={true}
                 MainTitle={'OUR RANGE'}
               />
               <OtherProduct
-                Product={OTHER_PRODUCTS}
+                Product={products}
                 ShowBanner={false}
                 MainTitle={'COMBOS'}
               />

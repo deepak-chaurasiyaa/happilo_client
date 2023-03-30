@@ -16,7 +16,7 @@ import { Link } from 'react-router-dom';
 import ProductCollectionCard from './ProductCollectionCard';
 
 export default function ProductView({ Product, MainTitle }) {
-  const [range, setRange] = useState([0, 100]);
+  const [range, setRange] = useState([0, 600]);
 
   const handleSliderChange = (event, newValue) => {
     setRange(newValue);
@@ -209,25 +209,31 @@ export default function ProductView({ Product, MainTitle }) {
                 <Typography>PRICE</Typography>
               </AccordionSummary>
               <AccordionDetails>
-              <Box className='flex-space-between'>
-                 
+                <Box className='flex-space-between'>
                   <Input
                     value={range[0]}
                     margin='dense'
-                    sx={{width:'45%',border:'1px solid black',marginBottom:'10px'}}
+                    sx={{
+                      width: '45%',
+                      marginBottom: '10px',
+                    }}
                     onChange={(event) => handleInputChange(event, 0)}
                     onBlur={(event) => handleBlur(event, 0)}
-                    inputProps={{
-                      step: 1,
-                      min: 0,
-                      max: 100,
-                      type: 'number',
-                    }}
+                    // inputProps={{
+                    //   step: 1,
+                    //   min: 0,
+                    //   max: 100,
+                    //   type: 'number',
+                    // }}
                   />
                   <Input
                     value={range[1]}
                     margin='dense'
-                    sx={{width:'45%',border:'1px solid black',marginBottom:'10px'}}
+                    sx={{
+                      width: '45%',
+                      
+                      marginBottom: '10px',
+                    }}
                     onChange={(event) => handleInputChange(event, 1)}
                     onBlur={(event) => handleBlur(event, 1)}
                     inputProps={{
@@ -239,14 +245,14 @@ export default function ProductView({ Product, MainTitle }) {
                   />
                 </Box>
                 <Slider
-                    value={range}
-                    onChange={handleSliderChange}
-                    min={30}
-                    step={0.1}
-                    max={4000}
-                    valueLabelDisplay='auto'
-                    
-                  />
+                  sx={{ color: '#3e8e41' }}
+                  value={range}
+                  onChange={handleSliderChange}
+                  min={30}
+                  step={0.1}
+                  max={4000}
+                  valueLabelDisplay='auto'
+                />
                 <Box>
                   <Typography variant='span'>Min</Typography>
 
