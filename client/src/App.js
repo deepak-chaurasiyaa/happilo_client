@@ -21,7 +21,7 @@ function App() {
   const { darkMode } = useSelector((state) => state.theme);
   const { cart } = useSelector((state) => state.cart);
   const { products, collections } = useSelector((state) => state.products);
-  console.table(products);
+
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <CssBaseline />

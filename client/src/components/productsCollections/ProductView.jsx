@@ -6,6 +6,7 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
+  debounce,
 } from '@mui/material';
 import { useState } from 'react';
 import Slider from '@mui/material/Slider';
@@ -14,12 +15,23 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Link } from 'react-router-dom';
 
 import ProductCollectionCard from './ProductCollectionCard';
+import { minMaxValueOfKeyFromArrayOfObject } from '../../shared/common';
 
 export default function ProductView({ Product, MainTitle }) {
-  const [range, setRange] = useState([0, 600]);
+  const price = minMaxValueOfKeyFromArrayOfObject(
+    'product_selling_price',
+    Product
+  );
 
+  const [range, setRange] = useState([price.min, price.max]);
+
+  let Hello = (data) => {
+    console.log('data from hello', data);
+  };
   const handleSliderChange = (event, newValue) => {
     setRange(newValue);
+
+     debounce(() => Hello(Product));
   };
 
   const handleInputChange = (event, inputIndex) => {
@@ -28,7 +40,6 @@ export default function ProductView({ Product, MainTitle }) {
     newRange[inputIndex] = value;
     setRange(newRange);
   };
-
   const handleBlur = (event, inputIndex) => {
     const value = Number(event.target.value);
     if (value < 0) {
@@ -231,7 +242,7 @@ export default function ProductView({ Product, MainTitle }) {
                     margin='dense'
                     sx={{
                       width: '45%',
-                      
+
                       marginBottom: '10px',
                     }}
                     onChange={(event) => handleInputChange(event, 1)}
@@ -248,20 +259,20 @@ export default function ProductView({ Product, MainTitle }) {
                   sx={{ color: '#3e8e41' }}
                   value={range}
                   onChange={handleSliderChange}
-                  min={30}
+                  min={price.min}
                   step={0.1}
-                  max={4000}
+                  max={price.max}
                   valueLabelDisplay='auto'
                 />
                 <Box>
-                  <Typography variant='span'>Min</Typography>
+                  <Typography variant='span'>{price.min}</Typography>
 
                   <Typography
                     variant='span'
                     padding='0 0 0 5px'
                     sx={{ float: 'right' }}
                   >
-                    Max
+                    {price.max}
                   </Typography>
                 </Box>
               </AccordionDetails>
