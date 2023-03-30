@@ -44,7 +44,7 @@ function MidHeader() {
               </Link>
             </Box>
             <Box>
-              <Link to='' style={{ display: 'flex' }}>
+              <Link to='/cart' style={{ display: 'flex' }}>
                 <Typography>Cart</Typography>
                 <ShoppingBag />
               </Link>

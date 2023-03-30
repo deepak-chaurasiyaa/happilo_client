@@ -8,8 +8,8 @@ import OtherProduct from './components/products/OtherProduct';
 import NewLaunchProduct from './components/products/Product';
 import Login from './components/login/Login';
 import CreateAccount from './components/signUp/SignUp';
+import CartPage from './components/cart/Cart';
 import ForgotPassword from './components/forgotPassword/ForgotPassword';
-
 import { darkTheme, lightTheme } from './shared/theme/Theme';
 import { OTHER_PRODUCTS, PRODUCTS } from './shared/constant';
 import NotFound from './components/notFound/NotFound';
@@ -55,6 +55,7 @@ function App() {
         />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<CreateAccount />} />
+        <Route path='/cart' element={<CartPage />} />
         <Route path='/product/:product_id' element={<ProductDescription />} />
         <Route path='/reset-password' element={<ForgotPassword />} />
         <Route path='/collections/:category' element={<ProductCollections />} />
