@@ -20,6 +20,7 @@ import ProductCollections from './components/productsCollections/ProductCollecti
 
 function App() {
   const { darkMode } = useSelector((state) => state.theme);
+  const { cart } = useSelector((state) => state.cart);
 
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
