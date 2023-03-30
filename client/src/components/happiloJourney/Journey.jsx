@@ -51,7 +51,6 @@ const JourneyPage = () => {
                 width: 80,
                 height: 79,
                 position: 'relative',
-
                 bottom: '24rem',
                 left: '15rem',
               }}
@@ -64,7 +63,6 @@ const JourneyPage = () => {
                 width: 80,
                 height: 83,
                 position: 'relative',
-
                 bottom: '22rem',
                 left: '26rem',
               }}
@@ -77,7 +75,6 @@ const JourneyPage = () => {
                 width: 80,
                 height: 79,
                 position: 'relative',
-
                 bottom: '2rem',
                 left: '25rem',
               }}
@@ -90,7 +87,6 @@ const JourneyPage = () => {
                 width: 80,
                 height: 79,
                 position: 'relative',
-
                 bottom: '-2rem',
                 left: '15rem',
               }}
@@ -103,7 +99,6 @@ const JourneyPage = () => {
                 width: 80,
                 height: 79,
                 position: 'relative',
-
                 bottom: '-2rem',
                 left: '-16rem',
               }}
