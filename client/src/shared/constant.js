@@ -61,6 +61,14 @@ export const OTHER_PRODUCTS = [
     prooduct_customer_rating: 4.2,
     product_selling_price: '275.00',
     short_discription: 'Happilio 100% Natural Premium California Almonds',
+    parent_collection: 'bars',
+    sub_collection: [
+      'corporate gifts',
+      'dry fruit bar',
+      'occasions gift',
+      'bar',
+      'rose',
+    ],
     product_img:
       'https://cdn.shopify.com/s/files/1/0569/6867/5527/products/1v2_bf9e06f6-cd22-4209-a932-310a869534c0_720x.png?v=1632846581',
   },
@@ -69,6 +77,8 @@ export const OTHER_PRODUCTS = [
     product_label: 'Best Seller',
     product_title: 'ADD TO CART',
     product_selling_price: '335.00',
+    parent_collection: 'bars',
+    sub_collection: ['occasions gift', 'bar', 'rose'],
     prooduct_customer_rating: 4.3,
     short_discription: 'Happilio 100% Natural Premium California Almonds',
     product_img:
@@ -79,6 +89,8 @@ export const OTHER_PRODUCTS = [
     product_label: 'Popular',
     product_title: 'ADD TO CART',
     product_selling_price: '395.00',
+    parent_collection: 'bars',
+    sub_collection: ['corporate gifts', 'dry fruit bar'],
     prooduct_customer_rating: 3.4,
     short_discription: 'Happilio 100% Natural Premium California Almonds',
     product_img:
@@ -88,6 +100,8 @@ export const OTHER_PRODUCTS = [
     product_id: 4,
     product_label: 'Must Try',
     product_title: 'ADD TO CART',
+    parent_collection: 'bars',
+    sub_collection: ['dry fruit bar', 'occasions gift', 'rose'],
     product_selling_price: '395.00',
     prooduct_customer_rating: 5,
     short_discription: 'Happilio 100% Natural Premium California Almonds',
@@ -100,6 +114,14 @@ export const OTHER_PRODUCTS = [
     product_label: 'Trending',
     product_title: 'ADD TO CART',
     product_selling_price: '175.00',
+    parent_collection: 'bars',
+    sub_collection: [
+      'corporate gifts',
+      'dry fruit bar',
+      'occasions gift',
+      'bar',
+      'rose',
+    ],
     prooduct_customer_rating: 2.1,
     short_discription: 'Happilio 100% Natural Premium California Almonds',
     product_img:
@@ -110,6 +132,14 @@ export const OTHER_PRODUCTS = [
     product_label: 'Popular',
     product_title: 'ADD TO CART',
     product_selling_price: '395.00',
+    parent_collection: 'bars',
+    sub_collection: [
+      'corporate gifts',
+      'dry fruit bar',
+      'occasions gift',
+      'bar',
+      'rose',
+    ],
     prooduct_customer_rating: 3.4,
     short_discription: 'Happilio 100% Natural Premium California Almonds',
     product_img:
@@ -119,6 +149,14 @@ export const OTHER_PRODUCTS = [
     product_id: 4,
     product_label: 'Must Try',
     product_title: 'ADD TO CART',
+    parent_collection: 'chocolate_spreads',
+    sub_collection: [
+      'corporate gifts',
+      'dry fruit bar',
+      'occasions gift',
+      'bar',
+      'rose',
+    ],
     product_selling_price: '395.00',
     prooduct_customer_rating: 5,
     short_discription: 'Happilio 100% Natural Premium California Almonds',
@@ -130,6 +168,14 @@ export const OTHER_PRODUCTS = [
     product_id: 5,
     product_label: 'Trending',
     product_title: 'ADD TO CART',
+    parent_collection: 'peanut_butter',
+    sub_collection: [
+      'corporate gifts',
+      'dry fruit bar',
+      'occasions gift',
+      'bar',
+      'rose',
+    ],
     product_selling_price: '175.00',
     prooduct_customer_rating: 2.1,
     short_discription: 'Happilio 100% Natural Premium California Almonds',
@@ -219,7 +265,8 @@ export const FOOTER_TEXT = {
 };
 
 export const JOURNEY_TEXT = {
-  JOURNEY_MESSAGE:'Happilo is a health food brand founded in the year 2016, headquartered in Bengaluru. Happilo bring to you an exclusive range of Nuts, dried fruits, seeds, Dry Roasted snacks, trial mixes, festive gift hampers and more. With a wide variety products that cater to every taste and age group, our best sellers have found their way into the homes and hearts of many households. The product innovations over the years and production volumes were made possible with our automated manufacturing unit at yeshwantpur – Bengaluru. Gourmet brand Happilo is available across all leading Modern Retail and General Trades. and is also one of the most popular FMCG brands searched for on e-commerce sites.'
+  JOURNEY_MESSAGE:
+    'Happilo is a health food brand founded in the year 2016, headquartered in Bengaluru. Happilo bring to you an exclusive range of Nuts, dried fruits, seeds, Dry Roasted snacks, trial mixes, festive gift hampers and more. With a wide variety products that cater to every taste and age group, our best sellers have found their way into the homes and hearts of many households. The product innovations over the years and production volumes were made possible with our automated manufacturing unit at yeshwantpur – Bengaluru. Gourmet brand Happilo is available across all leading Modern Retail and General Trades. and is also one of the most popular FMCG brands searched for on e-commerce sites.',
 };
 
 export const availableSizes = [

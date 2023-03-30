@@ -6,42 +6,42 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
-  Slider,
 } from '@mui/material';
-
+import { useState } from 'react';
+import Slider from '@mui/material/Slider';
+import Input from '@mui/material/Input';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Link } from 'react-router-dom';
 
 import ProductCollectionCard from './ProductCollectionCard';
-function valuetext(value) {
-  return `${1990}°C`;
-}
 
-const minDistance = 10;
 export default function ProductView({ Product, MainTitle }) {
-  const [value1, setValue1] = React.useState([0,0]);
+  const [range, setRange] = useState([0, 100]);
 
-  const handleChange1 = (event, newValue, activeThumb) => {
-    if (!Array.isArray(newValue)) {
-      return;
-    }
-    console.log({ activeThumb });
-    if (activeThumb === 0) {
-      setValue1([Math.min(newValue[0], value1[1] - minDistance), value1[1]]);
+  const handleSliderChange = (event, newValue) => {
+    setRange(newValue);
+  };
+
+  const handleInputChange = (event, inputIndex) => {
+    const value = Number(event.target.value);
+    const newRange = [...range];
+    newRange[inputIndex] = value;
+    setRange(newRange);
+  };
+
+  const handleBlur = (event, inputIndex) => {
+    const value = Number(event.target.value);
+    if (value < 0) {
+      setRange([0, range[1]]);
+    } else if (value > 100) {
+      setRange([range[0], 100]);
     } else {
-      setValue1([value1[0], Math.max(newValue[1], value1[0] + minDistance)]);
+      const newRange = [...range];
+      newRange[inputIndex] = value;
+      setRange(newRange);
     }
   };
 
-  const handleChange2 = (event, newValue, activeThumb) => {
- 
-    if (activeThumb == 1) {
-      value1[0] = +newValue;
-    } else {
-      value1[1] = +newValue;
-    }
-    handleChange1(event, value1, activeThumb);
-  };
   return (
     <Box sx={{ width: '90%', margin: 'auto' }}>
       <Box sx={{ flexGrow: 1 }}>
@@ -209,40 +209,44 @@ export default function ProductView({ Product, MainTitle }) {
                 <Typography>PRICE</Typography>
               </AccordionSummary>
               <AccordionDetails>
-                <Box className='flex-space-between'>
-                  <input
-                    type='number'
-                    style={{ width: '45%', marginBottom: 15 }}
-                    placeholder='Min'
-                    value={value1[0]}
-                    onChange={(e) => {
-                      handleChange2(e, e.target.value, 0);
+              <Box className='flex-space-between'>
+                 
+                  <Input
+                    value={range[0]}
+                    margin='dense'
+                    sx={{width:'45%',border:'1px solid black',marginBottom:'10px'}}
+                    onChange={(event) => handleInputChange(event, 0)}
+                    onBlur={(event) => handleBlur(event, 0)}
+                    inputProps={{
+                      step: 1,
+                      min: 0,
+                      max: 100,
+                      type: 'number',
                     }}
                   />
-                  <input
-                    type='number'
-                    style={{ width: '45%', marginBottom: 15 }}
-                    placeholder='Max'
-                    value={value1[1]}
-                    onChange={(e) => {
-                      handleChange2(e, e.target.value, 1);
+                  <Input
+                    value={range[1]}
+                    margin='dense'
+                    sx={{width:'45%',border:'1px solid black',marginBottom:'10px'}}
+                    onChange={(event) => handleInputChange(event, 1)}
+                    onBlur={(event) => handleBlur(event, 1)}
+                    inputProps={{
+                      step: 1,
+                      min: 0,
+                      max: 100,
+                      type: 'number',
                     }}
                   />
                 </Box>
-
                 <Slider
-                  sx={{ color: '#00523b' }}
-                  getAriaLabel={() => 'Minimum distance'}
-                  value={value1}
-                  onChange={handleChange1}
-                  valueLabelDisplay='auto'
-                  getAriaValueText={valuetext}
-                  disableSwap
-                  min={200}
-                  step={0.5}
-                  max={3000}
-                />
-
+                    value={range}
+                    onChange={handleSliderChange}
+                    min={30}
+                    step={0.1}
+                    max={4000}
+                    valueLabelDisplay='auto'
+                    
+                  />
                 <Box>
                   <Typography variant='span'>Min</Typography>
 
