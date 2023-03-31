@@ -6,9 +6,10 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
+  Input,
+  Slider,
 } from '@mui/material';
 import { useState } from 'react';
-import { Input, Slider } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Link } from 'react-router-dom';
 import ProductCollectionCard from './ProductCollectionCard';
@@ -22,27 +23,19 @@ import {
 import CircularLoader from '../common/Loader';
 
 export default function ProductView({ Product, MainTitle }) {
+  const [timerId, setTimerId] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [productDetails, setproductDetails] = useState([...Product]);
-
   const price = minMaxValueOfKeyFromArrayOfObject(
     'product_selling_price',
     productDetails
   );
-  const uniqueSubCollectionsWithCounts = getUniqueSubCollections(
-    'parent_collection',
-    productDetails
-  );
-  const uniqueAvailableQuantity = getUniqueAvailableQuantity(productDetails);
-  console.log({ uniqueAvailableQuantity });
-  const subCollectionsArray = Object.entries(
-    uniqueSubCollectionsWithCounts
-  ).map(([subCollection, count]) => ({ subCollection, count }));
+  const [range, setRange] = useState([price.min, price.max]);
 
   const vendorList = getUniqueVendors(Product);
   const avilabilityList = getUniqueAvilability(Product);
-  const [range, setRange] = useState([price.min, price.max]);
-  const [timerId, setTimerId] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const subCollectionsArray = getUniqueSubCollections(productDetails);
+  const uniqueAvailableQuantity = getUniqueAvailableQuantity(productDetails);
 
   let filterProductByPrice = (data) => {
     const [min, max] = data;

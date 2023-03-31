@@ -11,7 +11,7 @@ export const minMaxValueOfKeyFromArrayOfObject = (key, arrayOfObject) => {
   return { min, max };
 };
 
-export const getUniqueSubCollections = (key, products) => {
+export const getUniqueSubCollections = (products) => {
   const subCollections = {};
   products
     .filter((product) => product.parent_collection === 'bars')
@@ -24,7 +24,10 @@ export const getUniqueSubCollections = (key, products) => {
         }
       });
     });
-  return subCollections;
+  return Object.entries(subCollections).map(([subCollection, count]) => ({
+    subCollection,
+    count,
+  }));
 };
 
 export const getUniqueAvailableQuantity = (products) => {
