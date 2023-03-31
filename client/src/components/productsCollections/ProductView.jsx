@@ -308,7 +308,9 @@ export default function ProductView({ Product, MainTitle }) {
           </Typography>
         )}
         {loading ? (
-          <CircularLoader />
+          <>
+            <CircularLoader />
+          </>
         ) : (
           <Box className='col-size-four'>
             {productDetails &&
