@@ -1,6 +1,6 @@
 # Happilo Clone
 
-This is a clone of Happilo, a popular e-commerce platform. The project is built using the MERN stack (MongoDB, Express, React, and Node.js) along with Redux Toolkit, PostgreSQL, and Git for version control. The project allows users to browse and purchase products, and also includes features such as authentication and cart management.
+This is a clone of Happilo, a popular e-commerce platform. The project is built using the MERN stack (React, and Node.js, Material UI) along with Redux Toolkit, PostgreSQL, and Git for version control. The project allows users to browse and purchase products, and also includes features such as authentication and cart management.
 
 ## Prerequisites
 
@@ -54,6 +54,7 @@ The server should be running on `http://localhost:3005` and the client on `http:
 
 - Node.js
 - React
+- Material UI
 - Redux Toolkit
 - PostgreSQL
 - JavaScript
@@ -63,10 +64,6 @@ The server should be running on `http://localhost:3005` and the client on `http:
 ## Contributing
 
 Contributions are always welcome! If you'd like to contribute, please fork the repository and create a pull request.
-
-## License
-
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
 
 
 
