@@ -375,3 +375,8 @@ a:hover {
   border-radius: 10px;
 }
 
+.filter-key-text {
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide text that exceeds the element's width */
+  text-overflow: ellipsis; /* Replace hidden text with an ellipsis */
+}

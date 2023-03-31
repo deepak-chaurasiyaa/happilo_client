@@ -77,3 +77,6 @@ export const getUniqueAvilability = (products) => {
   );
   return avilabilityArray;
 };
+
+export const isEmptyArray = (data) => Array.isArray(data) && data.length === 0;
+export const notIsEmptyArray = (data) => Array.isArray(data) && data.length > 0;
