@@ -6,50 +6,75 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
-  debounce,
 } from '@mui/material';
 import { useState } from 'react';
-import Slider from '@mui/material/Slider';
-import Input from '@mui/material/Input';
+import { Input, CircularProgress, Slider } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Link } from 'react-router-dom';
-
 import ProductCollectionCard from './ProductCollectionCard';
 import { minMaxValueOfKeyFromArrayOfObject } from '../../shared/common';
+import CircularLoader from '../common/Loader';
 
 export default function ProductView({ Product, MainTitle }) {
+  const [productCollection, setProductCollection] = useState([...Product]);
+
   const price = minMaxValueOfKeyFromArrayOfObject(
     'product_selling_price',
-    Product
+    productCollection
   );
-
   const [range, setRange] = useState([price.min, price.max]);
+  const [timerId, setTimerId] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  let Hello = (data) => {
-    console.log('data from hello', data);
+  let filterProductByPrice = (data) => {
+    const [min, max] = data;
+    setLoading(true);
+    const product = Product.filter((product) => {
+      return (
+        product.product_selling_price >= min &&
+        product.product_selling_price <= max
+      );
+    });
+    setProductCollection(product);
+    setLoading(false);
   };
+
   const handleSliderChange = (event, newValue) => {
     setRange(newValue);
-
-     debounce(() => Hello(Product));
   };
 
+  const handleSliderChangeCommitted = (event, newValue) => {
+    if (timerId) {
+      clearTimeout(timerId);
+    }
+    setLoading(true);
+    setTimerId(
+      setTimeout(() => {
+        filterProductByPrice(newValue);
+        setLoading(false);
+      }, 1000)
+    );
+  };
   const handleInputChange = (event, inputIndex) => {
     const value = Number(event.target.value);
     const newRange = [...range];
     newRange[inputIndex] = value;
     setRange(newRange);
+    setLoading(true);
+    filterProductByPrice(newRange);
+    setLoading(false);
   };
   const handleBlur = (event, inputIndex) => {
     const value = Number(event.target.value);
     if (value < 0) {
-      setRange([0, range[1]]);
-    } else if (value > 100) {
-      setRange([range[0], 100]);
+      setRange(['', range[1]]);
     } else {
       const newRange = [...range];
       newRange[inputIndex] = value;
       setRange(newRange);
+      setLoading(true);
+      filterProductByPrice(newRange);
+      setLoading(false);
     }
   };
 
@@ -66,6 +91,7 @@ export default function ProductView({ Product, MainTitle }) {
           <Box></Box>
         </Toolbar>
       </Box>
+
       <Box className='product-collection-product-view'>
         <Box className='thiner-box-shadow padding-top-none'>
           <div>
@@ -247,32 +273,28 @@ export default function ProductView({ Product, MainTitle }) {
                     }}
                     onChange={(event) => handleInputChange(event, 1)}
                     onBlur={(event) => handleBlur(event, 1)}
-                    inputProps={{
-                      step: 1,
-                      min: 0,
-                      max: 100,
-                      type: 'number',
-                    }}
+                    type='number'
                   />
                 </Box>
                 <Slider
                   sx={{ color: '#3e8e41' }}
                   value={range}
                   onChange={handleSliderChange}
-                  min={price.min}
+                  min={100}
                   step={0.1}
-                  max={price.max}
+                  max={10000}
                   valueLabelDisplay='auto'
+                  onChangeCommitted={handleSliderChangeCommitted}
                 />
                 <Box>
-                  <Typography variant='span'>{price.min}</Typography>
+                  <Typography variant='span'>{100}</Typography>
 
                   <Typography
                     variant='span'
                     padding='0 0 0 5px'
                     sx={{ float: 'right' }}
                   >
-                    {price.max}
+                    {10000}
                   </Typography>
                 </Box>
               </AccordionDetails>
@@ -492,19 +514,31 @@ export default function ProductView({ Product, MainTitle }) {
             </Accordion>
           </div>
         </Box>
-        <Box className='col-size-four'>
-          {Product &&
-            Product.map((product) => {
-              return (
-                <Link
-                  to={`/product/${product.product_id}`}
-                  className='underline-none card-container-padding-size-four'
-                >
-                  <ProductCollectionCard product={product} />
-                </Link>
-              );
-            })}
-        </Box>
+        {!loading && productCollection && productCollection.length == 0 && (
+          <Typography
+            variant='h2'
+            sx={{ textAlign: 'center', padding: '15rem 0' }}
+          >
+            No Product Found ...
+          </Typography>
+        )}
+        {loading ? (
+          <CircularLoader />
+        ) : (
+          <Box className='col-size-four'>
+            {productCollection &&
+              productCollection.map((product) => {
+                return (
+                  <Link
+                    to={`/product/${product.product_id}`}
+                    className='underline-none card-container-padding-size-four'
+                  >
+                    <ProductCollectionCard product={product} />
+                  </Link>
+                );
+              })}
+          </Box>
+        )}
       </Box>
     </Box>
   );

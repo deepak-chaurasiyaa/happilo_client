@@ -11,10 +11,14 @@ export const minMaxValueOfKeyFromArrayOfObject = (key, arrayOfObject) => {
   return { min, max };
 };
 
-function debounce(func, timeout = 300){
-  let timer;
-  return (...args) => {
-    clearTimeout(timer);
-    timer = setTimeout(() => { func.apply(this, args); }, timeout);
-  };
+export function debounce(func, delay) {
+  let timerId;
+  return function() {
+    const context = this;
+    const args = arguments;
+    clearTimeout(timerId);
+    timerId = setTimeout(() => {
+      func.apply(context, args);
+    }, delay);
+  }
 }

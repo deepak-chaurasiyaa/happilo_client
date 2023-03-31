@@ -6,7 +6,7 @@ import Header from '../header/Header';
 import SubFooter from '../footer/SubFooter';
 import { Validate } from '../../shared/validators';
 import { Link } from 'react-router-dom';
-import { InputField } from '../commonInput/CommonInput';
+import { InputField } from '../common/CommonInput';
 
 export default function ForgotPassword() {
   const validateForgotPassword = Yup.object().shape({
