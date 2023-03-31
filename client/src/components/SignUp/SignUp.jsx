@@ -5,7 +5,7 @@ import { Button, Box, Typography } from '@mui/material';
 import Header from '../header/Header';
 import SubFooter from '../footer/SubFooter';
 import { Validate } from '../../shared/validators';
-import { InputField } from '../commonInput/CommonInput';
+import { InputField } from '../common/CommonInput';
 
 export default function CreateAccount() {
   const validateCreateAccount = Yup.object().shape({

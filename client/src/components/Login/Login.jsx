@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { Button, Box, Typography } from '@mui/material';
 
 import Header from '../header/Header';
-import { InputField } from '../commonInput/CommonInput';
+import { InputField } from '../common/CommonInput';
 import { Validate } from '../../shared/validators';
 import SubFooter from '../footer/SubFooter';
 
