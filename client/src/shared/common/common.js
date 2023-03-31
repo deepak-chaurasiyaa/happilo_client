@@ -11,14 +11,66 @@ export const minMaxValueOfKeyFromArrayOfObject = (key, arrayOfObject) => {
   return { min, max };
 };
 
-export function debounce(func, delay) {
-  let timerId;
-  return function() {
-    const context = this;
-    const args = arguments;
-    clearTimeout(timerId);
-    timerId = setTimeout(() => {
-      func.apply(context, args);
-    }, delay);
-  }
-}
+export const getUniqueSubCollections = (key, products) => {
+  const subCollections = {};
+  products
+    .filter((product) => product.parent_collection === 'bars')
+    .forEach((product) => {
+      product.sub_collection.forEach((subCollection) => {
+        if (subCollection in subCollections) {
+          subCollections[subCollection]++;
+        } else {
+          subCollections[subCollection] = 1;
+        }
+      });
+    });
+  return subCollections;
+};
+
+export const getUniqueAvailableQuantity = (products) => {
+  const available_quantities = {};
+  products
+    .filter((product) => product.parent_collection === 'bars')
+    .forEach((product) => {
+      product.available_quantity.forEach((available_quantity) => {
+        if (available_quantity in available_quantities) {
+          available_quantities[available_quantity]++;
+        } else {
+          available_quantities[available_quantity] = 1;
+        }
+      });
+    });
+
+  return Object.entries(available_quantities).map(([avilability, count]) => ({
+    avilability,
+    count,
+  }));
+};
+
+export const getUniqueVendors = (products) => {
+  const vendorCounts = products.reduce((counts, product) => {
+    const { vendor } = product;
+    counts[vendor] = (counts[vendor] || 0) + 1;
+    return counts;
+  }, {});
+  const vendorArray = Object.keys(vendorCounts).map((vendor) => ({
+    vendor,
+    count: vendorCounts[vendor],
+  }));
+  return vendorArray;
+};
+
+export const getUniqueAvilability = (products) => {
+  const avilabilityCounts = products.reduce((counts, product) => {
+    const { avilability } = product;
+    counts[avilability] = (counts[avilability] || 0) + 1;
+    return counts;
+  }, {});
+  const avilabilityArray = Object.keys(avilabilityCounts).map(
+    (avilability) => ({
+      avilability,
+      count: avilabilityCounts[avilability],
+    })
+  );
+  return avilabilityArray;
+};

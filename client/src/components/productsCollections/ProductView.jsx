@@ -8,20 +8,38 @@ import {
   AccordionDetails,
 } from '@mui/material';
 import { useState } from 'react';
-import { Input, CircularProgress, Slider } from '@mui/material';
+import { Input, Slider } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Link } from 'react-router-dom';
 import ProductCollectionCard from './ProductCollectionCard';
-import { minMaxValueOfKeyFromArrayOfObject } from '../../shared/common';
+import {
+  getUniqueAvailableQuantity,
+  getUniqueAvilability,
+  getUniqueSubCollections,
+  getUniqueVendors,
+  minMaxValueOfKeyFromArrayOfObject,
+} from '../../shared/common';
 import CircularLoader from '../common/Loader';
 
 export default function ProductView({ Product, MainTitle }) {
-  const [productCollection, setProductCollection] = useState([...Product]);
+  const [productDetails, setproductDetails] = useState([...Product]);
 
   const price = minMaxValueOfKeyFromArrayOfObject(
     'product_selling_price',
-    productCollection
+    productDetails
   );
+  const uniqueSubCollectionsWithCounts = getUniqueSubCollections(
+    'parent_collection',
+    productDetails
+  );
+  const uniqueAvailableQuantity = getUniqueAvailableQuantity(productDetails);
+  console.log({ uniqueAvailableQuantity });
+  const subCollectionsArray = Object.entries(
+    uniqueSubCollectionsWithCounts
+  ).map(([subCollection, count]) => ({ subCollection, count }));
+
+  const vendorList = getUniqueVendors(Product);
+  const avilabilityList = getUniqueAvilability(Product);
   const [range, setRange] = useState([price.min, price.max]);
   const [timerId, setTimerId] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -35,7 +53,7 @@ export default function ProductView({ Product, MainTitle }) {
         product.product_selling_price <= max
       );
     });
-    setProductCollection(product);
+    setproductDetails(product);
     setLoading(false);
   };
 
@@ -56,15 +74,17 @@ export default function ProductView({ Product, MainTitle }) {
     );
   };
   const handleInputChange = (event, inputIndex) => {
+    setLoading(true);
     const value = Number(event.target.value);
     const newRange = [...range];
     newRange[inputIndex] = value;
     setRange(newRange);
-    setLoading(true);
+
     filterProductByPrice(newRange);
     setLoading(false);
   };
   const handleBlur = (event, inputIndex) => {
+    setLoading(true);
     const value = Number(event.target.value);
     if (value < 0) {
       setRange(['', range[1]]);
@@ -72,7 +92,6 @@ export default function ProductView({ Product, MainTitle }) {
       const newRange = [...range];
       newRange[inputIndex] = value;
       setRange(newRange);
-      setLoading(true);
       filterProductByPrice(newRange);
       setLoading(false);
     }
@@ -104,66 +123,27 @@ export default function ProductView({ Product, MainTitle }) {
                 <Typography>COLLECTION</Typography>
               </AccordionSummary>
               <AccordionDetails>
-                <Box>
-                  <Typography variant='span'>
-                    <input type='checkbox' />
-                  </Typography>
-                  <Typography variant='span' padding='0 0 0 5px'>
-                    Home Best Seller
-                  </Typography>
-                  <Typography
-                    variant='span'
-                    padding='0 0 0 5px'
-                    sx={{ float: 'right' }}
-                  >
-                    (5)
-                  </Typography>
-                </Box>
-                <Box>
-                  <Typography variant='span'>
-                    <input type='checkbox' />
-                  </Typography>
-                  <Typography variant='span' padding='0 0 0 5px'>
-                    Home Best Seller
-                  </Typography>
-                  <Typography
-                    variant='span'
-                    padding='0 0 0 5px'
-                    sx={{ float: 'right' }}
-                  >
-                    (5)
-                  </Typography>
-                </Box>
-                <Box>
-                  <Typography variant='span'>
-                    <input type='checkbox' />
-                  </Typography>
-                  <Typography variant='span' padding='0 0 0 5px'>
-                    Home Best Seller
-                  </Typography>
-                  <Typography
-                    variant='span'
-                    padding='0 0 0 5px'
-                    sx={{ float: 'right' }}
-                  >
-                    (5)
-                  </Typography>
-                </Box>
-                <Box>
-                  <Typography variant='span'>
-                    <input type='checkbox' />
-                  </Typography>
-                  <Typography variant='span' padding='0 0 0 5px'>
-                    Home Best Seller
-                  </Typography>
-                  <Typography
-                    variant='span'
-                    padding='0 0 0 5px'
-                    sx={{ float: 'right' }}
-                  >
-                    (5)
-                  </Typography>
-                </Box>
+                {subCollectionsArray &&
+                  subCollectionsArray.length > 0 &&
+                  subCollectionsArray.map(({ subCollection, count }) => {
+                    return (
+                      <Box>
+                        <Typography variant='span'>
+                          <input type='checkbox' />
+                        </Typography>
+                        <Typography variant='span' padding='0 0 0 5px'>
+                          {subCollection}
+                        </Typography>
+                        <Typography
+                          variant='span'
+                          padding='0 0 0 5px'
+                          sx={{ float: 'right' }}
+                        >
+                          ({count})
+                        </Typography>
+                      </Box>
+                    );
+                  })}
               </AccordionDetails>
             </Accordion>
             <Accordion defaultExpanded>
@@ -175,66 +155,27 @@ export default function ProductView({ Product, MainTitle }) {
                 <Typography>VENDOR</Typography>
               </AccordionSummary>
               <AccordionDetails>
-                <Box>
-                  <Typography variant='span'>
-                    <input type='checkbox' />
-                  </Typography>
-                  <Typography variant='span' padding='0 0 0 5px'>
-                    Home Best Seller
-                  </Typography>
-                  <Typography
-                    variant='span'
-                    padding='0 0 0 5px'
-                    sx={{ float: 'right' }}
-                  >
-                    (5)
-                  </Typography>
-                </Box>
-                <Box>
-                  <Typography variant='span'>
-                    <input type='checkbox' />
-                  </Typography>
-                  <Typography variant='span' padding='0 0 0 5px'>
-                    Home Best Seller
-                  </Typography>
-                  <Typography
-                    variant='span'
-                    padding='0 0 0 5px'
-                    sx={{ float: 'right' }}
-                  >
-                    (5)
-                  </Typography>
-                </Box>
-                <Box>
-                  <Typography variant='span'>
-                    <input type='checkbox' />
-                  </Typography>
-                  <Typography variant='span' padding='0 0 0 5px'>
-                    Home Best Seller
-                  </Typography>
-                  <Typography
-                    variant='span'
-                    padding='0 0 0 5px'
-                    sx={{ float: 'right' }}
-                  >
-                    (5)
-                  </Typography>
-                </Box>
-                <Box>
-                  <Typography variant='span'>
-                    <input type='checkbox' />
-                  </Typography>
-                  <Typography variant='span' padding='0 0 0 5px'>
-                    Home Best Seller
-                  </Typography>
-                  <Typography
-                    variant='span'
-                    padding='0 0 0 5px'
-                    sx={{ float: 'right' }}
-                  >
-                    (5)
-                  </Typography>
-                </Box>
+                {vendorList &&
+                  vendorList.length > 0 &&
+                  vendorList.map(({ vendor, count }) => {
+                    return (
+                      <Box>
+                        <Typography variant='span'>
+                          <input type='checkbox' />
+                        </Typography>
+                        <Typography variant='span' padding='0 0 0 5px'>
+                          {vendor}
+                        </Typography>
+                        <Typography
+                          variant='span'
+                          padding='0 0 0 5px'
+                          sx={{ float: 'right' }}
+                        >
+                          ({count})
+                        </Typography>
+                      </Box>
+                    );
+                  })}
               </AccordionDetails>
             </Accordion>
             <Accordion defaultExpanded>
@@ -308,137 +249,27 @@ export default function ProductView({ Product, MainTitle }) {
                 <Typography>AVAILABILITY</Typography>
               </AccordionSummary>
               <AccordionDetails>
-                <Box>
-                  <Typography variant='span'>
-                    <input type='checkbox' />
-                  </Typography>
-                  <Typography variant='span' padding='0 0 0 5px'>
-                    Home Best Seller
-                  </Typography>
-                  <Typography
-                    variant='span'
-                    padding='0 0 0 5px'
-                    sx={{ float: 'right' }}
-                  >
-                    (5)
-                  </Typography>
-                </Box>
-                <Box>
-                  <Typography variant='span'>
-                    <input type='checkbox' />
-                  </Typography>
-                  <Typography variant='span' padding='0 0 0 5px'>
-                    Home Best Seller
-                  </Typography>
-                  <Typography
-                    variant='span'
-                    padding='0 0 0 5px'
-                    sx={{ float: 'right' }}
-                  >
-                    (5)
-                  </Typography>
-                </Box>
-                <Box>
-                  <Typography variant='span'>
-                    <input type='checkbox' />
-                  </Typography>
-                  <Typography variant='span' padding='0 0 0 5px'>
-                    Home Best Seller
-                  </Typography>
-                  <Typography
-                    variant='span'
-                    padding='0 0 0 5px'
-                    sx={{ float: 'right' }}
-                  >
-                    (5)
-                  </Typography>
-                </Box>
-                <Box>
-                  <Typography variant='span'>
-                    <input type='checkbox' />
-                  </Typography>
-                  <Typography variant='span' padding='0 0 0 5px'>
-                    Home Best Seller
-                  </Typography>
-                  <Typography
-                    variant='span'
-                    padding='0 0 0 5px'
-                    sx={{ float: 'right' }}
-                  >
-                    (5)
-                  </Typography>
-                </Box>
-              </AccordionDetails>
-            </Accordion>
-            <Accordion defaultExpanded>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls='panel2a-content'
-                id='panel2a-header'
-              >
-                <Typography>READY TO SHIP</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Box>
-                  <Typography variant='span'>
-                    <input type='checkbox' />
-                  </Typography>
-                  <Typography variant='span' padding='0 0 0 5px'>
-                    Home Best Seller
-                  </Typography>
-                  <Typography
-                    variant='span'
-                    padding='0 0 0 5px'
-                    sx={{ float: 'right' }}
-                  >
-                    (5)
-                  </Typography>
-                </Box>
-                <Box>
-                  <Typography variant='span'>
-                    <input type='checkbox' />
-                  </Typography>
-                  <Typography variant='span' padding='0 0 0 5px'>
-                    Home Best Seller
-                  </Typography>
-                  <Typography
-                    variant='span'
-                    padding='0 0 0 5px'
-                    sx={{ float: 'right' }}
-                  >
-                    (5)
-                  </Typography>
-                </Box>
-                <Box>
-                  <Typography variant='span'>
-                    <input type='checkbox' />
-                  </Typography>
-                  <Typography variant='span' padding='0 0 0 5px'>
-                    Home Best Seller
-                  </Typography>
-                  <Typography
-                    variant='span'
-                    padding='0 0 0 5px'
-                    sx={{ float: 'right' }}
-                  >
-                    (5)
-                  </Typography>
-                </Box>
-                <Box>
-                  <Typography variant='span'>
-                    <input type='checkbox' />
-                  </Typography>
-                  <Typography variant='span' padding='0 0 0 5px'>
-                    Home Best Seller
-                  </Typography>
-                  <Typography
-                    variant='span'
-                    padding='0 0 0 5px'
-                    sx={{ float: 'right' }}
-                  >
-                    (5)
-                  </Typography>
-                </Box>
+                {avilabilityList &&
+                  avilabilityList.length > 0 &&
+                  avilabilityList.map(({ avilability, count }) => {
+                    return (
+                      <Box>
+                        <Typography variant='span'>
+                          <input type='checkbox' />
+                        </Typography>
+                        <Typography variant='span' padding='0 0 0 5px'>
+                          {avilability}
+                        </Typography>
+                        <Typography
+                          variant='span'
+                          padding='0 0 0 5px'
+                          sx={{ float: 'right' }}
+                        >
+                          ({count})
+                        </Typography>
+                      </Box>
+                    );
+                  })}
               </AccordionDetails>
             </Accordion>
             <Accordion defaultExpanded>
@@ -450,71 +281,32 @@ export default function ProductView({ Product, MainTitle }) {
                 <Typography>SIZE</Typography>
               </AccordionSummary>
               <AccordionDetails>
-                <Box>
-                  <Typography variant='span'>
-                    <input type='checkbox' />
-                  </Typography>
-                  <Typography variant='span' padding='0 0 0 5px'>
-                    Home Best Seller
-                  </Typography>
-                  <Typography
-                    variant='span'
-                    padding='0 0 0 5px'
-                    sx={{ float: 'right' }}
-                  >
-                    (5)
-                  </Typography>
-                </Box>
-                <Box>
-                  <Typography variant='span'>
-                    <input type='checkbox' />
-                  </Typography>
-                  <Typography variant='span' padding='0 0 0 5px'>
-                    Home Best Seller
-                  </Typography>
-                  <Typography
-                    variant='span'
-                    padding='0 0 0 5px'
-                    sx={{ float: 'right' }}
-                  >
-                    (5)
-                  </Typography>
-                </Box>
-                <Box>
-                  <Typography variant='span'>
-                    <input type='checkbox' />
-                  </Typography>
-                  <Typography variant='span' padding='0 0 0 5px'>
-                    Home Best Seller
-                  </Typography>
-                  <Typography
-                    variant='span'
-                    padding='0 0 0 5px'
-                    sx={{ float: 'right' }}
-                  >
-                    (5)
-                  </Typography>
-                </Box>
-                <Box>
-                  <Typography variant='span'>
-                    <input type='checkbox' />
-                  </Typography>
-                  <Typography variant='span' padding='0 0 0 5px'>
-                    Home Best Seller
-                  </Typography>
-                  <Typography
-                    variant='span'
-                    padding='0 0 0 5px'
-                    sx={{ float: 'right' }}
-                  >
-                    (5)
-                  </Typography>
-                </Box>
+                {uniqueAvailableQuantity &&
+                  uniqueAvailableQuantity.length > 0 &&
+                  uniqueAvailableQuantity.map(({ avilability, count }) => {
+                    return (
+                      <Box>
+                        <Typography variant='span'>
+                          <input type='checkbox' />
+                        </Typography>
+                        <Typography variant='span' padding='0 0 0 5px'>
+                          {avilability}
+                        </Typography>
+                        <Typography
+                          variant='span'
+                          padding='0 0 0 5px'
+                          sx={{ float: 'right' }}
+                        >
+                          ({count})
+                        </Typography>
+                      </Box>
+                    );
+                  })}
               </AccordionDetails>
             </Accordion>
           </div>
         </Box>
-        {!loading && productCollection && productCollection.length == 0 && (
+        {!loading && productDetails && productDetails.length == 0 && (
           <Typography
             variant='h2'
             sx={{ textAlign: 'center', padding: '15rem 0' }}
@@ -526,8 +318,8 @@ export default function ProductView({ Product, MainTitle }) {
           <CircularLoader />
         ) : (
           <Box className='col-size-four'>
-            {productCollection &&
-              productCollection.map((product) => {
+            {productDetails &&
+              productDetails.map((product) => {
                 return (
                   <Link
                     to={`/product/${product.product_id}`}

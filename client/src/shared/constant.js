@@ -70,6 +70,7 @@ export const OTHER_PRODUCTS = [
       'rose',
     ],
     avilability: 'In Stock',
+    available_quantity: ['1 kg', '2 kg (Pack of 2)', '500 g'],
     vendor: 'Happilo International Private Limited',
     product_img:
       'https://cdn.shopify.com/s/files/1/0569/6867/5527/products/1v2_bf9e06f6-cd22-4209-a932-310a869534c0_720x.png?v=1632846581',
@@ -84,6 +85,7 @@ export const OTHER_PRODUCTS = [
     prooduct_customer_rating: 4.3,
     short_discription: 'Happilio 100% Natural Premium California Almonds',
     vendor: 'Happilo International Private Limited',
+    available_quantity: ['1 kg', '2 kg (Pack of 2)', '500 g'],
     avilability: 'In Stock',
     product_img:
       'https://cdn.shopify.com/s/files/1/0569/6867/5527/products/Front_720x.png?v=1632847785',
@@ -98,6 +100,7 @@ export const OTHER_PRODUCTS = [
     prooduct_customer_rating: 3.4,
     short_discription: 'Happilio 100% Natural Premium California Almonds',
     vendor: 'Happilo International Private Limited',
+    available_quantity: ['1 kg', '2 kg (Pack of 2)', '500 g'],
     avilability: 'In Stock',
     product_img:
       'https://cdn.shopify.com/s/files/1/0569/6867/5527/products/Front_5ce707ac-7eef-4eb5-a97e-78fe2a1f9870_720x.png?v=1632913711',
@@ -110,6 +113,7 @@ export const OTHER_PRODUCTS = [
     sub_collection: ['dry fruit bar', 'occasions gift', 'rose'],
     product_selling_price: '205.00',
     prooduct_customer_rating: 5,
+    available_quantity: ['1 kg', '2 kg (Pack of 2)', '500 g'],
     avilability: 'Out of Stock',
     short_discription: 'Happilio 100% Natural Premium California Almonds',
     vendor: 'Happilo International Private Limited',
@@ -122,6 +126,7 @@ export const OTHER_PRODUCTS = [
     product_title: 'ADD TO CART',
     product_selling_price: '304.00',
     parent_collection: 'bars',
+    available_quantity: ['1 kg', '2 kg (Pack of 2)', '500 g'],
     sub_collection: [
       'corporate gifts',
       'dry fruit bar',
@@ -150,6 +155,7 @@ export const OTHER_PRODUCTS = [
       'rose',
     ],
     avilability: 'In Stock',
+    available_quantity: ['2 kg', '200 g (Pack of 2)', '200 g'],
     vendor: 'Happilo International Private Limited',
     prooduct_customer_rating: 3.4,
     short_discription: 'Happilio 100% Natural Premium California Almonds',
@@ -160,6 +166,7 @@ export const OTHER_PRODUCTS = [
     product_id: 4,
     product_label: 'Must Try',
     product_title: 'ADD TO CART',
+    available_quantity: ['1 kg', '500 g (Pack of 5)'],
     parent_collection: 'chocolate_spreads',
     sub_collection: [
       'corporate gifts',
@@ -192,6 +199,13 @@ export const OTHER_PRODUCTS = [
     vendor: 'Happilo International Private Limited',
     product_selling_price: '285.00',
     prooduct_customer_rating: 2.1,
+    available_quantity: [
+      '500 g',
+      '200 g (Pack of 5)',
+      '200 g (Pack of 2)',
+      '200 g',
+    ],
+
     short_discription: 'Happilio 100% Natural Premium California Almonds',
     product_img:
       'https://cdn.shopify.com/s/files/1/0569/6867/5527/products/1v2_ae80c043-716c-49c4-ad1c-8d92296ef3ee_720x.png?v=1632908409',
@@ -284,23 +298,23 @@ export const JOURNEY_TEXT = {
 };
 
 export const availableSizes = [
-  { id: 1, quantity: '200g', price: 203 },
-  { id: 2, quantity: '200g (Pack of 2)', price: 399 },
-  { id: 3, quantity: '200g (Pack of 5)', price: 899.5 },
-  { id: 4, quantity: '500g', price: 820.5 },
+  { id: 1, quantity: '200 g', price: 203 },
+  { id: 2, quantity: '200 g (Pack of 2)', price: 399 },
+  { id: 3, quantity: '200 g (Pack of 5)', price: 899.5 },
+  { id: 4, quantity: '500 g', price: 820.5 },
   {
     id: 5,
-    quantity: '500g (Pack of 2)',
+    quantity: '500 g (Pack of 2)',
     price: 449,
   },
   {
     id: 6,
-    quantity: '1kg',
+    quantity: '1 kg',
     price: 799,
   },
   {
     id: 7,
-    quantity: '1kg (Pack of 2)',
+    quantity: '1 kg (Pack of 2)',
     price: 1550,
   },
 ];
