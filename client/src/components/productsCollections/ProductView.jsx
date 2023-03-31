@@ -19,6 +19,7 @@ import {
   getUniqueSubCollections,
   getUniqueVendors,
   minMaxValueOfKeyFromArrayOfObject,
+  notIsEmptyArray,
 } from '../../shared/common';
 import CircularLoader from '../common/Loader';
 
@@ -106,19 +107,18 @@ export default function ProductView({ Product, MainTitle }) {
 
       <Box className='product-collection-product-view'>
         <Box className='thiner-box-shadow padding-top-none'>
-          <div>
-            <Accordion defaultExpanded>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls='panel1a-content'
-                id='panel1a-header'
-              >
-                <Typography>COLLECTION</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                {subCollectionsArray &&
-                  subCollectionsArray.length > 0 &&
-                  subCollectionsArray.map(({ subCollection, count }) => {
+          <Box>
+            {notIsEmptyArray(subCollectionsArray) && (
+              <Accordion defaultExpanded>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls='panel1a-content'
+                  id='panel1a-header'
+                >
+                  <Typography>COLLECTION</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  {subCollectionsArray.map(({ subCollection, count }) => {
                     return (
                       <Box>
                         <Typography variant='span'>
@@ -137,40 +137,49 @@ export default function ProductView({ Product, MainTitle }) {
                       </Box>
                     );
                   })}
-              </AccordionDetails>
-            </Accordion>
-            <Accordion defaultExpanded>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls='panel2a-content'
-                id='panel2a-header'
-              >
-                <Typography>VENDOR</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                {vendorList &&
-                  vendorList.length > 0 &&
-                  vendorList.map(({ vendor, count }) => {
+                </AccordionDetails>
+              </Accordion>
+            )}
+            {notIsEmptyArray(vendorList) && (
+              <Accordion defaultExpanded>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls='panel2a-content'
+                  id='panel2a-header'
+                >
+                  <Typography>VENDOR</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  {vendorList.map(({ vendor, count }) => {
                     return (
-                      <Box>
+                      <Box className='filter-key-text'>
                         <Typography variant='span'>
                           <input type='checkbox' />
                         </Typography>
-                        <Typography variant='span' padding='0 0 0 5px'>
-                          {vendor}
-                        </Typography>
-                        <Typography
-                          variant='span'
-                          padding='0 0 0 5px'
-                          sx={{ float: 'right' }}
-                        >
-                          ({count})
-                        </Typography>
+                        <span>
+                          <Box>
+                            <Typography
+                              variant='span'
+                              padding='0 0 0 5px'
+                              sx={{ width: '50%' }}
+                            >
+                              {vendor}
+                            </Typography>
+                            <Typography
+                              variant='span'
+                              padding='0 0 0 5px'
+                              sx={{ float: 'right' }}
+                            >
+                              ({count})
+                            </Typography>
+                          </Box>
+                        </span>
                       </Box>
                     );
                   })}
-              </AccordionDetails>
-            </Accordion>
+                </AccordionDetails>
+              </Accordion>
+            )}
             <Accordion defaultExpanded>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
@@ -190,12 +199,7 @@ export default function ProductView({ Product, MainTitle }) {
                     }}
                     onChange={(event) => handleInputChange(event, 0)}
                     onBlur={(event) => handleBlur(event, 0)}
-                    // inputProps={{
-                    //   step: 1,
-                    //   min: 0,
-                    //   max: 100,
-                    //   type: 'number',
-                    // }}
+                    type='number'
                   />
                   <Input
                     value={range[1]}
@@ -233,18 +237,17 @@ export default function ProductView({ Product, MainTitle }) {
                 </Box>
               </AccordionDetails>
             </Accordion>
-            <Accordion defaultExpanded>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls='panel2a-content'
-                id='panel2a-header'
-              >
-                <Typography>AVAILABILITY</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                {avilabilityList &&
-                  avilabilityList.length > 0 &&
-                  avilabilityList.map(({ avilability, count }) => {
+            {notIsEmptyArray(avilabilityList) && (
+              <Accordion defaultExpanded>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls='panel2a-content'
+                  id='panel2a-header'
+                >
+                  <Typography>AVAILABILITY</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  {avilabilityList.map(({ avilability, count }) => {
                     return (
                       <Box>
                         <Typography variant='span'>
@@ -263,20 +266,20 @@ export default function ProductView({ Product, MainTitle }) {
                       </Box>
                     );
                   })}
-              </AccordionDetails>
-            </Accordion>
-            <Accordion defaultExpanded>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls='panel2a-content'
-                id='panel2a-header'
-              >
-                <Typography>SIZE</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                {uniqueAvailableQuantity &&
-                  uniqueAvailableQuantity.length > 0 &&
-                  uniqueAvailableQuantity.map(({ avilability, count }) => {
+                </AccordionDetails>
+              </Accordion>
+            )}
+            {notIsEmptyArray(uniqueAvailableQuantity) && (
+              <Accordion defaultExpanded>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls='panel2a-content'
+                  id='panel2a-header'
+                >
+                  <Typography>SIZE</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  {uniqueAvailableQuantity.map(({ avilability, count }) => {
                     return (
                       <Box>
                         <Typography variant='span'>
@@ -295,11 +298,12 @@ export default function ProductView({ Product, MainTitle }) {
                       </Box>
                     );
                   })}
-              </AccordionDetails>
-            </Accordion>
-          </div>
+                </AccordionDetails>
+              </Accordion>
+            )}
+          </Box>
         </Box>
-        {!loading && productDetails && productDetails.length == 0 && (
+        {!loading && productDetails && productDetails.length === 0 && (
           <Typography
             variant='h2'
             sx={{ textAlign: 'center', padding: '15rem 0' }}
@@ -308,10 +312,12 @@ export default function ProductView({ Product, MainTitle }) {
           </Typography>
         )}
         {loading ? (
-          <CircularLoader />
+          <>
+            <CircularLoader />
+          </>
         ) : (
           <Box className='col-size-four'>
-            {productDetails &&
+            {notIsEmptyArray(productDetails) &&
               productDetails.map((product) => {
                 return (
                   <Link

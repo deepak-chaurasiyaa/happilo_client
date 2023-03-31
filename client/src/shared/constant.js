@@ -156,7 +156,7 @@ export const OTHER_PRODUCTS = [
     ],
     avilability: 'In Stock',
     available_quantity: ['2 kg', '200 g (Pack of 2)', '200 g'],
-    vendor: 'Happilo International Private Limited',
+    vendor: 'INT Dry Fruit PVT Ltd.',
     prooduct_customer_rating: 3.4,
     short_discription: 'Happilio 100% Natural Premium California Almonds',
     product_img:
