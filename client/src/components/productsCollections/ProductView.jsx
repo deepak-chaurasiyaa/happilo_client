@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Typography,
   Box,
@@ -9,10 +10,7 @@ import {
   Input,
   Slider,
 } from '@mui/material';
-import { useState } from 'react';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Link } from 'react-router-dom';
-import ProductCollectionCard from './ProductCollectionCard';
 import {
   getUniqueAvailableQuantity,
   getUniqueAvilability,
@@ -21,7 +19,9 @@ import {
   minMaxValueOfKeyFromArrayOfObject,
   notIsEmptyArray,
 } from '../../shared/common';
+
 import CircularLoader from '../common/Loader';
+import ProductCollectionCard from './ProductCollectionCard';
 
 export default function ProductView({ Product, MainTitle }) {
   const [timerId, setTimerId] = useState(null);
