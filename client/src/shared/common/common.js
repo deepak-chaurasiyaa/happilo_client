@@ -18,9 +18,9 @@ export const getUniqueSubCollections = (products) => {
     .forEach((product) => {
       product.sub_collection.forEach((subCollection) => {
         if (subCollection in subCollections) {
-          subCollections[subCollection]++;
+          subCollections[subCollection.type]++;
         } else {
-          subCollections[subCollection] = 1;
+          subCollections[subCollection.type] = 1;
         }
       });
     });
@@ -37,9 +37,9 @@ export const getUniqueAvailableQuantity = (products) => {
     .forEach((product) => {
       product.available_quantity.forEach((available_quantity) => {
         if (available_quantity in available_quantities) {
-          available_quantities[available_quantity]++;
+          available_quantities[available_quantity.quantity_type]++;
         } else {
-          available_quantities[available_quantity] = 1;
+          available_quantities[available_quantity.quantity_type] = 1;
         }
       });
     });

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Typography,
   Box,
@@ -9,10 +10,7 @@ import {
   Input,
   Slider,
 } from '@mui/material';
-import { useState } from 'react';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Link } from 'react-router-dom';
-import ProductCollectionCard from './ProductCollectionCard';
 import {
   getUniqueAvailableQuantity,
   getUniqueAvilability,
@@ -21,7 +19,9 @@ import {
   minMaxValueOfKeyFromArrayOfObject,
   notIsEmptyArray,
 } from '../../shared/common';
+
 import CircularLoader from '../common/Loader';
+import ProductCollectionCard from './ProductCollectionCard';
 
 export default function ProductView({ Product, MainTitle }) {
   const [timerId, setTimerId] = useState(null);
@@ -122,7 +122,12 @@ export default function ProductView({ Product, MainTitle }) {
                     return (
                       <Box>
                         <Typography variant='span'>
-                          <input type='checkbox' />
+                          <input
+                            type='checkbox'
+                            onClick={(e) => {
+                              alert(e.target.checked);
+                            }}
+                          />
                         </Typography>
                         <Typography variant='span' padding='0 0 0 5px'>
                           {subCollection}
@@ -152,28 +157,20 @@ export default function ProductView({ Product, MainTitle }) {
                 <AccordionDetails>
                   {vendorList.map(({ vendor, count }) => {
                     return (
-                      <Box className='filter-key-text'>
+                      <Box>
                         <Typography variant='span'>
                           <input type='checkbox' />
                         </Typography>
-                        <span>
-                          <Box>
-                            <Typography
-                              variant='span'
-                              padding='0 0 0 5px'
-                              sx={{ width: '50%' }}
-                            >
-                              {vendor}
-                            </Typography>
-                            <Typography
-                              variant='span'
-                              padding='0 0 0 5px'
-                              sx={{ float: 'right' }}
-                            >
-                              ({count})
-                            </Typography>
-                          </Box>
-                        </span>
+                        <Typography variant='span' padding='0 0 0 5px'>
+                          {vendor}
+                        </Typography>
+                        <Typography
+                          variant='span'
+                          padding='0 0 0 5px'
+                          sx={{ float: 'right' }}
+                        >
+                          ({count})
+                        </Typography>
                       </Box>
                     );
                   })}
@@ -219,8 +216,9 @@ export default function ProductView({ Product, MainTitle }) {
                   value={range}
                   onChange={handleSliderChange}
                   min={100}
-                  step={0.1}
-                  max={10000}
+                  step={100}
+                  max={1000}
+                  marks
                   valueLabelDisplay='auto'
                   onChangeCommitted={handleSliderChangeCommitted}
                 />
