@@ -1,0 +1,54 @@
+tbl_product -----
+product_id,
+vendor_id
+
+tbl_collection ----
+product_id,
+collection_name,
+sub_collection_name
+
+
+tbl_quantity----
+product_id,
+quantity,
+unit
+
+
+tbl_reason_to_buy ----
+product_id,
+reason_title,
+reason
+
+
+tbl_product_images ----
+product_id,
+img,
+
+tbl_vendor ---
+product_id,
+vendor_name,
+pincode,
+locality,
+product_title,
+avilability,
+short_discription,
+long_description,
+product_selling_price,
+product_discounted_price,
+
+
+tbl_customer ---
+customer_name,
+email,
+password,
+login_token,
+status,
+phone_number
+login_attempt // Max. 3
+
+tbl_order_history ---
+product_id,
+customer_id,
+location,
+order_status // 1. Delivered 2. Returned 3. Canceled.
+rating,
