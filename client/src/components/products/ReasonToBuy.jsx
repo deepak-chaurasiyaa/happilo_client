@@ -6,16 +6,14 @@ const ReasonToBuy = ({ reason_details }) => {
   console.log({ reason_details });
   const reason = (data) => {
     return data.map((obj, index) => {
-      console.log({ obj });
-      const [key, value] = Object.entries(obj)[0];
       return (
         <>
           <br />
           <Box sx={{ display: '-webkit-box' }}>
             <Typography sx={{ fontWeight: 600 }}>
-              {key} :{' '}
+              {obj.reason_title} : &nbsp;
               <Typography component='span' variant='body1'>
-                {value}
+                {obj.reason}
               </Typography>
             </Typography>{' '}
           </Box>

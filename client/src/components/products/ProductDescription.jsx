@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import ReactImageMagnify from 'react-image-magnify';
 import {
   Box,
   Button,
@@ -10,7 +9,10 @@ import {
 import styled from '@emotion/styled';
 
 import Header from '../header/Header';
-import { availableSizes, DESCRIPTION, itemData } from '../../shared/constant';
+import {
+  availableSizes,
+  OTHER_PRODUCTS,
+} from '../../shared/constant';
 import ReasonToBuy from './ReasonToBuy';
 import ImageMagnify from './ImageMagnify';
 
@@ -23,7 +25,7 @@ const ColorButton = styled(Button)(({ theme }) => ({
 }));
 
 const ProductDescription = () => {
-  const [currentImage, setCurrentImage] = useState({ ...itemData[0] });
+  const [currentImage, setCurrentImage] = useState({ ...OTHER_PRODUCTS[0].product_sub_images[0] });
   const [addToCartQuantity, setaddToCartQuantity] = useState(0);
   const [currentPackSize, setCurrentPackSize] = useState({
     ...availableSizes[0],
@@ -46,7 +48,7 @@ const ProductDescription = () => {
       >
         <Box>
           <ImageList sx={{ width: ' 10rem', height: 500 }} cols={1}>
-            {itemData.map((item) => (
+            {OTHER_PRODUCTS[0].product_sub_images.map((item) => (
               <ImageListItem
                 key={item.img}
                 sx={{ width: '85%', margin: 'auto', borderRadius: 2 }}
@@ -162,8 +164,12 @@ const ProductDescription = () => {
             sx={{ height: '0.2px', backgroundColor: 'black' }}
           ></Typography>
           <br />
-          <Typography>{DESCRIPTION.product_description}</Typography>
-          <ReasonToBuy reason_details={DESCRIPTION.reasons_to_buy} />
+          <Typography>
+            {OTHER_PRODUCTS[0].product_description}
+          </Typography>
+          <ReasonToBuy
+            reason_details={OTHER_PRODUCTS[0].reasons_to_buy}
+          />
         </Box>
       </Box>
     </Box>
