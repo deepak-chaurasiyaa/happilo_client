@@ -28,7 +28,13 @@ export default function CreateAccount() {
 
   return (
     <Box>
-      <Box sx={{ padding: '10rem 0rem 0rem 0rem', width: '50%', margin: 'auto' ,maxHeight:'42.4rem'}}>
+      <Box
+        sx={{
+          width: '50%',
+          margin: 'auto',
+          minHeight: '34.9rem',
+        }}
+      >
         <Header />
 
         <Formik
@@ -37,7 +43,7 @@ export default function CreateAccount() {
           onSubmit={HandleCreateAccount}
         >
           <Form>
-            <Typography variant='h4' align='center'sx={{marginTop:'10px'}}>
+            <Typography variant='h4' align='center' sx={{ marginTop: '10px' }}>
               Create Account
             </Typography>
             <Box

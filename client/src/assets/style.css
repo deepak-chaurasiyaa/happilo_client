@@ -376,10 +376,23 @@ a:hover {
 }
 
 .filter-key-text {
-  white-space: nowrap; /* Prevent text from wrapping */
-  overflow: hidden; /* Hide text that exceeds the element's width */
-  text-overflow: ellipsis; /* Replace hidden text with an ellipsis */
+  white-space: nowrap;
+  /* Prevent text from wrapping */
+  overflow: hidden;
+  /* Hide text that exceeds the element's width */
+  text-overflow: ellipsis;
+  /* Replace hidden text with an ellipsis */
 }
-.margin-top-20{
-  margin-top: 20px !important;
+
+.cart-drawer {
+  width: 30%;
+  flex-shrink: 0;
+}
+
+.cart-drawerPaper {
+  width: 30%;
+}
+
+.cart-cartButton {
+  position: "fixed";
 }

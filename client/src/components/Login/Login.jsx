@@ -27,14 +27,7 @@ export default function Login() {
 
   return (
     <Box>
-      <Box
-        sx={{
-          padding: '10rem 0rem 0rem 0rem',
-          width: '50%',
-          margin: 'auto',
-          minHeight: '42.4rem',
-        }}
-      >
+      <Box sx={{ padding: '15rem 0 0 0rem', width: '50%', margin: 'auto' }}>
         <Header />
 
         <Formik
@@ -43,7 +36,7 @@ export default function Login() {
           onSubmit={HandleLogin}
         >
           <Form>
-            <Typography variant='h4' align='center' sx={{marginTop:'10px'}}>
+            <Typography variant='h4' align='center'>
               Login
             </Typography>
             <Box sx={{ display: 'flex', flexDirection: 'column' }}>

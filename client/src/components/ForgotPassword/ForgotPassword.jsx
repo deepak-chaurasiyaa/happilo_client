@@ -25,10 +25,9 @@ export default function ForgotPassword() {
     <Box>
       <Box
         sx={{
-          padding: '10rem 0rem 0rem 0rem',
           width: '50%',
           margin: 'auto',
-          minHeight: '42.4rem',
+          minHeight: '34.9rem',
         }}
       >
         <Header />

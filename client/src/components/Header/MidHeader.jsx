@@ -4,14 +4,13 @@ import { Box, Toolbar, ImageListItem, Typography } from '@mui/material';
 import {
   LocalShipping,
   Person,
-  ShoppingBag,
   Brightness7,
   Brightness4,
 } from '@mui/icons-material';
 import { handleDarkModeChange } from '../../reducer/theme.reducer';
 import { Link } from 'react-router-dom';
 import { SearchBar } from './SearchBar';
-import TemporaryDrawer from '../cart/Drawer';
+import CartDrawer from '../cart/Cart';
 
 function MidHeader() {
   const dispatch = useDispatch();
@@ -44,12 +43,8 @@ function MidHeader() {
                 <Person />
               </Link>
             </Box>
-            <Box>
-              <Link to='/cart' style={{ display: 'flex' }}>
-                <TemporaryDrawer />
-                <ShoppingBag />
-              </Link>
-            </Box>
+
+            <CartDrawer />
 
             <Box onClick={() => dispatch(handleDarkModeChange())}>
               <Link to='' style={{ display: 'flex' }}>
