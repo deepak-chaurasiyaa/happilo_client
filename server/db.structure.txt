@@ -1,6 +1,11 @@
-tbl_product -----
+tbl_master_products -----
 product_id,
-vendor_id
+name,
+image,
+type,
+mrp,
+description
+========IGNORED==========
 
 tbl_collection ----
 product_id,
@@ -14,41 +19,87 @@ quantity,
 unit
 
 
-tbl_reason_to_buy ----
+tbl_reasons_to_buy ----
 product_id,
-reason_title,
+title,
 reason
 
 
 tbl_product_images ----
 product_id,
-img,
+name,
+original_name,
+status,
+date_added,
+date_updated
+
 
 tbl_vendor ---
-product_id,
-vendor_name,
+first_name,
+middle_name,
+last_name,
+age,
+phone,
+email,
+address,
 pincode,
 locality,
+
+
+tbl_vendor_products ---
+product_id, 
 product_title,
 avilability,
 short_discription,
 long_description,
 product_selling_price,
 product_discounted_price,
-
+currency
+status // pending_approval, approved, rejected, justification_needed
 
 tbl_customer ---
 customer_name,
 email,
 password,
-login_token,
-status,
+status, // active, inactive, banned, blocked, activation_pending
 phone_number
-login_attempt // Max. 3
 
-tbl_order_history ---
+tbl_customer_addresses
+customer_id,
+address,
+street,
+pin,
+state,
+city,
+status
+
+tbl_customer_wishlist
+
+
+tbl_customer_cart
+
+
+tbl_user_login_logs
+user_id,
+user_type, // 1. Admin, 2. Customer, 3. Vendor, 
+login_date,
+login_token,
+refresh_token,
+result // login_success, login_failed
+
+tbl_customer_orders ---
 product_id,
 customer_id,
-location,
-order_status // 1. Delivered 2. Returned 3. Canceled.
+price,
+payment_method,
+payment_status,
+address,
 rating,
+
+tbl_customer_order_refund ===
+
+
+tbl_customer_order_status ---
+order_id,
+order_status // 1. Delivered 2. Returned 3. Cancelled 4. Exchange 5. Shipping 6. In-transit 7. Order Placed 8. Order Failed
+date_added
