@@ -396,3 +396,7 @@ a:hover {
 .cart-cartButton {
   position: "fixed";
 }
+
+.cart-header {
+  margin-top: 10rem;
+}

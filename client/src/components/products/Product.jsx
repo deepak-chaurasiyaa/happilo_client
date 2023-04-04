@@ -1,4 +1,5 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Box, Toolbar, Typography } from '@mui/material';
 import Card from '@mui/material/Card';
 import { styled } from '@mui/material/styles';
@@ -7,6 +8,7 @@ import CardMedia from '@mui/material/CardMedia';
 import { CardActionArea } from '@mui/material';
 import ShoppingBanner from './ShoppingBanner';
 import { Link } from 'react-router-dom';
+
 const ColorButton = styled(Button)(({ theme }) => ({
   color: theme.palette.getContrastText('#00523b'),
   backgroundColor: '#00523b',
@@ -17,8 +19,11 @@ const ColorButton = styled(Button)(({ theme }) => ({
 
 function NewLaunchProduct({ Product, ShowBanner, MainTitle }) {
   console.log({ Product });
-  const HandleAddToCart = (event) => {
-    event.preventDefault();
+  
+  const dispatch = useDispatch();
+  const HandleAddToCart = ( product ) => {
+    dispatch(product)
+    console.log({Cart:product})
   };
   return (
     <Box>

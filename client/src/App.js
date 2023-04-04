@@ -8,7 +8,6 @@ import OtherProduct from './components/products/OtherProduct';
 import NewLaunchProduct from './components/products/Product';
 import Login from './components/login/Login';
 import CreateAccount from './components/signUp/SignUp';
-import CartPage from './components/cart/Cart';
 import ForgotPassword from './components/forgotPassword/ForgotPassword';
 import { darkTheme, lightTheme } from './shared/theme/Theme';
 import NotFound from './components/notFound/NotFound';
@@ -19,7 +18,7 @@ import ProductCollections from './components/productsCollections/ProductCollecti
 
 function App() {
   const { darkMode } = useSelector((state) => state.theme);
-  const { cart } = useSelector((state) => state.cart);
+  // const { cart } = useSelector((state) => state.cart);
   const { products, collections } = useSelector((state) => state.products);
 
   return (
