@@ -381,7 +381,18 @@ a:hover {
   text-overflow: ellipsis; /* Replace hidden text with an ellipsis */
 }
 
+.cart-drawer {
+  width: 30%;
+  flexShrink: 0;
+}
 
+.cart-drawerPaper {
+  width: 30%;
+}
+
+.cart-cartButton {
+  position: "fixed";
+}
 .cart_first{
   /* border: 2px solid black; */
   height: 9.3rem;
@@ -506,5 +517,4 @@ a:hover {
   border: 2px solid rgb(242, 236, 236);
   justify-content: space-around;
   width: 70%;
-
 }
