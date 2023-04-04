@@ -28,7 +28,7 @@ export default function CreateAccount() {
 
   return (
     <Box>
-      <Box sx={{ padding: '12rem 0 0 0rem', width: '50%', margin: 'auto' }}>
+      <Box sx={{ padding: '10rem 0rem 0rem 0rem', width: '50%', margin: 'auto' ,maxHeight:'42.4rem'}}>
         <Header />
 
         <Formik
@@ -37,14 +37,14 @@ export default function CreateAccount() {
           onSubmit={HandleCreateAccount}
         >
           <Form>
-            <Typography variant='h4' align='center'>
+            <Typography variant='h4' align='center'sx={{marginTop:'10px'}}>
               Create Account
             </Typography>
             <Box
               sx={{
                 display: 'flex',
                 flexDirection: 'column',
-                marginBottom: '5rem !important',
+                marginBottom: '0rem !important',
               }}
             >
               <InputField
@@ -80,7 +80,7 @@ export default function CreateAccount() {
                 style={{ margin: '0px auto !important' }}
               />
 
-              <Button className='yellow-button' type='submit'>
+              <Button className='yellow-button margin-top-20' type='submit'>
                 Create
               </Button>
             </Box>

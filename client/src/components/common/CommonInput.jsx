@@ -8,7 +8,7 @@ export const InputField = ({ label, ...props }) => {
   // message if the field is invalid and it has been touched (i.e. visited)
   const [field, meta] = useField(props);
   return (
-    <Box sx={{padding:'1rem 0'}}>
+    <Box sx={{padding:'0.5rem 0'}}>
       <label htmlFor={props.id || props.name}>{label}</label>
       <Field
         as={TextField}

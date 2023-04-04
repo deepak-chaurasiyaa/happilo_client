@@ -5,7 +5,7 @@ import { FOOTER_TEXT } from '../../shared/constant';
 
 function SubFooter() {
   return (
-    <Box sx={{ flexGrow: 1, height: 38 }}>
+    <Box sx={{ flexGrow: 1, height: 38 ,marginTop:14.5}}>
       <Toolbar
         className='bg-green'
         sx={{ minHeight: '38px !important', width: '100%' }}

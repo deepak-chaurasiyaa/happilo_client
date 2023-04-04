@@ -11,6 +11,7 @@ import {
 import { handleDarkModeChange } from '../../reducer/theme.reducer';
 import { Link } from 'react-router-dom';
 import { SearchBar } from './SearchBar';
+import TemporaryDrawer from '../cart/Drawer';
 
 function MidHeader() {
   const dispatch = useDispatch();
@@ -45,7 +46,7 @@ function MidHeader() {
             </Box>
             <Box>
               <Link to='/cart' style={{ display: 'flex' }}>
-                <Typography>Cart</Typography>
+                <TemporaryDrawer />
                 <ShoppingBag />
               </Link>
             </Box>
