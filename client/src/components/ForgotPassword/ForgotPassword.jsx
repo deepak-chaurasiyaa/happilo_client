@@ -23,7 +23,13 @@ export default function ForgotPassword() {
 
   return (
     <Box>
-      <Box sx={{ padding: '15rem 0 0 0rem', width: '50%', margin: 'auto' }}>
+      <Box
+        sx={{
+          width: '50%',
+          margin: 'auto',
+          minHeight: '34.9rem',
+        }}
+      >
         <Header />
 
         <Formik
@@ -32,8 +38,8 @@ export default function ForgotPassword() {
           onSubmit={HandleForgotPassword}
         >
           <Form>
-            <Typography variant='h4' align='center'>
-              RESET YOUR PASSWORD
+            <Typography variant='h4' align='center'sx={{marginTop:'10px'}}>
+              Reset your password
             </Typography>
             <Typography className='text-center' margin='0.5rem !important'>
               We will send you an email to reset your password.
@@ -47,7 +53,7 @@ export default function ForgotPassword() {
                 required
               />
 
-              <Button className='yellow-button' type='submit'>
+              <Button className='yellow-button margin-top-20' type='submit'>
                 Submit
               </Button>
               <Link to='/login'>

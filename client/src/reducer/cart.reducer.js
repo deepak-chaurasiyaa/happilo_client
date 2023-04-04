@@ -10,6 +10,7 @@ export const cartReducer = createSlice({
   initialState,
   reducers: {
     ToggleCartDrawer: (state) => {
+      console.log("clicked")
       state.isCartDrawerOpen = !state.isCartDrawerOpen;
     },
     AddToCart: (state,payload) => {

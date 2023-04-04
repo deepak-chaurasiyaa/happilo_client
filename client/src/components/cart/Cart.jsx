@@ -1,38 +1,42 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import Drawer from '@mui/material/Drawer';
-import { IconButton } from '@mui/material';
-import { ToggleCartDrawer } from "../../reducer/cart.reducer";
+import { ShoppingBag } from '@mui/icons-material';
+import { Box, Drawer, Typography } from '@mui/material';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { ToggleCartDrawer } from '../../reducer/cart.reducer';
 
 function CartDrawer() {
   const dispatch = useDispatch();
   const isCartDrawerOpen = useSelector((state) => state.cart.isCartDrawerOpen);
 
-  const handleCartButtonClick = () => {
-    dispatch(ToggleCartDrawer());
-  };
-
   return (
     <>
-      <IconButton
+      <Box
         className='cart-cartButton'
-        onClick={handleCartButtonClick}
+        onClick={() => {
+          dispatch(ToggleCartDrawer());
+        }}
+        style={{ display: 'flex' }}
       >
-        <p>Hello</p>
-      </IconButton>
+        <Typography>Cart</Typography>
+
+        <ShoppingBag />
+      </Box>
       <Drawer
-        className='cart-drawer'
-        classes={{ paper: 'cart-drawerPaper'}}
+        className='cart-cartButton'
         open={isCartDrawerOpen}
-        onClose={handleCartButtonClick}
-        anchor="right"
+        onClose={() => {
+          dispatch(ToggleCartDrawer());
+        }}
+        anchor='right'
         transitionDuration={{ enter: 300, exit: 200 }}
       >
-        <div>Cart Items Go Here</div>
+        <Box sx={{ minWidth: '300px !important' }}>
+          <Box>Close</Box>
+        </Box>
       </Drawer>
     </>
   );
 }
 
 export default CartDrawer;
-

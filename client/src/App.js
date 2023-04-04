@@ -56,7 +56,6 @@ function App() {
         />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<CreateAccount />} />
-        <Route path='/cart' element={<CartPage />} />
         <Route path='/product/:product_id' element={<ProductDescription />} />
         <Route path='/reset-password' element={<ForgotPassword />} />
         <Route path='/collections/:category' element={<ProductCollections />} />
