@@ -396,3 +396,10 @@ a:hover {
 .cart-cartButton {
   position: "fixed";
 }
+
+@media (max-width: 600px) {
+  .display-grid {
+    display: grid;
+    grid-template-columns: 45% 45%;
+}
+}

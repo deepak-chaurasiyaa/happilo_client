@@ -44,7 +44,9 @@ function MidHeader() {
               </Link>
             </Box>
 
-            <CartDrawer />
+            <Link>
+              <CartDrawer />
+            </Link>
 
             <Box onClick={() => dispatch(handleDarkModeChange())}>
               <Link to='' style={{ display: 'flex' }}>
