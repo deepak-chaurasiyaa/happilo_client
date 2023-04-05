@@ -22,10 +22,10 @@
     "puppeteer": "^19.6.3",
     "xlsx": "^0.18.5"
   },
-  "type": "module",
   "devDependencies": {},
   "scripts": {
     "dev": "env-cmd -f .env nodemon index.js",
     "start": "nodemon index.js"
-  }
+  },
+  "type": "module"
 }
