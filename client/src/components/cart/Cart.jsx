@@ -1,4 +1,4 @@
-import { ShoppingBag } from '@mui/icons-material';
+import { Close, ShoppingBag } from '@mui/icons-material';
 import { Box, Drawer, Typography } from '@mui/material';
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -32,7 +32,19 @@ function CartDrawer() {
         transitionDuration={{ enter: 300, exit: 200 }}
       >
         <Box sx={{ minWidth: '300px !important' }}>
-          <Box>Close</Box>
+          <Box
+            sx={{
+              float: 'right',
+              fontWeight: 600,
+              cursor: 'pointer',
+              padding: '15px 15px 0 0',
+            }}
+            onClick={() => {
+              dispatch(ToggleCartDrawer());
+            }}
+          >
+            <Close />
+          </Box>
         </Box>
       </Drawer>
     </>
