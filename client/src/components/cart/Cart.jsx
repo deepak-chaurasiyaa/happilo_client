@@ -16,6 +16,9 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
     padding: '0 4px',
   },
 }));
+const CartSlider={'& .MuiPaper-root':{
+  width:"28%",
+}}
 
 function CartDrawer() {
   const dispatch = useDispatch();
@@ -38,15 +41,15 @@ function CartDrawer() {
         </IconButton>
       </Box>
       <Drawer
-        className='cart-cartButton'
         open={isCartDrawerOpen}
         onClose={() => {
           dispatch(ToggleCartDrawer());
         }}
+        sx={CartSlider}
         anchor='right'
         transitionDuration={{ enter: 300, exit: 200 }}
       >
-        <Box sx={{ minWidth: '400px !important', border: '2px dashed grey' }}>
+        <Box sx={{border: '2px dashed grey' }}>
           <Box sx={{border: '2px dashed red' }}>
             <Box sx={{ display: 'flex', justifyContent: 'flex-start' }}>
               <Typography> Cart Item </Typography>
@@ -57,13 +60,19 @@ function CartDrawer() {
               </IconButton>
             </Box>
           </Box>
+          <Box sx={{border: '2px dashed yellow', marginTop: '1rem' }}>
+          <Box className='card-coupenCode'>
+            <Typography sx={{margin: 'auto 10px'}}>Use code: HAPPILO1 to get FLAT 35% OFF
+            <br />            
+             on your First Purchase</Typography>
+          </Box>
+          </Box>
+          {/* // ? Last Button Box always in last */}
+          <Box className='card-checkout'>
           <Box>
-            <p>add your cart items here</p>
-            <p>add your cart items here</p>
-            <p>add your cart items here</p>
-            <p>add your cart items here</p>
-            <p>add your cart items here</p>
-            <p>add your cart items here</p>
+            <Typography>         
+             Last Column</Typography>
+          </Box>
           </Box>
         </Box>
       </Drawer>
