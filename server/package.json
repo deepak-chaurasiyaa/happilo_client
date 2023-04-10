@@ -1,13 +1,14 @@
 {
   "name": "nodejs",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "node -r esm index.js",
   "license": "MIT",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "eslint": "^8.31.0",
+    "esm": "^3.2.25",
     "excel": "^1.0.1",
     "express": "^4.18.2",
     "express-promise-router": "^4.1.1",
@@ -24,8 +25,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "dev": "env-cmd -f .env nodemon index.js",
-    "start": "nodemon index.js"
+    "dev": "env-cmd -f .env node -r esm index.js",
+    "start": "node -r esm index.js"
   },
   "type": "module"
 }
