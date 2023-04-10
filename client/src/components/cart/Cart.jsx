@@ -62,16 +62,20 @@ function CartDrawer() {
           </Box>
           <Box sx={{border: '2px dashed yellow', marginTop: '1rem' }}>
           <Box className='card-coupenCode'>
-            <Typography sx={{margin: 'auto 10px'}}>Use code: HAPPILO1 to get FLAT 35% OFF
+            <Typography >Use code: HAPPILO1 to get FLAT 35% OFF
             <br />            
              on your First Purchase</Typography>
           </Box>
           </Box>
           {/* // ? Last Button Box always in last */}
           <Box className='card-checkout'>
-          <Box>
-            <Typography>         
-             Last Column</Typography>
+          <Box className='card-shipping'>
+            <Typography> Shipping</Typography>
+            <Typography> Calculated at checkout</Typography>
+          </Box>
+          <Box className='card-shipping'>
+            <Typography sx={{fontWeight: 'bold'}}> SubTotal</Typography>
+            <Typography sx={{fontWeight: 'bold'}}> &#x20B9; 380000</Typography>
           </Box>
           </Box>
         </Box>
