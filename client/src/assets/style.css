@@ -397,17 +397,17 @@ a:hover {
   position: "fixed";
 }
 
-@media (max-width: 600px) {
-  .display-grid {
-    display: grid;
-    grid-template-columns: 45% 45%;
-  }
+.login-signup-forgot {
+  padding: 10rem 0 0 0rem;
+  width: 50%;
+  margin: auto
 }
 
 .margin-top-20 {
   margin-top: 20px !important;
   margin-bottom: 20px !important;
 }
+
 /* .field-input-box input{
   max-height: 1px;
 } */

@@ -33,22 +33,31 @@ export const Validate = {
       'Password must contain at least one number',
       (value) => value && value.match(/^(?=.*\d).*$/)
     ),
-    firstName: Yup.string()
+  confirmPassword: Yup.string()
+    .required('Please enter your Confirm Password')
+    .oneOf([Yup.ref('password'), null], 'Passwords must match'),
+  firstName: Yup.string()
     .trim()
     .required('Please enter your First Name')
-    .min(3, 'First Name Must be 3 character')
-    .max(20, 'First Name can be 20 character long')
+    .min(3, 'First Name can not be less than 3 character')
+    .max(20, 'First Name can not be more than 20 character long')
+    .matches(/^([A-Za-z]+\s?)*$/, 'Invalid First Name, only Alphabets are allowed'),
+  middleName: Yup.string()
+    .trim()
+    .required('Please enter your Middle Name')
+    .min(3, 'Middle Name can not be less than 3 character')
+    .max(20, 'Middle Name can not be more than 20 character long')
     .matches(
-      /^([A-Za-z0-9_\-\?\.]+\s?)*$/,
-      'Invalid First Name format! Please check the input text.'
+      /^([A-Za-z]+\s?)*$/,
+      'Invalid Middle Name, only Alphabets are allowed'
     ),
-    lastName: Yup.string()
+  lastName: Yup.string()
     .trim()
     .required('Please enter your Last Name')
-    .min(3, 'Last Name Must be 3 character')
-    .max(20, 'Last Name can be 20 character long')
+    .min(3, 'Last Namecan noty be less than 3 character')
+    .max(20, 'Last Name can not be more than 20 character long')
     .matches(
-      /^([A-Za-z0-9_\-\?\.]+\s?)*$/,
-      'Invalid Last Name format! Please check the input text.'
-    )
+      /^([A-Za-z]+\s?)*$/,
+      'Invalid Last Name, only Alphabets are allowed'
+    ),
 };
