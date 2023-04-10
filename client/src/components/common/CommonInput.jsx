@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useField, Field } from 'formik';
 import { Box, TextField, Typography } from '@mui/material';
 
+import GradeIcon from '@mui/icons-material/Grade';
 import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
 import VisibilityIcon from '@mui/icons-material/Visibility';
@@ -16,8 +17,17 @@ export const InputField = ({ label, required = true, ...props }) => {
   return (
     <Box sx={{ padding: '0.3rem 0' }}>
       <label htmlFor={props.id || props.name}>{label}</label>{' '}
-      <span>{required ? <sup>*</sup> : ''}</span>
+      <span>
+        {required ? (
+          <sup>
+            <GradeIcon sx={{ width: 12 }} />
+          </sup>
+        ) : (
+          ''
+        )}
+      </span>
       <TextField
+        autoComplete='off'
         variant='outlined'
         margin='dense'
         fullWidth
@@ -77,12 +87,23 @@ export const PasswordInputField = ({ label, required = true, ...props }) => {
 
   return (
     <Box sx={{ padding: '0.3rem 0' }}>
-      <label htmlFor={props.id || props.name}>{label}</label>{' '}
-      <span>{required ? <sup>*</sup> : ''}</span>
+      <label style={{ padding: '0.3rem 0' }} htmlFor={props.id || props.name}>
+        {label}
+      </label>{' '}
+      <span>
+        {required ? (
+          <sup>
+            <GradeIcon sx={{ width: 12 }} />
+          </sup>
+        ) : (
+          ''
+        )}
+      </span>
       <TextField
         type={showPassword ? 'text' : 'password'}
         fullWidth
         {...field}
+        autoComplete='off'
         InputProps={{
           endAdornment: (
             <InputAdornment position='end'>

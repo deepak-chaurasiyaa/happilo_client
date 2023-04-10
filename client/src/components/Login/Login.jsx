@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { Button, Box, Typography } from '@mui/material';
 
 import Header from '../header/Header';
-import { InputField } from '../common/CommonInput';
+import { InputField, PasswordInputField } from '../common/CommonInput';
 import { Validate } from '../../shared/validators';
 import SubFooter from '../footer/SubFooter';
 import { LOGIN } from '../../shared/common';
@@ -41,7 +41,11 @@ export default function Login() {
             </Typography>
             <Box sx={{ display: 'flex', flexDirection: 'column' }}>
               <InputField label='Email' name='email' type='email' />
-              <InputField label='Password' name='password' type='password' />
+              <PasswordInputField
+                label='Password'
+                name='password'
+                type='password'
+              />
 
               <Link to='/reset-password'>
                 <Typography className='text-center margin-top'>
