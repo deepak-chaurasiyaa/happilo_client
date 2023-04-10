@@ -109,7 +109,7 @@ const JourneyPage = () => {
           </Box>
         </PaperJourney>
       </Box>
-      <Box sx={{ padding: '2rem 0' }}>
+      <Box sx={{ padding: '2rem 0 0 0' }}>
         <img
           alt=''
           src='sc_.png'

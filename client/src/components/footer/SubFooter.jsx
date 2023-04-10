@@ -5,12 +5,12 @@ import { FOOTER_TEXT } from '../../shared/constant';
 
 function SubFooter() {
   return (
-    <Box sx={{ width: '95%', margin: 'auto' }}>
+    <Box sx={{ width: '97%', margin: 'auto' }}>
       <Box>
         <img
           alt=''
           src='/111.png'
-          style={{ width: '100%', padding: '20px 0 -20px 0' }}
+          style={{ width: '100%'}}
         />
       </Box>
       <Toolbar

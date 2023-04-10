@@ -18,7 +18,7 @@ export const ImageMagnify = ({ currentImage }) => {
             height: 1800,
           },
           enlargedImageContainerDimensions: {
-            width: '180%',
+            width: '150%',
             height: '100%',
           },
           enlargedImageContainerClassName:
