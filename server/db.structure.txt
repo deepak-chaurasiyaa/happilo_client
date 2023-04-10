@@ -73,10 +73,14 @@ state,
 city,
 status
 
-tbl_customer_wishlist
+tbl_customer_wishlist -----
+customer_id
+product_id
 
 
-tbl_customer_cart
+tbl_customer_cart-------
+customer_id
+product_id
 
 
 tbl_user_login_logs

@@ -6,9 +6,10 @@ import { Link } from 'react-router-dom';
 import { Button, Box, Typography } from '@mui/material';
 
 import Header from '../header/Header';
-import { InputField } from '../common/CommonInput';
+import { InputField, PasswordInputField } from '../common/CommonInput';
 import { Validate } from '../../shared/validators';
 import SubFooter from '../footer/SubFooter';
+import { LOGIN } from '../../shared/common';
 
 export default function Login() {
   const validateLogin = Yup.object().shape({
@@ -27,9 +28,8 @@ export default function Login() {
 
   return (
     <Box>
-      <Box sx={{ padding: '15rem 0 0 0rem', width: '50%', margin: 'auto' }}>
-        <Header />
-
+      <Header />
+      <Box className='login-signup-forgot'>
         <Formik
           initialValues={initialValues}
           validationSchema={validateLogin}
@@ -37,36 +37,28 @@ export default function Login() {
         >
           <Form>
             <Typography variant='h4' align='center'>
-              Login
+              {LOGIN.heading}
             </Typography>
             <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-              <InputField
-                label='Email'
-                name='email'
-                type='email'
-                placeholder='Please Enter Your Email *'
-                required
-              />
-              <InputField
+              <InputField label='Email' name='email' type='email' />
+              <PasswordInputField
                 label='Password'
                 name='password'
                 type='password'
-                placeholder='Please Enter Your Password *'
-                required
               />
 
               <Link to='/reset-password'>
                 <Typography className='text-center margin-top'>
-                  Forgot Your Password?
+                  {LOGIN.forgot_password}
                 </Typography>
               </Link>
 
               <Button className='yellow-button' type='submit'>
-                Submit
+                {LOGIN.submit}
               </Button>
               <Link to='/signup'>
                 <Typography className='text-center margin-top'>
-                  Create Account
+                  {LOGIN.create}
                 </Typography>
               </Link>
             </Box>

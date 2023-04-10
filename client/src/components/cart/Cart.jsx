@@ -73,6 +73,19 @@ function CartDrawer() {
             <Typography> Shipping</Typography>
             <Typography> Calculated at checkout</Typography>
           </Box>
+          {/* <Box
+            sx={{
+              float: 'right',
+              fontWeight: 600,
+              cursor: 'pointer',
+              padding: '15px 15px 0 0',
+            }}
+            onClick={() => {
+              dispatch(ToggleCartDrawer());
+            }}
+          >
+            <Close />
+          </Box> */}
           <Box className='card-shipping'>
             <Typography sx={{fontWeight: 'bold'}}> SubTotal</Typography>
             <Typography sx={{fontWeight: 'bold'}}> &#x20B9; 380000</Typography>
