@@ -28,15 +28,8 @@ export default function CreateAccount() {
 
   return (
     <Box>
-      <Box
-        sx={{
-          width: '50%',
-          margin: 'auto',
-          minHeight: '34.9rem',
-        }}
-      >
-        <Header />
-
+      <Header />
+      <Box sx={{ padding: '10rem 0 0 0rem', width: '50%', margin: 'auto' }}>
         <Formik
           initialValues={initialValues}
           validationSchema={validateCreateAccount}
@@ -53,39 +46,22 @@ export default function CreateAccount() {
                 marginBottom: '0rem !important',
               }}
             >
+              <InputField label='First Name' name='firstName' type='text' />
               <InputField
-                label='First Name'
-                name='firstName'
-                type='firstName'
-                placeholder='Please Enter Your First Name *'
-                required
-                style={{ margin: '0px auto !important' }}
+                label='Middle Name'
+                name='middleName'
+                type='text'
+                required={false}
               />
+              <InputField label='Last Name' name='lastName' type='text' />
+              <InputField label='Email' name='email' type='email' />
+              <InputField label='Password' name='password' type='password' />
               <InputField
-                label='Last Name'
-                name='lastName'
-                type='lastName'
-                placeholder='Please Enter Your Last Name *'
-                required
-                style={{ margin: '0px auto !important' }}
-              />
-              <InputField
-                label='Email'
-                name='email'
-                type='email'
-                placeholder='Please Enter Your Email *'
-                required
-                style={{ margin: '0px auto !important' }}
-              />
-              <InputField
-                label='Password'
-                name='password'
+                label='Confirm Password'
+                name='confirmPassword'
                 type='password'
-                placeholder='Please Enter Your Password *'
-                required
-                style={{ margin: '0px auto !important' }}
+                placeholder='Please Confirm Password'
               />
-
               <Button className='yellow-button margin-top-20' type='submit'>
                 Create
               </Button>

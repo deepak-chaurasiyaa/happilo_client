@@ -27,9 +27,8 @@ export default function Login() {
 
   return (
     <Box>
-      <Box sx={{ padding: '15rem 0 0 0rem', width: '50%', margin: 'auto' }}>
-        <Header />
-
+      <Header />
+      <Box sx={{ padding: '10rem 0 0 0rem', width: '50%', margin: 'auto' }}>
         <Formik
           initialValues={initialValues}
           validationSchema={validateLogin}
@@ -40,20 +39,8 @@ export default function Login() {
               Login
             </Typography>
             <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-              <InputField
-                label='Email'
-                name='email'
-                type='email'
-                placeholder='Please Enter Your Email *'
-                required
-              />
-              <InputField
-                label='Password'
-                name='password'
-                type='password'
-                placeholder='Please Enter Your Password *'
-                required
-              />
+              <InputField label='Email' name='email' type='email' />
+              <InputField label='Password' name='password' type='password' />
 
               <Link to='/reset-password'>
                 <Typography className='text-center margin-top'>
