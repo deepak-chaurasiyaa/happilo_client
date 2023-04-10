@@ -7,6 +7,7 @@ import SubFooter from '../footer/SubFooter';
 import { Validate } from '../../shared/validators';
 import { Link } from 'react-router-dom';
 import { InputField } from '../common/CommonInput';
+import { FORGOT_PASSWORD } from '../../shared/common';
 
 export default function ForgotPassword() {
   const validateForgotPassword = Yup.object().shape({
@@ -23,13 +24,7 @@ export default function ForgotPassword() {
 
   return (
     <Box>
-      <Box
-        sx={{
-          width: '50%',
-          margin: 'auto',
-          minHeight: '34.9rem',
-        }}
-      >
+      <Box className='login-signup-forgot'>
         <Header />
 
         <Formik
@@ -38,11 +33,11 @@ export default function ForgotPassword() {
           onSubmit={HandleForgotPassword}
         >
           <Form>
-            <Typography variant='h4' align='center'sx={{marginTop:'10px'}}>
-              Reset your password
+            <Typography variant='h4' align='center' sx={{ marginTop: '10px' }}>
+              {FORGOT_PASSWORD.heading}
             </Typography>
             <Typography className='text-center' margin='0.5rem !important'>
-              We will send you an email to reset your password.
+              {FORGOT_PASSWORD.subHeading}
             </Typography>
             <Box sx={{ display: 'flex', flexDirection: 'column' }}>
               <InputField
@@ -54,11 +49,11 @@ export default function ForgotPassword() {
               />
 
               <Button className='yellow-button margin-top-20' type='submit'>
-                Submit
+                {FORGOT_PASSWORD.submit}
               </Button>
               <Link to='/login'>
                 <Typography className='text-center margin-top'>
-                  Cancel
+                  {FORGOT_PASSWORD.cancel}
                 </Typography>
               </Link>
             </Box>

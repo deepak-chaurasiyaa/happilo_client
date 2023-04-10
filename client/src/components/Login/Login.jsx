@@ -9,6 +9,7 @@ import Header from '../header/Header';
 import { InputField } from '../common/CommonInput';
 import { Validate } from '../../shared/validators';
 import SubFooter from '../footer/SubFooter';
+import { LOGIN } from '../../shared/common';
 
 export default function Login() {
   const validateLogin = Yup.object().shape({
@@ -28,7 +29,7 @@ export default function Login() {
   return (
     <Box>
       <Header />
-      <Box sx={{ padding: '10rem 0 0 0rem', width: '50%', margin: 'auto' }}>
+      <Box className='login-signup-forgot'>
         <Formik
           initialValues={initialValues}
           validationSchema={validateLogin}
@@ -36,7 +37,7 @@ export default function Login() {
         >
           <Form>
             <Typography variant='h4' align='center'>
-              Login
+              {LOGIN.heading}
             </Typography>
             <Box sx={{ display: 'flex', flexDirection: 'column' }}>
               <InputField label='Email' name='email' type='email' />
@@ -44,16 +45,16 @@ export default function Login() {
 
               <Link to='/reset-password'>
                 <Typography className='text-center margin-top'>
-                  Forgot Your Password?
+                  {LOGIN.forgot_password}
                 </Typography>
               </Link>
 
               <Button className='yellow-button' type='submit'>
-                Submit
+                {LOGIN.submit}
               </Button>
               <Link to='/signup'>
                 <Typography className='text-center margin-top'>
-                  Create Account
+                  {LOGIN.create}
                 </Typography>
               </Link>
             </Box>
