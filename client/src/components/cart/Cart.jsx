@@ -1,6 +1,6 @@
 import React from 'react';
 import { ShoppingBag, Close } from '@mui/icons-material';
-import { Box, Drawer, Typography } from '@mui/material';
+import { Box, Button, Drawer, Typography } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
 import IconButton from '@mui/material/IconButton';
 import { ToggleCartDrawer } from '../../reducer/cart.reducer';
@@ -16,9 +16,11 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
     padding: '0 4px',
   },
 }));
-const CartSlider={'& .MuiPaper-root':{
-  width:"28%",
-}}
+const CartSlider = {
+  '& .MuiPaper-root': {
+    width: "28%",
+  }
+}
 
 function CartDrawer() {
   const dispatch = useDispatch();
@@ -49,8 +51,9 @@ function CartDrawer() {
         anchor='right'
         transitionDuration={{ enter: 300, exit: 200 }}
       >
-        <Box sx={{border: '2px dashed grey' }}>
-          <Box sx={{border: '2px dashed red' }}>
+        <Box sx={{ border: '2px dashed grey' }}>
+
+          <Box sx={{ border: '2px dashed red' }}>
             <Box sx={{ display: 'flex', justifyContent: 'flex-start' }}>
               <Typography> Cart Item </Typography>
             </Box>
@@ -60,36 +63,37 @@ function CartDrawer() {
               </IconButton>
             </Box>
           </Box>
-          <Box sx={{border: '2px dashed yellow', marginTop: '1rem' }}>
-          <Box className='card-coupenCode'>
-            <Typography >Use code: HAPPILO1 to get FLAT 35% OFF
-            <br />            
-             on your First Purchase</Typography>
+
+          <Box sx={{ border: '2px dashed yellow', marginTop: '1rem' }}>
+            <Box className='card-coupenCode'>
+              <Typography >Use code: HAPPILO1 to get FLAT 35% OFF
+                <br />
+                on your First Purchase</Typography>
+            </Box>
           </Box>
+          <Box>
+            <Button>Add an optional note</Button>
           </Box>
           {/* // ? Last Button Box always in last */}
           <Box className='card-checkout'>
-          <Box className='card-shipping'>
-            <Typography> Shipping</Typography>
-            <Typography> Calculated at checkout</Typography>
-          </Box>
-          {/* <Box
-            sx={{
-              float: 'right',
-              fontWeight: 600,
-              cursor: 'pointer',
-              padding: '15px 15px 0 0',
-            }}
-            onClick={() => {
-              dispatch(ToggleCartDrawer());
-            }}
-          >
-            <Close />
-          </Box> */}
-          <Box className='card-shipping'>
-            <Typography sx={{fontWeight: 'bold'}}> SubTotal</Typography>
-            <Typography sx={{fontWeight: 'bold'}}> &#x20B9; 380000</Typography>
-          </Box>
+            
+            <Box className='card-shipping'>
+              <Typography> Shipping</Typography>
+              <Typography> Calculated at checkout</Typography>
+            </Box>
+            
+            <Box className='card-shipping'>
+              <Typography sx={{ fontWeight: 'bold' }}> SubTotal</Typography>
+              <Typography sx={{ fontWeight: 'bold' }}> &#x20B9; 380000</Typography>
+            </Box>
+            
+            <Box>
+              <Button className='checkout-button'>Checkout</Button>
+            </Box>
+            
+            <Box>
+              <Button className='continue-shopping' onClick={() => dispatch(ToggleCartDrawer())}>Or continue shopping</Button>
+            </Box>
           </Box>
         </Box>
       </Drawer>

@@ -433,3 +433,22 @@ a:hover {
 /* .field-input-box input{
   max-height: 1px;
 } */
+
+.checkout-button {
+  padding: 1rem 9rem !important;
+  margin: 1rem auto 8px !important;
+  background-color: #020202 !important;
+  color: #f4ecec !important;
+}
+
+.continue-shopping {
+  margin: 0px auto !important;
+  display: block;
+  color: rgba(0,0,0,0.5);
+  transition: 0.2s color;
+  font-size: 12px !important;
+  text-decoration: none;
+}
+.continue-shopping:hover {
+  text-decoration: underline !important;
+}
