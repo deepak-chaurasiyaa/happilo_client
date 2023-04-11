@@ -406,7 +406,7 @@ a:hover {
   width:28%;
   position: fixed;
   bottom: 0;
-  background-color: #f0ebeb;
+  /* background-color: #f0ebeb; */
   padding: 10px 20px;
   text-align: center;
 }
@@ -438,17 +438,21 @@ a:hover {
   padding: 1rem 9rem !important;
   margin: 1rem auto 8px !important;
   background-color: #020202 !important;
-  color: #f4ecec !important;
 }
 
 .continue-shopping {
   margin: 0px auto !important;
   display: block;
-  color: rgba(0,0,0,0.5);
   transition: 0.2s color;
   font-size: 12px !important;
   text-decoration: none;
 }
 .continue-shopping:hover {
   text-decoration: underline !important;
+}
+
+.card-items {
+  background-color: #059beb;
+  height: 100%;
+  padding: 12px 20px;
 }

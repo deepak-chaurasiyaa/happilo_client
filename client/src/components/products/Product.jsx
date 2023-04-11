@@ -58,7 +58,7 @@ function NewLaunchProduct({ Product, ShowBanner, MainTitle }) {
                         alt='green iguana'
                       />
                       <ColorButton
-                        onClick={(e) => HandleAddToCart(e)}
+                        // onClick={(e) => HandleAddToCart(e,product)}
                         variant='contained'
                         sx={{ width: '100%' }}
                       >

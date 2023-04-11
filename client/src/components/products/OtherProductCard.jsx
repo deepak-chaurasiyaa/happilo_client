@@ -29,7 +29,6 @@ const OtherProductCard = ({ product }) => {
   const dispatch = useDispatch();
   const HandleAddToCart = (product) => {
     dispatch(AddToCart(product));
-    console.log({cart:product})
   };
   return (
     <Card className='image-card'>
@@ -80,7 +79,7 @@ const OtherProductCard = ({ product }) => {
         </CardContent>
 
         <ColorButton
-          onClick={(e) => HandleAddToCart(e)}
+          onClick={() => HandleAddToCart(product)}
           variant='contained'
           sx={{ width: '100%' }}
         >
