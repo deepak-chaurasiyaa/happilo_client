@@ -1,8 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  cart: [],
+  cartItems: [],
   isCartDrawerOpen: false,
+  cartTotalAmount: 0,
+  cartTotalItems: 0,
 };
 
 export const cartReducer = createSlice({
@@ -13,11 +15,19 @@ export const cartReducer = createSlice({
       console.log("clicked")
       state.isCartDrawerOpen = !state.isCartDrawerOpen;
     },
-    AddToCart: (state,payload) => {
-      state.cart = payload;
+    AddToCart: (state, actions) => {
+      const productIndex = state.cartItems.findIndex(
+        (item) => item.id === actions.payload.id
+        );
+      if(productIndex >= 0) {
+        state.cartItems[productIndex].cartQuantity += 1;
+      } else {
+        const tempProduct = {...actions.payload, cartQuantity: 1};
+        state.cartItems.push(tempProduct);
+      }
     },
-    RemoveToCart: (state,payload) => {
-      state.cart = payload;
+    RemoveToCart: (state, payload) => {
+      state.cartItems = payload;
     },
   },
 });

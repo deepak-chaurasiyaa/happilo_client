@@ -1,4 +1,5 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { styled } from '@mui/material/styles';
 import {
   Card,
@@ -10,8 +11,9 @@ import {
   Rating,
 } from '@mui/material';
 
-import { PRODUCT_LABEL_BACKGROUND } from '../../shared/constant';
 import { Link } from 'react-router-dom';
+import { PRODUCT_LABEL_BACKGROUND } from '../../shared/constant';
+import { AddToCart } from '../../reducer/cart.reducer';
 
 const ColorButton = styled(Button)(({ theme }) => ({
   color: theme.palette.getContrastText('#00523b'),
@@ -23,8 +25,11 @@ const ColorButton = styled(Button)(({ theme }) => ({
 }));
 
 const OtherProductCard = ({ product }) => {
-  const HandleAddToCart = (event) => {
-    event.preventDefault();
+
+  const dispatch = useDispatch();
+  const HandleAddToCart = (product) => {
+    dispatch(AddToCart(product));
+    console.log({cart:product})
   };
   return (
     <Card className='image-card'>

@@ -384,17 +384,39 @@ a:hover {
   /* Replace hidden text with an ellipsis */
 }
 
-.cart-drawer {
-  width: 30%;
-  flex-shrink: 0;
-}
-
-.cart-drawerPaper {
-  width: 30%;
-}
-
-.cart-cartButton {
+/* .cart-cartButton {
   position: "fixed";
+} */
+
+.cart-header {
+  margin-top: 10rem;
+}
+
+.card-coupenCode {
+  border:2px blue;
+  background-color: #d7ecf7;
+  height: 5rem;
+  text-align: center;
+  padding: 12px 20px;
+}
+
+.card-checkout {
+  border:2px blue;
+  height:15rem;
+  width:28%;
+  position: fixed;
+  bottom: 0;
+  background-color: #f0ebeb;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.card-shipping {
+  height: 3rem;
+  padding: 10px 10px 40px;
+  text-align: center;
+  display:flex; 
+  justify-content: space-between;
 }
 
 .login-signup-forgot {
