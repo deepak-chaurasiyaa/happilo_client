@@ -41,7 +41,11 @@ function Tab() {
       </Tab>
       <Tab eventKey={2} title={'Second Tab'}>
         <div>{initial_value.first_name}</div>
+      </Tab>
+      <Tab eventKey={3} title={'Third Tab'}>
         <div>{initial_value.last}</div>
+      </Tab>
+      <Tab eventKey={4} title={'Fourth Tab'}>
         <div>{initial_value.email}</div>
       </Tab>
     </Tabs>
