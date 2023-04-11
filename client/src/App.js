@@ -16,6 +16,7 @@ import ProductDescription from './components/products/ProductDescription';
 import SubFooter from './components/footer/SubFooter';
 import Jouney from './components/happiloJourney/Journey';
 import ProductCollections from './components/productsCollections/ProductCollections';
+import Tab from './components/tab/tab';
 
 function App() {
   const { darkMode } = useSelector((state) => state.theme);
@@ -30,28 +31,29 @@ function App() {
           exec
           path='/'
           element={
-            <Box>
-              <Header />
-              <CarouselSection />
-              <NewLaunchProduct
-                Product={collections}
-                ShowBanner={false}
-                MainTitle={'NEW LAUNCHES'}
-              />
-              <OtherProduct
-                Product={products}
-                ShowBanner={true}
-                MainTitle={'OUR RANGE'}
-              />
-              <OtherProduct
-                Product={products}
-                ShowBanner={false}
-                MainTitle={'COMBOS'}
-              />
-              <br />
-              <Jouney />
-              <SubFooter />
-            </Box>
+            // <Box>
+            //   <Header />
+            //   <CarouselSection />
+            //   <NewLaunchProduct
+            //     Product={collections}
+            //     ShowBanner={false}
+            //     MainTitle={'NEW LAUNCHES'}
+            //   />
+            //   <OtherProduct
+            //     Product={products}
+            //     ShowBanner={true}
+            //     MainTitle={'OUR RANGE'}
+            //   />
+            //   <OtherProduct
+            //     Product={products}
+            //     ShowBanner={false}
+            //     MainTitle={'COMBOS'}
+            //   />
+            //   <br />
+            //   <Jouney />
+            //   <SubFooter />
+            // </Box>
+            <Tab />
           }
         />
         <Route path='/login' element={<Login />} />
