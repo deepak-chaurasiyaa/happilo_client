@@ -12,17 +12,15 @@ export const cartReducer = createSlice({
   initialState,
   reducers: {
     ToggleCartDrawer: (state) => {
-      console.log("clicked")
       state.isCartDrawerOpen = !state.isCartDrawerOpen;
     },
-    AddToCart: (state, actions) => {
-      const productIndex = state.cartItems.findIndex(
-        (item) => item.id === actions.payload.id
-        );
-      if(productIndex >= 0) {
+    AddToCart: (state, { payload: product }) => {
+      console.log({ product })
+      const productIndex = state.cartItems.findIndex((item) => item.product_id === product.product_id);
+      if (productIndex >= 0) {
         state.cartItems[productIndex].cartQuantity += 1;
       } else {
-        const tempProduct = {...actions.payload, cartQuantity: 1};
+        const tempProduct = { ...product, cartQuantity: 1 };
         state.cartItems.push(tempProduct);
       }
     },

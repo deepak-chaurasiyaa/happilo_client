@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useField, Field } from 'formik';
+import { useField } from 'formik';
 import { Box, TextField, Typography } from '@mui/material';
 
 import GradeIcon from '@mui/icons-material/Grade';
