@@ -23,4 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 package-lock.json
 yarn.lock
+.env
+google_credentials.js
 

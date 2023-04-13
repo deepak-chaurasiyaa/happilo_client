@@ -10,6 +10,7 @@ import { InputField, PasswordInputField } from '../common/CommonInput';
 import { Validate } from '../../shared/validators';
 import SubFooter from '../footer/SubFooter';
 import { LOGIN } from '../../shared/common';
+import { GoogleLoginPage } from './GoogleLogin';
 
 export default function Login() {
   const validateLogin = Yup.object().shape({
@@ -52,7 +53,9 @@ export default function Login() {
                   {LOGIN.forgot_password}
                 </Typography>
               </Link>
-
+              <Box className='MuiAutocomplete-endAdornment' sx={{marginBottom:'1rem'}}>
+                <GoogleLoginPage />
+              </Box>
               <Button className='yellow-button' type='submit'>
                 {LOGIN.submit}
               </Button>
@@ -65,6 +68,7 @@ export default function Login() {
           </Form>
         </Formik>
       </Box>
+
       <SubFooter />
     </Box>
   );

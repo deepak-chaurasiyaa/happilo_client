@@ -260,8 +260,8 @@ a:hover {
 }
 
 .rotate-image:hover {
-  transform: rotate(36000deg);
-  /* transform: rotateY(180deg);  */
+  transform: rotate(360deg);
+  /* transform: rotateY(360deg);  */
 }
 
 .description-image :hover {

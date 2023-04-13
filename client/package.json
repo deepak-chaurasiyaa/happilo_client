@@ -8,11 +8,13 @@
     "@fontsource/roboto": "^4.5.8",
     "@mui/icons-material": "^5.11.11",
     "@mui/material": "^5.11.14",
+    "@react-oauth/google": "^0.9.0",
     "@reduxjs/toolkit": "^1.9.3",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.2.3",
+    "env-cmd": "^10.1.0",
     "formik": "^2.2.9",
     "material-ui-popup-state": "^5.0.8",
     "react": "^18.2.0",
@@ -31,6 +33,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:dev": "env-cmd npm start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
