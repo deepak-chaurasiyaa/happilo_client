@@ -6,7 +6,7 @@ import { isEmptyArray } from '../shared/index.js';
 export default {
   login: async (req, res) => {
     try {
-      const { username:email, password } = req.body;
+      const { username: email, password } = req.body;
       const { data } = await userModel.findUserByEmail(email);
       const results = data.rows;
       if (!results) {
@@ -57,11 +57,12 @@ export default {
 
   createUser: async (req, res) => {
     try {
-      const { first_name, last_name, email, password } = req.body;
+      const { first_name, middle_name, last_name, email, password } = req.body;
       const salt = genSaltSync(10);
       const encrypted_password = hashSync(password, salt);
       await userModel.createUser({
         first_name,
+        middle_name,
         last_name,
         email,
         password: encrypted_password,
@@ -76,12 +77,14 @@ export default {
   },
 
   listAllUser: async (req, res) => {
+    console.log("reaching here")
     try {
       const { data } = await userModel.listAllUser();
       const count = data.rowCount;
       const user = data.rows;
       res.status(200).send({ status: 1, user, count });
     } catch (err) {
+      console.log({err})
       res.status(400).send({ status: 0, message: 'Unable To Get Users', err });
     }
   },
@@ -94,6 +97,7 @@ export default {
       const user = data.rows;
       res.status(200).send({ status: 1, user, count });
     } catch (err) {
+      console.log({err})
       res.status(400).send({ status: 0, message: 'Unable To Get User', err });
     }
   },

@@ -7,10 +7,10 @@ router.post('/', userController.createUser);
 
 router.post('/login', userController.login);
 
-router.get('/:id', userController.findUserById);
+router.get('/list', userController.listAllUser);
+router.param('id', userController.findUserById);
 
 router.put('/:id', userController.updateUserById);
 
-router.get('/list', userController.listAllUser);
 router.delete('/:id', userController.deleteUserById);
 export default router;
