@@ -57,14 +57,11 @@ export default {
 
   createUser: async (req, res) => {
     try {
-      const { first_name, last_name, email, password } = req.body;
-      const salt = genSaltSync(10);
-      const encrypted_password = hashSync(password, salt);
+      const { first_name, middle_name, last_name, email } = req.body;
       await userModel.createUser({
         first_name,
         last_name,
         email,
-        password: encrypted_password,
       });
       res.status(200).send({ status: 1, message: 'User Created Successfully' });
     } catch (err) {
