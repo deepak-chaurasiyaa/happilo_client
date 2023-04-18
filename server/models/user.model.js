@@ -4,9 +4,10 @@ export default {
   findUserByEmail: async (email) => {
     return new Promise(async (resolve, reject) => {
       try {
-        const user = await query('SELECT * FROM tbl_customer WHERE email = $1', [
-          email,
-        ]);
+        const user = await query(
+          'SELECT * FROM tbl_customer WHERE email = $1',
+          [email]
+        );
         resolve({ status: 1, data: user });
       } catch (err) {
         reject({ status: 0, err });
@@ -16,10 +17,10 @@ export default {
   createUser: async (userDetails) => {
     return new Promise(async (resolve, reject) => {
       try {
-        const { first_name, last_name, email, password } = userDetails;
+        const { first_name, middle_name, last_name, email } = userDetails;
         await query(
-          'INSERT INTO tbl_customer (first_name,middle_name,last_name,email,password) VALUES ($1, $2, $3, $4)',
-          [first_name, last_name, email, password]
+          'INSERT INTO tbl_customer (first_name,middle_name,last_name,email) VALUES ($1, $2, $3, $4)',
+          [first_name, middle_name, last_name, email]
         );
         resolve({ status: 1, data: { first_name, last_name } });
       } catch (err) {
@@ -43,9 +44,10 @@ export default {
   findUserById: async (user_id) => {
     return new Promise(async (resolve, reject) => {
       try {
-        const user = await query('SELECT * FROM tbl_customer WHERE user_id = $1', [
-          user_id,
-        ]);
+        const user = await query(
+          'SELECT * FROM tbl_customer WHERE user_id = $1',
+          [user_id]
+        );
         resolve({ status: 1, data: user });
       } catch (err) {
         reject({ status: 0, err });

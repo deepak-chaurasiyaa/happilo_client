@@ -1,9 +1,14 @@
 import Router from 'express-promise-router';
 import { userController } from '../controllers/index.js';
-
+import { validateBody, validateDbBody, schemas } from '../validators/index.js';
 const router = Router();
 
-router.post('/', userController.createUser);
+router.post(
+  '/signup',
+  validateBody(schemas.signup),
+  validateDbBody.signup,
+  userController.createUser
+);
 
 router.post('/login', userController.login);
 
