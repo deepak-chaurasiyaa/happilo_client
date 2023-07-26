@@ -21,6 +21,8 @@
     "material-ui-popup-state": "^5.0.8",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.2",
+    "react-custom-scrollbar": "^1.0.0",
+    "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^18.2.0",
     "react-image-magnifiers": "^1.4.0",
     "react-image-magnify": "^2.7.4",
@@ -58,5 +60,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
 }
