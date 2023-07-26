@@ -1,7 +1,7 @@
 {
   "name": "nodejs",
   "version": "1.0.0",
-  "main": "node -r esm index.js",
+  "main": "node index.js",
   "license": "MIT",
   "dependencies": {
     "bcrypt": "^5.1.0",
@@ -23,12 +23,12 @@
     "pdf-lib": "^1.17.1",
     "pg": "^8.8.0",
     "puppeteer": "^19.6.3",
-    "xlsx": "^0.18.5"
+    "xlsx": "^0.18.5",
+    "yarn": "^1.22.19"
   },
-  "devDependencies": {},
   "scripts": {
     "dev": "env-cmd -f .env node -r esm index.js",
-    "start": "node -r esm index.js"
+    "start": "node index.js"
   },
   "type": "module"
 }
