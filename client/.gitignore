@@ -24,4 +24,5 @@ yarn-error.log*
 yarn.lock
 .env
 google_credentials.js
+package-lock.json
 
