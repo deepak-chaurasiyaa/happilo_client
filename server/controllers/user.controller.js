@@ -1,8 +1,20 @@
 import { userModel } from '../models/index.js';
 import pkg from 'jsonwebtoken';
 const { sign } = pkg;
+import CryptoJS from 'crypto-js';
 import { hashSync, genSaltSync, compareSync } from 'bcrypt';
 import { isEmptyArray } from '../shared/index.js';
+
+function decryptData(encryptedData, key) {
+  const bytes = CryptoJS.AES.decrypt(encryptedData, key);
+  const decryptedData = bytes.toString(CryptoJS.enc.Utf8);
+  return decryptedData;
+}
+function encryptData(data, key) {
+  const encryptedData = CryptoJS.AES.encrypt(data, key).toString();
+  return encryptedData;
+}
+
 export default {
   login: async (req, res) => {
     try {
@@ -54,6 +66,33 @@ export default {
       });
     }
   },
+  encryption: async (req, res) => {
+    try {
+      const { email, password } = req.body;
+
+      const decryptedEmail = decryptData(email, 'secret_key');
+      const decryptedPassword = decryptData(password, 'secret_key');
+
+      const decryptedToEncryptEmail = encryptData(decryptedEmail, 'secret_key');
+      const decryptedToEncryptPassword = encryptData(
+        decryptedPassword,
+        'secret_key'
+      );
+      res.send({
+        encryptedEmail: email,
+        encryptedPassword: password,
+        decryptedEmail,
+        decryptedPassword,
+        decryptedToEncryptEmail,
+        decryptedToEncryptPassword,
+      });
+    } catch (err) {
+      return res.json({
+        status: false,
+        message: err.message,
+      });
+    }
+  },
 
   createUser: async (req, res) => {
     try {
@@ -74,14 +113,14 @@ export default {
   },
 
   listAllUser: async (req, res) => {
-    console.log("reaching here")
+    console.log('reaching here');
     try {
       const { data } = await userModel.listAllUser();
       const count = data.rowCount;
       const user = data.rows;
       res.status(200).send({ status: 1, user, count });
     } catch (err) {
-      console.log({err})
+      console.log({ err });
       res.status(400).send({ status: 0, message: 'Unable To Get Users', err });
     }
   },
@@ -94,7 +133,7 @@ export default {
       const user = data.rows;
       res.status(200).send({ status: 1, user, count });
     } catch (err) {
-      console.log({err})
+      console.log({ err });
       res.status(400).send({ status: 0, message: 'Unable To Get User', err });
     }
   },

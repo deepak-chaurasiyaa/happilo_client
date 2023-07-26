@@ -12,6 +12,8 @@ router.post(
 
 router.post('/login', userController.login);
 
+router.post('/encryption', userController.encryption);
+
 router.get('/list', userController.listAllUser);
 router.param('id', userController.findUserById);
 

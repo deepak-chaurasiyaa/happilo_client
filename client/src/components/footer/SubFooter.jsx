@@ -2,7 +2,6 @@ import React from 'react';
 
 import { Box, Toolbar, Typography } from '@mui/material';
 import { FOOTER_TEXT } from '../../shared/constant';
-// import GanttChart from '../gantt/Gantt';
 const data = {
   Russia: {
     'Admin dossier': [
@@ -191,7 +190,6 @@ function SubFooter() {
         </Typography>
        
       </Toolbar>
-      {/* <GanttChart data={data} /> */}
     </Box>
   );
 }

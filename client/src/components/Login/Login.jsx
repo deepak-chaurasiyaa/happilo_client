@@ -4,13 +4,19 @@ import * as Yup from 'yup';
 import { Formik, Form } from 'formik';
 import { Link } from 'react-router-dom';
 import { Button, Box, Typography } from '@mui/material';
-
+import axios from 'axios';
 import Header from '../header/Header';
 import { InputField, PasswordInputField } from '../common/CommonInput';
 import { Validate } from '../../shared/validators';
 import SubFooter from '../footer/SubFooter';
 import { LOGIN } from '../../shared/common';
 import { GoogleLoginPage } from './GoogleLogin';
+import CryptoJS from 'crypto-js';
+
+const encryptData = (data) => {
+  const key = 'secret_key'; // Replace with your own secret key
+  return CryptoJS.AES.encrypt(data, key).toString();
+};
 
 export default function Login() {
   const validateLogin = Yup.object().shape({
@@ -23,8 +29,22 @@ export default function Login() {
     password: '',
   };
 
-  const HandleLogin = (values) => {
-    console.log({ values });
+  const HandleLogin = async (values) => {
+    const encryptedEmail = encryptData(values.email);
+    const encryptedPassword = encryptData(values.password);
+
+    const encryptedValues = { email:encryptedEmail, password:encryptedPassword };
+    
+    try {
+      const response = await axios.post(
+        'http://localhost:3005/api/user/encryption',
+        encryptedValues
+      );
+      console.log({response})
+    } catch (err) {
+      console.log({ err });
+    }
+    console.log({ encryptedValues });
   };
 
   return (
@@ -53,7 +73,10 @@ export default function Login() {
                   {LOGIN.forgot_password}
                 </Typography>
               </Link>
-              <Box className='MuiAutocomplete-endAdornment' sx={{marginBottom:'1rem'}}>
+              <Box
+                className='MuiAutocomplete-endAdornment'
+                sx={{ marginBottom: '1rem' }}
+              >
                 <GoogleLoginPage />
               </Box>
               <Button className='yellow-button' type='submit'>
