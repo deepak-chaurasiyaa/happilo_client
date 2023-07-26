@@ -1,0 +1,458 @@
+.bg-green {
+  color: #ffffff;
+  background-color: #00523b;
+}
+
+.brand-logo {
+  height: 3rem !important;
+}
+
+body {
+  text-align: center;
+  margin: auto !important;
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 14px !important;
+  padding-left: 0;
+  padding-right: 0;
+  font-weight: normal;
+}
+
+.text-center {
+  text-align: center;
+  margin: auto !important;
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 14px !important;
+  padding-left: 0;
+  padding-right: 0;
+  font-weight: normal;
+}
+
+
+.selling-price {
+  text-align: center;
+  margin: auto !important;
+  color: black;
+  font-weight: 600 !important;
+}
+
+.mid-header div {
+  display: flex;
+  padding: 0px 10px;
+  cursor: pointer;
+
+}
+
+.font-ten div p {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.font-ten div svg {
+  font-size: 20px;
+}
+
+.mid-header div p {
+  padding: 0px 5px
+}
+
+.main-title {
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 600 !important;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: medium;
+  margin-top: 2rem !important;
+  margin-bottom: 2rem !important;
+}
+
+.shopping-banner {
+  padding: 2rem 10rem;
+  margin-bottom: 2rem !important;
+}
+
+.shopping-banner-font {
+  position: relative;
+  top: -32rem !important;
+  text-align: center;
+  color: #D58178;
+  font-size: 14px !important;
+  line-height: 26px !important;
+  letter-spacing: 5px !important;
+  font-family: 'Poppins-Light';
+  font-weight: bold !important;
+  padding: 0 0 0 26rem;
+}
+
+.shopping-banner-font-img {
+  width: 16rem !important;
+  margin-bottom: -15rem !important;
+  margin-left: 20.6rem;
+}
+
+.bg-pink {
+  background-color: #e3c2c2;
+  text-align: center;
+}
+
+.bg-pink a {
+  font-family: 'Roboto', sans-serif !important;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.bg-pink a :hover {
+  font-family: 'Roboto', sans-serif !important;
+  text-transform: none;
+  letter-spacing: 0;
+  text-decoration: none;
+  color: #00523b !important;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.margin-top {
+  margin: 1rem 0rem !important;
+  font-size: 15px;
+}
+
+.dropbtn {
+  background-color: #04AA6D;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.css-1wqth1e-MuiToolbar-root {
+  min-height: 44px !important;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+.link,
+.dropdown-content a {
+  color: #020202 !important;
+  text-decoration: none !important;
+}
+
+.link:hover {
+  color: #3d3535 !important;
+}
+
+.margin-top {
+  margin: 1rem 0rem !important;
+  font-size: 15px;
+}
+
+.css-1o011v7-MuiButtonBase-root-MuiButton-root {
+  color: inherit !important
+}
+
+a {
+  margin: auto !important;
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+a:hover {
+  text-decoration: underline !important;
+}
+
+.yellow-button {
+  padding: 1rem 4rem !important;
+  margin: auto !important;
+  background-color: #ffd200 !important;
+  color: #020202 !important;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  border-radius: 2rem !important;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00523b;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+
+.MuiAutocomplete-endAdornment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-card {
+  max-width: 345;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2) !important;
+  border: 1px solid #ccc !important;
+  transition: box-shadow 0.3s ease-in-out !important;
+}
+
+.image-card,
+.description-image:hover {
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4) !important;
+}
+
+.product-label {
+  width: 7rem;
+  padding: 1px;
+  text-align: center;
+  border-radius: 0 0 10px 0;
+  color: #ffffff;
+}
+
+.underline-none:hover {
+  text-decoration: none !important
+}
+
+.description-image {
+  cursor: pointer;
+  border: 1px solid #ccc !important;
+  transition: box-shadow 0.3s ease-in-out !important;
+  border-radius: 1ch;
+  background-color: white
+}
+
+.rotate-image {
+  border: none !important;
+  border-radius: 0 !important;
+  transition: width 2s, height 2s, transform 2s !important;
+}
+
+.rotate-image:hover {
+  transform: rotate(360deg);
+  /* transform: rotateY(360deg);  */
+}
+
+.description-image :hover {
+  /* box-shadow: 0px 0px 20px rgb(140, 139, 139) !important; */
+  border: 1px solid rgb(165, 165, 165) !important;
+}
+
+.enlarged-image-container {
+  z-index: 1;
+  /* set the z-index to a high value */
+  background-color: #f0f0f0;
+  /* set the background color here */
+  border-radius: 15px;
+}
+
+.magnifier-container {
+  border-radius: 15px;
+  background-color: white;
+  width: 30rem;
+}
+
+.journey {
+  font-size: 1.75rem;
+  font: bold;
+  /* margin-bottom: .5rem; */
+  margin: 1.5rem auto !important;
+  border: 2px red;
+  color: black !important;
+}
+
+.display-grid {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+
+}
+
+.card-container-padding {
+  padding: 20px;
+}
+
+.col-size-four {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+}
+
+.card-container-padding-size-four {
+  padding: 20px !important;
+}
+
+.product-collection-product-view {
+  display: grid;
+  grid-template-columns: 20% 80%
+}
+
+.flex-space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.thiner-box-shadow {
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.25) !important;
+}
+
+.padding-top-none {
+  margin-top: 20px;
+  height: fit-content;
+}
+
+.col-size-four {
+  height: fit-content;
+}
+
+.journey-mid {
+  height: 25rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: none !important;
+}
+
+.journey-video-container {
+  margin: 1rem 1.5rem;
+  width: 560px !important;
+  height: 315px !important
+}
+
+.journey-textContainer {
+  margin: 1rem 1.5rem;
+  border-radius: 1rem;
+  border: 2rem black;
+  width: 45%;
+  height: 80%;
+}
+
+.journey-text {
+  padding: 30px 40px;
+  display: block;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.journey-button {
+  background-color: #00523b;
+  color: #fff;
+  padding: 5px 30px;
+  border: 1px solid #00523b;
+  position: absolute;
+  left: 66%;
+  margin-top: 32px;
+  border-radius: 10px;
+}
+
+.filter-key-text {
+  white-space: nowrap;
+  /* Prevent text from wrapping */
+  overflow: hidden;
+  /* Hide text that exceeds the element's width */
+  text-overflow: ellipsis;
+  /* Replace hidden text with an ellipsis */
+}
+
+/* .cart-cartButton {
+  position: "fixed";
+} */
+
+.cart-header {
+  margin-top: 10rem;
+}
+
+.card-coupenCode {
+  border:2px blue;
+  background-color: #d7ecf7;
+  height: 5rem;
+  text-align: center;
+  padding: 12px 20px;
+}
+
+.card-checkout {
+  border:2px blue;
+  height:15rem;
+  width:28%;
+  position: fixed;
+  bottom: 0;
+  /* background-color: #f0ebeb; */
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.card-shipping {
+  height: 3rem;
+  padding: 10px 10px 40px;
+  text-align: center;
+  display:flex; 
+  justify-content: space-between;
+}
+
+.login-signup-forgot {
+  padding: 10rem 0 0 0rem;
+  width: 50%;
+  margin: auto
+}
+
+.margin-top-20 {
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+}
+
+/* .field-input-box input{
+  max-height: 1px;
+} */
+
+.checkout-button {
+  padding: 1rem 9rem !important;
+  margin: 1rem auto 8px !important;
+  background-color: #020202 !important;
+}
+
+.continue-shopping {
+  margin: 0px auto !important;
+  display: block;
+  transition: 0.2s color;
+  font-size: 12px !important;
+  text-decoration: none;
+}
+.continue-shopping:hover {
+  text-decoration: underline !important;
+}
+
+.card-items {
+  background-color: #059beb;
+  height: 100%;
+  padding: 12px 20px;
+}
