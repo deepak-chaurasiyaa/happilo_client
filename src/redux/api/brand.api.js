@@ -1,6 +1,5 @@
 import axios from 'axios';
-
-const BASE_URL = process.env.REACT_APP_API_URL;
+import { BASE_URL } from '../../shared/constant';
 
 export const getBrandLogo = async () => {
   try {

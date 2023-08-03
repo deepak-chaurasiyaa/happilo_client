@@ -1,7 +1,6 @@
 // api.js
 import axios from 'axios';
-
-const BASE_URL = `${process.env.REACT_APP_API_URL}`;
+import { BASE_URL } from '../../shared/constant';
 
 export const registerUser = async (userData) => {
   try {
