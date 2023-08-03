@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { COLLECIONS, OTHER_PRODUCTS } from '../shared/constant';
+import { COLLECIONS, OTHER_PRODUCTS } from '../../shared/constant';
+
 
 const initialState = {
   products: OTHER_PRODUCTS,

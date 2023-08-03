@@ -13,7 +13,7 @@ import {
 
 import { Link } from 'react-router-dom';
 import { PRODUCT_LABEL_BACKGROUND } from '../../shared/constant';
-import { AddToCart } from '../../reducer/cart.reducer';
+import { AddToCart } from '../../redux/reducer/cart.reducer';
 
 const ColorButton = styled(Button)(({ theme }) => ({
   color: theme.palette.getContrastText('#00523b'),

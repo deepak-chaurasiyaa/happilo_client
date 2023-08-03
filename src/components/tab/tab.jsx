@@ -1,7 +1,8 @@
 import React from 'react';
 import { Tabs } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { handleTabInputChange } from '../../reducer/tab.reducer';
+import { handleTabInputChange } from '../../redux/reducer/tab.reducer';
+
 
 function Tab() {
   const dispatch = useDispatch();

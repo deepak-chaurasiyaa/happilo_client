@@ -1,14 +1,19 @@
 import React from 'react';
 import * as Yup from 'yup';
 import { Formik, Form } from 'formik';
+import { useDispatch, useSelector } from 'react-redux';
 import { Button, Box, Typography } from '@mui/material';
 import Header from '../header/Header';
+import swal from 'sweetalert';
 import SubFooter from '../footer/SubFooter';
 import { Validate } from '../../shared/validators';
 import { InputField, PasswordInputField } from '../common/CommonInput';
 import { SIGNUP } from '../../shared/common';
+import { registerUserAsync } from '../../redux/actions/user.actions';
 
 export default function CreateAccount() {
+  const { isLoading, error } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
   const validateCreateAccount = Yup.object().shape({
     firstName: Validate.firstName,
     middleName: Validate.middleName,
@@ -26,8 +31,24 @@ export default function CreateAccount() {
     confirmPassword: '',
   };
 
-  const HandleCreateAccount = (values) => {
-    console.log({ values });
+  const HandleCreateAccount = async (values) => {
+    try {
+      const action = await dispatch(registerUserAsync(values));
+      const response = action.payload;
+      console.log("----------------------------",action);
+      const { message, status } = response;
+      console.log({ message, status });
+      if (status === 1) {
+        swal({
+          title: 'success',
+          text: message,
+          icon: 'success',
+          // dangerMode: true,
+        });
+      }
+    } catch (error) {
+      console.log('Error:', error.message);
+    }
   };
 
   return (
@@ -87,6 +108,8 @@ export default function CreateAccount() {
                 >
                   {SIGNUP.create}
                 </Button>
+                {isLoading && <Box>Loading...</Box>}
+                {error && <Box>Error: {error}</Box>}
               </Box>
             </Form>
           )}

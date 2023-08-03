@@ -5,13 +5,14 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import { Box, Button, Drawer, Typography } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
 import IconButton from '@mui/material/IconButton';
-import { ToggleCartDrawer } from '../../reducer/cart.reducer';
+
 import Divider from '@mui/material/Divider';
 import { Scrollbars } from "react-custom-scrollbars";
 
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
+import { ToggleCartDrawer } from '../../redux/reducer/cart.reducer';
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
