@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Box, CssBaseline } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import { Routes, Route } from 'react-router-dom';
@@ -17,12 +17,19 @@ import SubFooter from './components/footer/SubFooter';
 import Jouney from './components/happiloJourney/Journey';
 import ProductCollections from './components/productsCollections/ProductCollections';
 import Tab from './components/tab/tab';
+import Display from './components/faqPage/Display';
+import faq from './shared/helpers/Faq';
+import { brandLogoAsync } from './redux/actions/brand.action';
+import { useEffect } from 'react';
 
 function App() {
   const { darkMode } = useSelector((state) => state.theme);
+  const dispatch = useDispatch();
   const { cart } = useSelector((state) => state.cart);
   const { products, collections } = useSelector((state) => state.products);
-
+  useEffect(() => {
+    dispatch(brandLogoAsync());
+  }, []);
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <CssBaseline />
@@ -51,6 +58,8 @@ function App() {
               />
               <br />
               <Jouney />
+              <br />
+              <Display questions={faq} />
               <SubFooter />
             </Box>
           }

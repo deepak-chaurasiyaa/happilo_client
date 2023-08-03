@@ -80,3 +80,4 @@ export const getUniqueAvilability = (products) => {
 
 export const isEmptyArray = (data) => Array.isArray(data) && data.length === 0;
 export const notIsEmptyArray = (data) => Array.isArray(data) && data.length > 0;
+export const notEmptyObject = (data) => Object.entries(data).length > 0;
