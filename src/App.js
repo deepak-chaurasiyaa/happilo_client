@@ -1,26 +1,31 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { Box, CssBaseline } from '@mui/material';
-import { ThemeProvider } from '@mui/material/styles';
-import { Routes, Route } from 'react-router-dom';
-import Header from './components/header/Header';
-import CarouselSection from './components/header/Carousel';
-import OtherProduct from './components/products/OtherProduct';
-import NewLaunchProduct from './components/products/Product';
-import Login from './components/login/Login';
-import CreateAccount from './components/signUp/SignUp';
-import CartPage from './components/cart/Cart';
-import ForgotPassword from './components/forgotPassword/ForgotPassword';
-import { darkTheme, lightTheme } from './shared/theme/Theme';
-import NotFound from './components/notFound/NotFound';
-import ProductDescription from './components/products/ProductDescription';
-import SubFooter from './components/footer/SubFooter';
-import Jouney from './components/happiloJourney/Journey';
-import ProductCollections from './components/productsCollections/ProductCollections';
-import Tab from './components/tab/tab';
-import Display from './components/faqPage/Display';
-import faq from './shared/helpers/Faq';
-import { brandLogoAsync } from './redux/actions/brand.action';
 import { useEffect } from 'react';
+import { Box, CssBaseline } from '@mui/material';
+import { Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from '@mui/material/styles';
+import { useDispatch, useSelector } from 'react-redux';
+
+import Tab from './components/tab/tab';
+import faq from './shared/helpers/Faq';
+import Login from './components/login/Login';
+import CartPage from './components/cart/Cart';
+import Header from './components/header/Header';
+import Display from './components/faqPage/Display';
+import NotFound from './components/notFound/NotFound';
+import SubFooter from './components/footer/SubFooter';
+import CreateAccount from './components/signUp/SignUp';
+import Jouney from './components/happiloJourney/Journey';
+import CarouselSection from './components/header/Carousel';
+import { darkTheme, lightTheme } from './shared/theme/Theme';
+import NewLaunchProduct from './components/products/Product';
+import OtherProduct from './components/products/OtherProduct';
+import ForgotPassword from './components/forgotPassword/ForgotPassword';
+import ProductDescription from './components/products/ProductDescription';
+import ProductCollections from './components/productsCollections/ProductCollections';
+
+import {
+  brandLogoAsync,
+  carouselImageAsync,
+} from './redux/actions/brand.action';
 
 function App() {
   const { darkMode } = useSelector((state) => state.theme);
@@ -29,6 +34,7 @@ function App() {
   const { products, collections } = useSelector((state) => state.products);
   useEffect(() => {
     dispatch(brandLogoAsync());
+    dispatch(carouselImageAsync());
   }, []);
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>

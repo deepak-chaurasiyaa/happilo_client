@@ -6,6 +6,14 @@ export const getBrandLogo = async () => {
     const response = await axios.get(`${BASE_URL}/brand`);
     return response.data;
   } catch (error) {
-    throw Error(`Failed to register user: ${error.message}`);
+    throw Error(`Failed to Get Logo: ${error.message}`);
+  }
+};
+export const getCarouselImage = async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}/brand/banner`);
+    return response.data;
+  } catch (error) {
+    throw Error(`Failed to Get Banner: ${error.message}`);
   }
 };

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Box, Toolbar, ImageListItem, Typography } from '@mui/material';
 import {
@@ -27,8 +27,8 @@ function MidHeader() {
               <Link to='/'>
                 <img
                   className='brand-logo'
-                  src={`${process.env.REACT_APP_API_URL}/uploads/${brandDetails.name}`}
-                  alt={`${brandDetails.original_name}`}
+                  src={`${process.env.REACT_APP_API_URL}/uploads/${brandDetails?.name}`}
+                  alt={`${brandDetails?.original_name}`}
                 />
               </Link>
             </ImageListItem>

@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { brandLogoAsync } from '../actions/brand.action';
+import { brandLogoAsync, carouselImageAsync } from '../actions/brand.action';
 
 const initialState = {
   brandDetails: [],
+  carouselImages: [],
 };
 
 export const brandReducer = createSlice({
@@ -17,6 +18,11 @@ export const brandReducer = createSlice({
       .addCase(brandLogoAsync.fulfilled, (state, action) => {
         state.status = 'succeeded';
         state.brandDetails = action.payload;
+        state.error = null;
+      })
+      .addCase(carouselImageAsync.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.carouselImages = action.payload;
         state.error = null;
       })
       .addCase(brandLogoAsync.rejected, (state, action) => {

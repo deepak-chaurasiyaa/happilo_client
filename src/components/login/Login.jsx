@@ -1,17 +1,19 @@
 import React from 'react';
+import axios from 'axios';
+import CryptoJS from 'crypto-js';
 import * as Yup from 'yup';
 
 import { Formik, Form } from 'formik';
 import { Link } from 'react-router-dom';
 import { Button, Box, Typography } from '@mui/material';
-import axios from 'axios';
+
 import Header from '../header/Header';
-import { InputField, PasswordInputField } from '../common/CommonInput';
-import { Validate } from '../../shared/validators';
 import SubFooter from '../footer/SubFooter';
+
 import { LOGIN } from '../../shared/common';
 import { GoogleLoginPage } from './GoogleLogin';
-import CryptoJS from 'crypto-js';
+import { Validate } from '../../shared/validators';
+import { InputField, PasswordInputField } from '../common/CommonInput';
 
 const encryptData = (data) => {
   const key = 'secret_key'; // Replace with your own secret key
