@@ -17,7 +17,8 @@ import { AddToCart } from '../../redux/reducer/cart.reducer';
 
 const ColorButton = styled(Button)(({ theme }) => ({
   color: theme.palette.getContrastText('#00523b'),
-  padding: '-20px !important',
+  margin:'auto',
+  display:'block',
   backgroundColor: '#00523b',
   '&:hover': {
     backgroundColor: 'black',
@@ -34,10 +35,10 @@ const OtherProductCard = ({ product }) => {
     <Card className='image-card'>
       <CardActionArea
         sx={{
-          width: 255,
+          width: '100%',
         }}
       >
-        {product.product_label && (
+        {/* {product.product_label && (
           <Typography
             className='product-label'
             sx={{
@@ -47,8 +48,9 @@ const OtherProductCard = ({ product }) => {
           >
             {product.product_label}
           </Typography>
-        )}
+        )} */}
         <CardMedia
+        className='rotate-image'
           component='img'
           height='220px'
           image={product.product_img}
@@ -81,7 +83,6 @@ const OtherProductCard = ({ product }) => {
         <ColorButton
           onClick={() => HandleAddToCart(product)}
           variant='contained'
-          sx={{ width: '100%' }}
         >
           {product.product_title}
         </ColorButton>

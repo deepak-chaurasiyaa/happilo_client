@@ -90,7 +90,6 @@ body {
 }
 
 .bg-pink {
-  background-color: #e3c2c2;
   text-align: center;
 }
 
@@ -222,15 +221,15 @@ a:hover {
 }
 
 .image-card {
-  max-width: 345;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2) !important;
-  border: 1px solid #ccc !important;
-  transition: box-shadow 0.3s ease-in-out !important;
+  min-height: 405px;
+  max-width: 380px;
+  min-width: 25%;
+  border: 2px solid #00523b !important;
 }
 
-.image-card,
+.image-card:hover,
 .description-image:hover {
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4) !important;
+  /* box-shadow: 0px 0px 20px rgba(192, 191, 191, 0.1) !important; */
 }
 
 .product-label {
@@ -299,7 +298,7 @@ a:hover {
 }
 
 .card-container-padding {
-  padding: 20px;
+  padding: 10px;
 }
 
 .col-size-four {
@@ -393,7 +392,7 @@ a:hover {
 }
 
 .card-coupenCode {
-  border:2px blue;
+  border: 2px blue;
   background-color: #d7ecf7;
   height: 5rem;
   text-align: center;
@@ -401,9 +400,9 @@ a:hover {
 }
 
 .card-checkout {
-  border:2px blue;
-  height:15rem;
-  width:28%;
+  border: 2px blue;
+  height: 15rem;
+  width: 28%;
   position: fixed;
   bottom: 0;
   /* background-color: #f0ebeb; */
@@ -415,7 +414,7 @@ a:hover {
   height: 3rem;
   padding: 10px 10px 40px;
   text-align: center;
-  display:flex; 
+  display: flex;
   justify-content: space-between;
 }
 
@@ -447,12 +446,23 @@ a:hover {
   font-size: 12px !important;
   text-decoration: none;
 }
+
 .continue-shopping:hover {
   text-decoration: underline !important;
 }
 
-.card-items {
-  background-color: #059beb;
-  height: 100%;
-  padding: 12px 20px;
+.arrow-carousel {
+  margin: 0px -20px 0px -20px;
+  width: 40px !important;
+  height: 40px !important;
+  font-size: 24px;
+  color: white;
+  background: gray;
+  border-radius: 50%;
+}
+
+.arrow-carousel:hover {
+  background-color: #00523b;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: white;
 }
