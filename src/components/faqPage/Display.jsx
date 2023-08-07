@@ -1,58 +1,67 @@
-import { useState } from "react";
-import { Box, IconButton, Typography } from '@mui/material';
+import * as React from 'react';
+import { styled } from '@mui/material/styles';
+import MuiAccordion from '@mui/material/Accordion';
+import MuiAccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import ExpandLessIcon from '@mui/icons-material/ExpandLess';
-import InputBase from "@mui/material/InputBase";
+import { Box, Typography } from '@mui/material';
+const Accordion = styled((props) => (
+  <MuiAccordion disableGutters elevation={0} square {...props} />
+))(({ theme }) => ({
+  // border: `1px solid black`,
+  '&:not(:last-child)': {
+    borderBottom: 0,
+  },
+  '&:before': {
+    display: 'none',
+  },
+}));
 
+const AccordionSummary = styled((props) => (
+  <MuiAccordionSummary expandIcon={<ExpandMoreIcon />} {...props} />
+))(({ theme }) => ({
+  border: `1px solid black`,
+  borderRadius: '5px',
+  marginBottom: '25px',
+  flexDirection: 'row',
+  '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {},
+  '& .MuiAccordionSummary-content': {
+    marginLeft: theme.spacing(1),
+  },
+}));
+export default function Display({ questions }) {
+  const [expanded, setExpanded] = React.useState('panel1');
 
-const Display = ({ questions }) => {
-  const [expandedIndex, setExpandedIndex] = useState(-1);
+  const handleChange = (panel) => (event, newExpanded) => {
+    setExpanded(newExpanded ? panel : false);
+  };
 
-  const buttonHandler = (index) => () => {    // ? For handling the auto close accordian
-    setExpandedIndex((prevIndex) => (prevIndex === index ? -1 : index));
-  };
-
-  return (
-    <Box sx={{ width: '60%', mx: 'auto', my: 2 }}>
-      <Box sx={{mb:6, textAlign: 'center'}}>
-      <Typography variant="h2" fontWeight='bold'>Frequently Ask Questions</Typography>
-      </Box>
-      {questions.map((question, index) => (
-        <Box key={index} sx={{ mb: 2 }}>
-          <Box
-            sx={{
-              border: '1px solid black',
-              padding: '10px',
-              marginBottom: '10px',
-              borderRadius: '5px',
-            }}
-          >
-            <InputBase
-              fullWidth
-              readOnly
-              value={question.title}
-              endAdornment={(
-                <IconButton size='small' onClick={buttonHandler(index)}
-                >
-                  {expandedIndex === index ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-                </IconButton>
-              )}
-            />
-          </Box>
-          <Box
-            sx={{
-              padding: '10px',
-              borderRadius: '5px',
-              display: expandedIndex === index ? 'block' : 'none',
-              // fontWeight: expandedIndex === index ? 'small' : 'normal', // Update the fontWeight here
-            }}
-          >
-            <Typography variant="h6" sx={{whiteSpace: 'pre-line', fontWeight: 'normal'}}>{question.info}</Typography>
-          </Box>
-        </Box>
-      ))}
-    </Box>
-  );
+  return (
+    <Box sx={{ width: '60%', mx: 'auto' }}>
+      <Typography
+        variant='h4'
+        sx={{ mb: 2, textAlign: 'center', fontWeight: 'bold' }}
+      >
+        Frequently Ask Questions
+      </Typography>
+      {questions.map((question, index) => {
+        return (
+          <Accordion
+            expanded={expanded === index}
+            onChange={handleChange(index)}
+          >
+            <AccordionSummary
+              aria-controls='panel1d-content'
+              id='panel1d-header'
+            >
+              {question.title}
+            </AccordionSummary>
+            <AccordionDetails sx={{ whiteSpace: 'pre-line' }}>
+              {question.info}
+            </AccordionDetails>
+          </Accordion>
+        );
+      })}
+    </Box>
+  );
 }
-
-export default Display;

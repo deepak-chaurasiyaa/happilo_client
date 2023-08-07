@@ -1,0 +1,18 @@
+# Ignore artifacts:
+/debug.log
+/node-modules
+/.gitignore
+/package-lock.json
+
+# Build
+/build
+
+# Env files
+/.env.developement
+/.env.live
+/.env.qa
+/.env.staging
+
+# Others
+/public/tinymce
+/public/manifest.json
