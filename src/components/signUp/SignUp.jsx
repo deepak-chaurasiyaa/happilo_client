@@ -10,14 +10,16 @@ import { Validate } from '../../shared/validators';
 import { InputField, PasswordInputField } from '../common/CommonInput';
 import { SIGNUP } from '../../shared/common';
 import { registerUserAsync } from '../../redux/actions/user.actions';
+import { encryptValueToCode, getRandomString } from '../../shared/helpers/helper';
 
 export default function CreateAccount() {
   const { isLoading, error } = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  
   const validateCreateAccount = Yup.object().shape({
     firstName: Validate.firstName,
-    middleName: Validate.middleName,
     lastName: Validate.lastName,
+    phoneNo: Validate.phoneNo,
     email: Validate.email,
     password: Validate.password,
     confirmPassword: Validate.confirmPassword,
@@ -26,18 +28,28 @@ export default function CreateAccount() {
   const initialValues = {
     firstName: '',
     lastName: '',
+    phoneNo: '',
     email: '',
     password: '',
     confirmPassword: '',
   };
 
   const HandleCreateAccount = async (values) => {
+    let signUpData = {}
+    const salt = getRandomString(32);
+    const encryptPassword = encryptValueToCode(values.password, salt);
+    const encryptConfirmPass = encryptValueToCode(values.confirmPassword, salt);
+
+    signUpData = {
+      ...values,
+      password:encryptPassword+'#=='+salt,
+      confirmPassword:encryptConfirmPass+'#=='+salt
+    };
+    
     try {
-      const action = await dispatch(registerUserAsync(values));
+      const action = await dispatch(registerUserAsync(signUpData));
       const response = action.payload;
-      console.log("----------------------------",action);
       const { message, status } = response;
-      console.log({ message, status });
       if (status === 1) {
         swal({
           title: 'success',
@@ -79,13 +91,13 @@ export default function CreateAccount() {
                 }}
               >
                 <InputField label='First Name' name='firstName' type='text' />
-                <InputField
-                  label='Middle Name'
-                  name='middleName'
-                  type='text'
-                  required={false}
-                />
                 <InputField label='Last Name' name='lastName' type='text' />
+                <InputField
+                  label='Phone No'
+                  name='phoneNo'
+                  type='number'
+                  // required={false}
+                />
                 <InputField label='Email' name='email' type='email' />
                 <PasswordInputField
                   label='Password'
