@@ -53,7 +53,7 @@ const OtherProductCard = ({ product }) => {
         className='rotate-image'
           component='img'
           height='220px'
-          image={product.product_img}
+          image={`${process.env.REACT_APP_API_URL}/uploads/${product?.files[0]?.name}`}
           alt='green iguana'
           sx={{
             padding: '10px',
@@ -66,17 +66,18 @@ const OtherProductCard = ({ product }) => {
             to={`/product/${product.product_id}`}
             underline='hover'
           >
-            {product.short_discription}
+            {product.product_name}
           </Link>
 
-          <Rating
+          {/* <Rating
             name='prooduct_customer_rating'
             readOnly
             value={product.prooduct_customer_rating}
             precision={0.5}
-          />
+          /> */}
+         { console.error(product)}
           <Typography className='selling-price'>
-            ₹ {product.product_selling_price}
+            ₹ {product.variants[0].price}
           </Typography>
         </CardContent>
 
@@ -84,7 +85,7 @@ const OtherProductCard = ({ product }) => {
           onClick={() => HandleAddToCart(product)}
           variant='contained'
         >
-          {product.product_title}
+          Add to Cart
         </ColorButton>
       </CardActionArea>
     </Card>

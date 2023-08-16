@@ -56,7 +56,7 @@ export default function Display({ questions }) {
             >
               {question.title}
             </AccordionSummary>
-            <AccordionDetails sx={{ whiteSpace: 'pre-line' }}>
+            <AccordionDetails sx={{ whiteSpace: 'pre-line',margin :'-10px 0px 0px 0px' }}>
               {question.info}
             </AccordionDetails>
           </Accordion>

@@ -26,6 +26,7 @@ import {
   brandLogoAsync,
   carouselImageAsync,
 } from './redux/actions/brand.action';
+import { productsAsync } from './redux/actions/product.action';
 
 function App() {
   const { darkMode } = useSelector((state) => state.theme);
@@ -35,6 +36,7 @@ function App() {
   useEffect(() => {
     dispatch(brandLogoAsync());
     dispatch(carouselImageAsync());
+    dispatch(productsAsync())
   }, []);
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
@@ -57,11 +59,11 @@ function App() {
                 ShowBanner={true}
                 MainTitle={'OUR RANGE'}
               />
-              <OtherProduct
+              {/* <OtherProduct
                 Product={products}
                 ShowBanner={false}
                 MainTitle={'COMBOS'}
-              />
+              /> */}
               <br />
               <Jouney />
               <br />
