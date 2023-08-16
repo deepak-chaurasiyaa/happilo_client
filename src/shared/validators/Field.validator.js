@@ -42,15 +42,6 @@ export const Validate = {
     .min(3, 'First Name can not be less than 3 character')
     .max(20, 'First Name can not be more than 20 character long')
     .matches(/^([A-Za-z]+\s?)*$/, 'Invalid First Name, only Alphabets are allowed'),
-  middleName: Yup.string()
-    .trim()
-    .required('Please enter your Middle Name')
-    .min(3, 'Middle Name can not be less than 3 character')
-    .max(20, 'Middle Name can not be more than 20 character long')
-    .matches(
-      /^([A-Za-z]+\s?)*$/,
-      'Invalid Middle Name, only Alphabets are allowed'
-    ),
   lastName: Yup.string()
     .trim()
     .required('Please enter your Last Name')
@@ -60,4 +51,9 @@ export const Validate = {
       /^([A-Za-z]+\s?)*$/,
       'Invalid Last Name, only Alphabets are allowed'
     ),
+    phoneNo: Yup.string()
+    .trim()
+    .required('Phone number is required')
+    .test('is-number', 'Phone number must be a number', value => !isNaN(value))
+    .test('is-ten-digits', 'Phone number must be 10 digits', value => value && value.length === 10)
 };
