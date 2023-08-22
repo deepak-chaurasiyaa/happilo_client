@@ -109,7 +109,6 @@ export default function Login() {
             </Typography>
             <Box sx={{ display: 'flex', flexDirection: 'column' }}>
               <InputField label='Email' name='email' type='email' />
-              
               <PasswordInputField
                 label='Password'
                 name='password'
