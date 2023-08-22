@@ -18,6 +18,7 @@ const handleFulfilledAction = (state, action) => {
   }
   if (action.type === loginUserAsync.fulfilled.type) {
     state.userDetails = action.payload;
+    state.error = null;
   }
   // Add more conditions for other API calls if needed
 };
@@ -45,9 +46,10 @@ const userSlice = createSlice({
       .addMatcher(
         (action) => action.type.endsWith('/rejected'),
         (state, action) => {
+          console.log({ActionPayload:action.payload})
           state.isLoading = false;
-          state.error = action.error.message;
-          state.status = action;
+          state.userDetails = null;
+          state.error = action.payload; // S
         }
       );
   },

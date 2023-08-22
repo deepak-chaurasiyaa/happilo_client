@@ -25,8 +25,8 @@ import { loginUserAsync } from '../../redux/actions/user.actions';
 export default function Login() {
 
   const dispatch = useDispatch();
-  const { isLoading, error } = useSelector((state) => state.user);
   
+  const { isLoading } = useSelector((state) => state.user);
   const validateLogin = Yup.object().shape({
     email: Validate.email,
     password: Validate.password,
@@ -37,26 +37,6 @@ export default function Login() {
     password: '',
   };
 
-  // const HandleLogin = async (values) => {
-  //   const encryptedEmail = encryptData(values.email);
-  //   const encryptedPassword = encryptData(values.password);
-
-  //   const encryptedValues = {
-  //     email: encryptedEmail,
-  //     password: encryptedPassword,
-  //   };
-
-  //   try {
-  //     const response = await axios.post(
-  //       'http://localhost:3005/api/user/encryption',
-  //       encryptedValues
-  //     );
-  //     console.log({ response });
-  //   } catch (err) {
-  //     console.log({ err });
-  //   }
-  //   console.log({ encryptedValues });
-  // };
   const HandleLogin = async (values) => {
     let loginData = {}
     const salt = getRandomString(32);
@@ -66,29 +46,52 @@ export default function Login() {
       ...values,
       password:encryptPassword+'#=='+salt
     };
-    
+
     try {
       const action = await dispatch(loginUserAsync(loginData));
-      console.log("action",action)
-      const response = action.payload;
-      const {status, message } = response;
-      if (status === 1) {
-        swal({
-          title: 'success',
-          text: message,
-          icon: 'success',
-          // dangerMode: true,
-        });
+      const { payload, error } = action;
+      if (payload && payload.success === 1) {
+            swal({
+              title: 'success',
+              text: payload.message,
+              icon: 'success',
+              // dangerMode: true,
+            });
       } else {
-        swal({
-          title: 'Error',
-          text: message,
-          icon: 'error',
-        });
+            swal({
+              title: 'Error',
+              text: payload.message ,
+              icon: 'error',
+            });
       }
+       
     } catch (error) {
-      console.log('Error:', error.message);
+      // Handle the error here
+      console.error('Login error:', error.response.data); // Access the error message from the response
     }
+    
+    // try {
+    //   const action =  dispatch(loginUserAsync(loginData));
+    //   console.log("action",action)
+    //   const response = action.payload;
+    //   const {status, message } = response;
+    //   if (status === 1) {
+    //     swal({
+    //       title: 'success',
+    //       text: message,
+    //       icon: 'success',
+    //       // dangerMode: true,
+    //     });
+    //   } else {
+    //     swal({
+    //       title: 'Error',
+    //       text: message,
+    //       icon: 'error',
+    //     });
+    //   }
+    // } catch (error) {
+    //   console.log('Error:', error.message);
+    // }
   };
 
   return (
@@ -106,6 +109,7 @@ export default function Login() {
             </Typography>
             <Box sx={{ display: 'flex', flexDirection: 'column' }}>
               <InputField label='Email' name='email' type='email' />
+              
               <PasswordInputField
                 label='Password'
                 name='password'
@@ -127,7 +131,8 @@ export default function Login() {
                 {LOGIN.submit}
               </Button>
               {isLoading && <Box>Loading...</Box>}
-              {error && <Box>Error: {error}</Box>}
+              {/* {error && <Box>Error: {error}</Box>} */}
+              
               <Link to='/signup'>
                 <Typography className='text-center margin-top'>
                   {LOGIN.create}

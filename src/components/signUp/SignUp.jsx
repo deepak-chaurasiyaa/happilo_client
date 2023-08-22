@@ -121,7 +121,6 @@ export default function CreateAccount() {
                   {SIGNUP.create}
                 </Button>
                 {isLoading && <Box>Loading...</Box>}
-                {error && <Box>Error: {error}</Box>}
               </Box>
             </Form>
           )}
