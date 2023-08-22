@@ -33,6 +33,7 @@ function App() {
   const dispatch = useDispatch();
   const { cart } = useSelector((state) => state.cart);
   const { products, collections } = useSelector((state) => state.products);
+  console.log("=================",products)
   useEffect(() => {
     dispatch(brandLogoAsync());
     dispatch(carouselImageAsync());

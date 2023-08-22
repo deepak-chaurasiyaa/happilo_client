@@ -59,7 +59,7 @@ export default function OtherProduct({ Product, ShowBanner, MainTitle }) {
       <Slider {...settings}>
         {Product &&
           Product.map((product) => (
-            <Link
+            Array.isArray(product.files) && product.files.length > 0 && <Link
               to={`/product/${product.product_id}`}
               className='underline-none card-container-padding'
               key={product.product_id}
