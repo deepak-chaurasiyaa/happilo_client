@@ -1,10 +1,10 @@
 import React from 'react';
-import axios from 'axios';
-import CryptoJS from 'crypto-js';
+import swal from 'sweetalert';
 import * as Yup from 'yup';
 
 import { Formik, Form } from 'formik';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { Button, Box, Typography } from '@mui/material';
 
 import Header from '../header/Header';
@@ -14,13 +14,19 @@ import { LOGIN } from '../../shared/common';
 import { GoogleLoginPage } from './GoogleLogin';
 import { Validate } from '../../shared/validators';
 import { InputField, PasswordInputField } from '../common/CommonInput';
+import { encryptValueToCode, getRandomString } from '../../shared/helpers/helper';
+import { loginUserAsync } from '../../redux/actions/user.actions';
 
-const encryptData = (data) => {
-  const key = 'secret_key'; // Replace with your own secret key
-  return CryptoJS.AES.encrypt(data, key).toString();
-};
+// const encryptData = (data) => {
+//   const key = 'secret_key'; // Replace with your own secret key
+//   return CryptoJS.AES.encrypt(data, key).toString();
+// };
 
 export default function Login() {
+
+  const dispatch = useDispatch();
+  const { isLoading, error } = useSelector((state) => state.user);
+  
   const validateLogin = Yup.object().shape({
     email: Validate.email,
     password: Validate.password,
@@ -31,26 +37,60 @@ export default function Login() {
     password: '',
   };
 
+  // const HandleLogin = async (values) => {
+  //   const encryptedEmail = encryptData(values.email);
+  //   const encryptedPassword = encryptData(values.password);
+
+  //   const encryptedValues = {
+  //     email: encryptedEmail,
+  //     password: encryptedPassword,
+  //   };
+
+  //   try {
+  //     const response = await axios.post(
+  //       'http://localhost:3005/api/user/encryption',
+  //       encryptedValues
+  //     );
+  //     console.log({ response });
+  //   } catch (err) {
+  //     console.log({ err });
+  //   }
+  //   console.log({ encryptedValues });
+  // };
   const HandleLogin = async (values) => {
-    const encryptedEmail = encryptData(values.email);
-    const encryptedPassword = encryptData(values.password);
+    let loginData = {}
+    const salt = getRandomString(32);
+    const encryptPassword = encryptValueToCode(values.password, salt);
 
-    const encryptedValues = {
-      email: encryptedEmail,
-      password: encryptedPassword,
+    loginData = {
+      ...values,
+      password:encryptPassword+'#=='+salt
     };
-
+    
     try {
-      const response = await axios.post(
-        'http://localhost:3005/api/user/encryption',
-        encryptedValues
-      );
-      console.log({ response });
-    } catch (err) {
-      console.log({ err });
+      const action = await dispatch(loginUserAsync(loginData));
+      console.log("action",action)
+      const response = action.payload;
+      const {status, message } = response;
+      if (status === 1) {
+        swal({
+          title: 'success',
+          text: message,
+          icon: 'success',
+          // dangerMode: true,
+        });
+      } else {
+        swal({
+          title: 'Error',
+          text: message,
+          icon: 'error',
+        });
+      }
+    } catch (error) {
+      console.log('Error:', error.message);
     }
-    console.log({ encryptedValues });
   };
+
   return (
     <Box>
       <Header />
@@ -86,6 +126,8 @@ export default function Login() {
               <Button className='yellow-button' type='submit'>
                 {LOGIN.submit}
               </Button>
+              {isLoading && <Box>Loading...</Box>}
+              {error && <Box>Error: {error}</Box>}
               <Link to='/signup'>
                 <Typography className='text-center margin-top'>
                   {LOGIN.create}
@@ -95,11 +137,6 @@ export default function Login() {
           </Form>
         </Formik>
       </Box>
-      {/* <form action='/upload' method='post' enctype='multipart/form-data'>
-        <input type='file' name='file' multiple />
-        <input type='submit' value='Upload' /> */}
-      {/* </form> */}
-
       <SubFooter />
     </Box>
   );

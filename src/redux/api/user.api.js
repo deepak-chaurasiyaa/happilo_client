@@ -10,3 +10,8 @@ export const registerUser = async (userData) => {
     throw Error(`Failed to register user: ${error.message}`);
   }
 };
+export const loginUser = async (userData) => {
+  const response = await axios.post(`${BASE_URL}/user/login`, userData);
+  console.log({ RRRR: response.data })
+  return response.data;
+};

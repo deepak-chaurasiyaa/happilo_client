@@ -1,6 +1,6 @@
 // userReducer.js
 import { createSlice } from '@reduxjs/toolkit';
-import { registerUserAsync } from '../actions/user.actions';
+import { loginUserAsync, registerUserAsync } from '../actions/user.actions';
 
 const initialState = {
   isLoading: false,
@@ -14,6 +14,9 @@ const handleFulfilledAction = (state, action) => {
   state.isLoading = false;
   state.error = null;
   if (action.type === registerUserAsync.fulfilled.type) {
+    state.userDetails = action.payload;
+  }
+  if (action.type === loginUserAsync.fulfilled.type) {
     state.userDetails = action.payload;
   }
   // Add more conditions for other API calls if needed
@@ -44,6 +47,7 @@ const userSlice = createSlice({
         (state, action) => {
           state.isLoading = false;
           state.error = action.error.message;
+          state.status = action;
         }
       );
   },

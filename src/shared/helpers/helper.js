@@ -1,7 +1,6 @@
 import CryptoJS from 'crypto-js';
 
 export function encryptValueToCode(data, key = '') {
-  console.log({data:data,key:key})
   if (key === '') {
     key = process.env.REACT_APP_CRYPTO_SECRET_KEY;
   }
