@@ -15,6 +15,7 @@ import { handleDarkModeChange } from '../../redux/reducer/theme.reducer';
 function MidHeader() {
   const dispatch = useDispatch();
   const { brandDetails } = useSelector((state) => state.brand);
+  const { products } = useSelector((state) => state.products);
   console.log('Br', brandDetails);
   const { darkMode } = useSelector((state) => state.theme);
 
@@ -35,10 +36,10 @@ function MidHeader() {
           }
           <ImageListItem />
           <Toolbar className='mid-header' sx={{ display: 'flex' }}>
-            <Box>
-              <SearchBar />
+           
+              <SearchBar products = {products}/>
               {/* <Search sx={{ marginLeft: '-3ch' }} /> */}
-            </Box>
+            
             <Box>
               <Link to='' style={{ display: 'flex' }}>
                 <Typography>Track Order </Typography>

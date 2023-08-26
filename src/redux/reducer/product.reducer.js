@@ -1,11 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { COLLECIONS, OTHER_PRODUCTS } from '../../shared/constant';
-import { productsAsync } from '../actions/product.action';
+import { productDetailsAsync, productsAsync } from '../actions/product.action';
 
 
 const initialState = {
   products: [],
   collections: COLLECIONS,
+  productDetailsById:[]
 };
 
 export const productReducer = createSlice({
@@ -25,7 +26,19 @@ export const productReducer = createSlice({
       .addCase(productsAsync.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message;
-      });
+      })
+      .addCase(productDetailsAsync.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(productDetailsAsync.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.productDetailsById = action.payload;
+        state.error = null;
+      })
+      .addCase(productDetailsAsync.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message;
+      }) ;
   },
 });
 export default productReducer.reducer;

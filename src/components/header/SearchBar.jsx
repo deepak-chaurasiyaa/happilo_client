@@ -1,11 +1,8 @@
-import { CircularProgress, Autocomplete, TextField } from '@mui/material';
-
 import React, { useState, useEffect } from 'react';
-
-import { styled, alpha } from '@mui/material/styles';
-
+import { CircularProgress, Autocomplete, TextField } from '@mui/material';
 import { sleep } from '../../shared/common';
 import { topFilms } from '../../shared/constant';
+import { styled, alpha } from '@mui/material/styles';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -38,76 +35,71 @@ const StyledInputBase = styled(Autocomplete)(({ theme }) => ({
 }));
 
 export const SearchBar = () => {
-  const [open, setOpen] = useState(false);
   const [options, setOptions] = useState([]);
-  const loading = open && options.length === 0;
+  const [loading, setLoading] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(null);
 
   useEffect(() => {
-    let active = true;
-
     if (!loading) {
-      return undefined;
+      return;
     }
 
-    (async () => {
-      await sleep(1e3);
-
-      if (active) {
-        setOptions([...topFilms]);
-      }
-    })();
-
-    return () => {
-      active = false;
+    const fetchData = async () => {
+      await sleep(1000);
+      setOptions([...topFilms]);
+      setLoading(false);
     };
+
+    fetchData();
   }, [loading]);
 
-  useEffect(() => {
-    if (!open) {
-      setOptions([]);
-    }
-  }, [open]);
-  const [selectedOption, setSelectedOption] = useState(null); // add state variable to store selected value
+  const handleOpen = () => {
+    setLoading(true);
+  };
 
-  const handleSelect = (event, option) => {
+  const handleClose = () => {
+    setOptions([]);
+  };
+
+  const handleSelect = (_, option) => {
     setSelectedOption(option);
     console.log({ selectedOption });
   };
+
   return (
     <Search sx={{ background: 'none !important' }}>
       <StyledInputBase
-        sx={{ marginTop: ' -10px' }}
-        id='disable-close-on-select'
+        sx={{ marginTop: '-10px' }}
+        id="disable-close-on-select"
         disableCloseOnSelect
-        open={open}
-        onOpen={() => {
-          setOpen(true);
-        }}
-        onClose={() => {
-          setOpen(false);
-        }}
+        open={options.length > 0}
+        onOpen={handleOpen}
+        onClose={handleClose}
         onChange={handleSelect}
-        isOptionEqualToValue={(option, value) => option.title === value.title}
+        isOptionEqualToValue={(option, value) => option.title === value?.title}
         getOptionLabel={(option) => option.title}
         options={options}
         loading={loading}
         renderInput={(params) => (
           <TextField
-            variant='standard'
-            placeholder='Search Product...'
-            aria-label='Search'
             {...params}
+            variant="standard"
+            placeholder="Search Product..."
             InputProps={{
               ...params.InputProps,
+              style: {
+                paddingRight: loading ? 32 : undefined,
+                textAlign: 'center',
+              },
               endAdornment: (
                 <>
-                  {loading ? (
+                  {loading && (
                     <CircularProgress
-                      color='inherit'
-                      sx={{ textAlign: 'center' }}
+                      color="inherit"
                       size={20}
+                      style={{ marginRight: 8 }}
                     />
-                  ) : null}
+                  )}
                   {params.InputProps.endAdornment}
                 </>
               ),

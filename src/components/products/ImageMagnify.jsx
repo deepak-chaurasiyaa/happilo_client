@@ -8,12 +8,12 @@ export const ImageMagnify = ({ currentImage }) => {
         {...{
           smallImage: {
             isFluidWidth: true,
-            src: currentImage.img,
-            srcSet: `${currentImage.img} 1200w`,
+            src: `${process.env.REACT_APP_API_URL}/uploads/${currentImage?.name}`,
+            srcSet: `${process.env.REACT_APP_API_URL}/uploads/${currentImage?.name} 1200w`,
             sizes: '(max-width: 480px) 100vw, (max-width: 1200px) 30vw, 360px',
           },
           largeImage: {
-            src: currentImage.img,
+            src: `${process.env.REACT_APP_API_URL}/uploads/${currentImage?.name}`,
             width: 1200,
             height: 1800,
           },

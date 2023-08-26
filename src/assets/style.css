@@ -31,7 +31,6 @@ body {
 .selling-price {
   text-align: center;
   margin: auto !important;
-  color: black;
   font-weight: 600 !important;
 }
 
@@ -161,13 +160,12 @@ body {
 
 .link,
 .dropdown-content a {
-  color: #020202 !important;
   text-decoration: none !important;
 }
 
-.link:hover {
+/* .link:hover {
   color: #3d3535 !important;
-}
+} */
 
 .margin-top {
   margin: 1rem 0rem !important;

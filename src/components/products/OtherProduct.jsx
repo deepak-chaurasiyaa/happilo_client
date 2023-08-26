@@ -10,7 +10,7 @@ import { NextArrow } from '../common/NextArrow';
 import { PrevArrow } from '../common/PrevArrow';
 export default function OtherProduct({ Product, ShowBanner, MainTitle }) {
   const settings = {
-    infinite: false,
+    infinite: true,
     slidesToShow: 5,
     slidesToScroll: 1,
     nextArrow: <NextArrow />, // Provide your own NextArrow component
