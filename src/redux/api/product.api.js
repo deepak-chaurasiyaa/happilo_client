@@ -17,3 +17,12 @@ export const getProductByProductId = async (productId) => {
     throw Error(`Failed to Get Data : ${error.message}`);
   }
 };
+export const searchProduct = async (query) => {
+  try {
+    const response = await axios.get(`${BASE_URL}/product/search-product?query=${query}`);
+    console.log({first:response.data})
+    return response.data;
+  } catch (error) {
+    throw Error(`Failed to Get Data : ${error.message}`);
+  }
+};

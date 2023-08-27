@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { COLLECIONS, OTHER_PRODUCTS } from '../../shared/constant';
-import { productDetailsAsync, productsAsync } from '../actions/product.action';
+import { productDetailsAsync, productsAsync, searchProductAsync } from '../actions/product.action';
 
 
 const initialState = {
@@ -38,7 +38,19 @@ export const productReducer = createSlice({
       .addCase(productDetailsAsync.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message;
-      }) ;
+      }) 
+      .addCase(searchProductAsync.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(searchProductAsync.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.searchList = action.payload;
+        state.error = null;
+      })
+      .addCase(searchProductAsync.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message;
+      }) 
   },
 });
 export default productReducer.reducer;

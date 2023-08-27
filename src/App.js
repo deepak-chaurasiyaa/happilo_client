@@ -60,11 +60,11 @@ function App() {
                 ShowBanner={true}
                 MainTitle={'OUR RANGE'}
               />
-              {/* <OtherProduct
+              <OtherProduct
                 Product={products}
                 ShowBanner={false}
                 MainTitle={'COMBOS'}
-              /> */}
+              />
               <br />
               <Jouney />
               <br />

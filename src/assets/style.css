@@ -464,3 +464,8 @@ a:hover {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   color: white;
 }
+.css-4mkjn6-MuiInputBase-root-MuiInput-root:after  { /*.css-b5lx74-MuiInputBase-root-MuiInput-root:after */
+    border-bottom: 2px solid #00523b !important;
+    width: 108%;
+    margin-left: -4%;
+}

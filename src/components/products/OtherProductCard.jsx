@@ -75,7 +75,6 @@ const OtherProductCard = ({ product }) => {
             value={product.prooduct_customer_rating}
             precision={0.5}
           /> */}
-         { console.error(product)}
           <Typography className='selling-price'>
             ₹ {product.variants[0].price}
           </Typography>
