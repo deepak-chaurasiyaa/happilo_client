@@ -26,7 +26,7 @@ import ProductCollectionCard from './ProductCollectionCard';
 export default function ProductView({ Product, MainTitle }) {
   const [timerId, setTimerId] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [productDetails, setproductDetails] = useState([...Product]);
+  const [productDetails, setproductDetails] = useState(Product);
   const price = minMaxValueOfKeyFromArrayOfObject(
     'product_selling_price',
     productDetails

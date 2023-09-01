@@ -32,11 +32,12 @@ const ProductCollectionCard = ({ product }) => {
           width: 255,
         }}
       >
+        {console.log("first",product)}
         <div className='rotate-image'>
           <CardMedia
             component='img'
             height='220px'
-            image={product.product_img}
+            image={`${process.env.REACT_APP_API_URL}/uploads/${product?.files[0]?.name}`}
             alt='green iguana'
             sx={{
               padding: '10px',
@@ -49,7 +50,7 @@ const ProductCollectionCard = ({ product }) => {
             <Typography>{product.short_discription}</Typography>
           </Link>
 
-          <Typography>₹ {product.product_selling_price}</Typography>
+          <Typography>₹ {product?.variants?.[0]?.price}</Typography>
         </CardContent>
 
         <Box className='flex-space-between'>
@@ -58,7 +59,7 @@ const ProductCollectionCard = ({ product }) => {
             variant='contained'
             sx={{ width: '70%' }}
           >
-            {product.product_title}
+            Add to Cart
           </ColorButton>
           <ColorButton variant='contained' sx={{ width: '20%' }}>
             <VisibilityIcon />
