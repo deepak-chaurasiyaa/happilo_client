@@ -15,12 +15,13 @@ import SubFooter from './components/footer/SubFooter';
 import CreateAccount from './components/signUp/SignUp';
 import Jouney from './components/happiloJourney/Journey';
 import CarouselSection from './components/header/Carousel';
-import { darkTheme, lightTheme } from './shared/theme/Theme';
 import NewLaunchProduct from './components/products/Product';
 import OtherProduct from './components/products/OtherProduct';
 import ForgotPassword from './components/forgotPassword/ForgotPassword';
 import ProductDescription from './components/products/ProductDescription';
 import ProductCollections from './components/productsCollections/ProductCollections';
+import TrackOrders from './components/trackOrders/TrackOrder';
+import { darkTheme, lightTheme } from './shared/theme/Theme';
 
 import {
   brandLogoAsync,
@@ -73,6 +74,7 @@ function App() {
             </Box>
           }
         />
+        <Route path='/trackOrders' element={<TrackOrders />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<CreateAccount />} />
         <Route path='/product/:product_id' element={<ProductDescription />} />

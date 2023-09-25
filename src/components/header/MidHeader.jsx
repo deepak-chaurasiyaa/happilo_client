@@ -16,7 +16,6 @@ function MidHeader() {
   const dispatch = useDispatch();
   const { brandDetails } = useSelector((state) => state.brand);
   const { products } = useSelector((state) => state.products);
-  console.log('Br', brandDetails);
   const { darkMode } = useSelector((state) => state.theme);
 
   return (
@@ -41,7 +40,7 @@ function MidHeader() {
               {/* <Search sx={{ marginLeft: '-3ch' }} /> */}
             
             <Box>
-              <Link to='' style={{ display: 'flex' }}>
+              <Link to='/trackOrders' style={{ display: 'flex' }}>
                 <Typography>Track Order </Typography>
                 <LocalShipping />
               </Link>

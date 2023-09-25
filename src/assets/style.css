@@ -192,6 +192,30 @@ a:hover {
   background-color: #ffd200 !important;
   color: #020202 !important;
 }
+.track-button {
+  height:45px;
+  background-color: #ffd200 !important;
+  color: #020202 !important;
+}
+.trackFlex{
+  background-color: #f1f1f1;
+  margin: 10px;
+  padding: 20px;
+  font-size: 30px;
+}
+.search-track-box {
+  width:50%;
+  box-shadow:0px 0px 5px 2px rgba(0,0,0,.09);
+  margin:80px 0px 0px 430px
+  /* width='50%' boxShadow='0px 0px 5px 2px rgba(0,0,0,.09)' margin='80px 0px 0px 340px' */
+}
+.footer-track {
+  margin: 24% auto 1% auto;
+  width:95%;
+  border: 2px solid black;
+  display: flex;
+  justify-content: space-between;
+}
 
 ::-webkit-scrollbar {
   width: 8px;
